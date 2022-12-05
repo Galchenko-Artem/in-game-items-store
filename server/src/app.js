@@ -2,6 +2,9 @@ require('@babel/register');
 require('dotenv').config();
 
 const express = require('express');
+const morgan = require('morgan');
+
+const cors = require('./middlewares/cors');
 const dbCheck = require('./dbConfig');
 
 const app = express();
@@ -9,6 +12,8 @@ const app = express();
 // Проверяем подключение к базе данных!
 dbCheck();
 
+app.use(cors);
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
