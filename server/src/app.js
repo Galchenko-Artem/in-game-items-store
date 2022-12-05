@@ -5,17 +5,27 @@ const express = require('express');
 const morgan = require('morgan');
 
 const cors = require('./middlewares/cors');
+const sessions = require('./middlewares/sessions');
 const dbCheck = require('./dbConfig');
 
 const app = express();
 
+const userRouter = require('./routers/userRouter');
+const regRouter = require('./routers/regRouter');
+const logoutRouter = require('./routers/logoutRouter');
+
 // Проверяем подключение к базе данных!
 dbCheck();
 
+app.use(sessions);
 app.use(cors);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use('/user', userRouter);
+app.use('/reg', regRouter);
+app.use('/logout', logoutRouter);
 
 const PORT = process.env.PORT ?? 3001;
 

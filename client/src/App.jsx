@@ -1,19 +1,21 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './app.css';
-import Reg from './components/Reg';
+import Reg from './components/Reg/Reg';
+import Nav from './components/Nav/Nav';
 
 function App() {
   const [user, setUser] = useState(null);
   useEffect(() => {
     const abortController = new AbortController();
 
-    fetch('http://localhost:3001', {
+    fetch('http://localhost:3001/user', {
       credentials: 'include',
       signal: abortController.signal,
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log('user=>>>>>>>>', res);
         setUser(res);
       });
 
@@ -23,13 +25,11 @@ function App() {
   }, []);
   return (
     <>
-    <Link className="nav-main" to="/">Главная</Link>
-    <Link className="nav-main" to="/reg">Регистрация</Link>
-
+    <Nav user={user} setUser={setUser} />
     <Routes>
 
       <Route path="/" element={<div>Главная страница</div>} />
-      <Route path="/reg" element={<Reg />} />
+      <Route path="/reg" element={<Reg setUser={setUser} />} />
 
     </Routes>
     </>

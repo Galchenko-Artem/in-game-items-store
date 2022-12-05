@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './reg.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function Reg() {
+export default function Reg({ setUser }) {
+  const [regMsg, setRegMsg] = useState(null);
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     login: '',
     email: '',
@@ -15,7 +18,7 @@ export default function Reg() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/signup', {
+    fetch('http://localhost:3001/reg', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -24,7 +27,18 @@ export default function Reg() {
       body: JSON.stringify(form),
     })
       .then((res) => res.json())
-      .then(((res) => console.log(res)));
+      .then(((res) => {
+        if (res.status === 'error') {
+          console.log(res);
+        } else if (res.status === 'success') {
+          console.log(res);
+          setRegMsg(res.msg);
+          setUser({ login: res.login });
+          setTimeout(() => {
+            navigate('/');
+          }, 1000);
+        }
+      }));
   };
   return (
     <div className="regForm">
@@ -43,13 +57,14 @@ export default function Reg() {
     </div>
     <div className="inputForm">
     <label className="labelForm">Повторите пароль</label>
-    <input className="inputReg" type="password" value={form.repeatPassword} placeholder="..." name="repeatPassword" onChange={handleInput} autoComplete="on" />
+    <input className="inputReg" type="password" value={form.confirmPassword} placeholder="..." name="confirmPassword" onChange={handleInput} autoComplete="on" />
     </div>
       <div className="btnSubmit">
     <button className="regBtn" type="submit">Submit</button>
       </div>
+      <div className="answerReg">{regMsg}</div>
     </form>
-    <div className="answerReg" />
+
     </div>
   );
 }
