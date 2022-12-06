@@ -28,10 +28,10 @@ export default function Reg({ setUser }) {
     })
       .then((res) => res.json())
       .then(((res) => {
+        console.log(res);
         if (res.status === 'error') {
-          console.log(res);
+          setRegMsg(res.msg);
         } else if (res.status === 'success') {
-          console.log(res);
           setRegMsg(res.msg);
           setUser({ login: res.login });
           setTimeout(() => {

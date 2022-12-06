@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './auth.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function Auth(setUser) {
+export default function Auth({ setUser }) {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
-    email: '',
+    login: '',
     password: '',
   });
 
@@ -26,6 +28,16 @@ export default function Auth(setUser) {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        if (res.status === 'error') {
+          setAnswer(res.msg);
+        }
+        if (res.status === 'success') {
+          setAnswer(res.msg);
+          setUser({ login: res.login });
+          setTimeout(() => {
+            navigate('/');
+          }, 1000);
+        }
       });
   };
 
@@ -34,19 +46,19 @@ export default function Auth(setUser) {
       <form onSubmit={handleSubmit}>
       <div className="inputForm">
       <label className="labelForm">Логин:</label>
-      <input className="inputLog" type="email" value={form.email} name="email" onChange={handleInput} placeholder="..." required autoComplete="on" />
+      <input className="inputLog" type="text" value={form.login} name="login" onChange={handleInput} placeholder="..." autoComplete="on" />
       </div>
       <div className="inputForm">
       <label className="labelForm">Пароль:</label>
-      <input className="inputLog" type="password" value={form.password} name="password" placeholder="..." onChange={handleInput} required autoComplete="on" />
+      <input className="inputLog" type="password" value={form.password} name="password" placeholder="..." onChange={handleInput} autoComplete="on" />
       </div>
       <div className="btnSubmit">
       <button className="authBtn" type="submit">Submit</button>
       </div>
-      </form>
       <div className="answerAuth">
         {answer}
       </div>
+      </form>
     </div>
   );
 }
