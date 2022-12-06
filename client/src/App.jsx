@@ -5,6 +5,7 @@ import Reg from './components/Reg/Reg';
 import Nav from './components/Nav/Nav';
 import MainPage from './components/MainPage/MainPage';
 import Auth from './components/Auth/Auth';
+import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,8 +32,11 @@ function App() {
     <Routes>
 
       <Route path="/" element={<MainPage />} />
-      <Route path="/reg" element={<Reg setUser={setUser} />} />
-      <Route path="/auth" element={<Auth setUser={setUser} />} />
+
+      <Route element={<ProtectedRouter user={!user} />}>
+        <Route path="/reg" element={<Reg setUser={setUser} />} />
+        <Route path="/auth" element={<Auth setUser={setUser} />} />
+      </Route>
 
     </Routes>
     </>
