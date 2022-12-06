@@ -1,0 +1,22 @@
+/* body {
+  background-color: rgb(4, 8, 55);
+} */
+
+.container {
+  margin-top: 15vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.img-card {
+  width: 400px;
+  height: 450px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.img-card:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}

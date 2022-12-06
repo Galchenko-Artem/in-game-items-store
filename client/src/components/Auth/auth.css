@@ -1,0 +1,66 @@
+.authForm{
+  display: flex;
+  justify-content: center;
+}
+
+.inputForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.labelForm {
+  margin-right: 1vw;
+}
+
+.inputLog {
+  width: 190px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.answerAuth {
+  margin-top: 10px;
+  text-align: center;
+  color: green;
+}
+
+.btnSubmit {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.authBtn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 30px;
+  margin: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: 2px solid #fe6637;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: #fe6637;
+  transition: .2s ease-in-out;
+}
+.authBtn:before {
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .5));
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+
+.authBtn:hover {
+  background: #fe6637;
+  color: #fff;
+}
+.authBtn:hover:before {
+  left: 150px;
+  transition: .5s ease-in-out;
+}

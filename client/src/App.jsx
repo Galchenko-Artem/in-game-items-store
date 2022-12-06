@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 import './app.css';
 import Reg from './components/Reg/Reg';
 import Nav from './components/Nav/Nav';
+import MainPage from './components/MainPage/MainPage';
+import Auth from './components/Auth/Auth';
+import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
+import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,8 +32,17 @@ function App() {
     <Nav user={user} setUser={setUser} />
     <Routes>
 
-      <Route path="/" element={<div>Главная страница</div>} />
-      <Route path="/reg" element={<Reg setUser={setUser} />} />
+      <Route path="/" element={<MainPage />} />
+
+      <Route element={<ProtectedRouter user={!user} />}>
+        <Route path="/reg" element={<Reg setUser={setUser} />} />
+        <Route path="/auth" element={<Auth setUser={setUser} />} />
+
+      </Route>
+
+      <Route element={<ProtectedAllPages />}>
+      <Route path="*" />
+      </Route>
 
     </Routes>
     </>
