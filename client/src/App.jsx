@@ -4,6 +4,7 @@ import './app.css';
 import Reg from './components/Reg/Reg';
 import Nav from './components/Nav/Nav';
 import MainPage from './components/MainPage/MainPage';
+import Auth from './components/Auth/Auth';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,7 +32,7 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/reg" element={<Reg setUser={setUser} />} />
-      <Route path="/auth" element={<Reg setUser={setUser} />} />
+      <Route path="/auth" element={<Auth setUser={setUser} />} />
 
     </Routes>
     </>

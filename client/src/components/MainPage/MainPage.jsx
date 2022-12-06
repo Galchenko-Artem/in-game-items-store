@@ -8,17 +8,17 @@ export default function MainPage() {
     <div className="container">
       <div className="card">
         <Link to="/dota2">
-       <img className="img-card" src="https://upload.wikimedia.org/wikipedia/ru/8/8e/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Dota_2.jpg" alt="" />
+       <img className="img-card" src="/static/media/dota2.71d3acb6eeab27cf86fd.jpeg" alt="dota2" />
         </Link>
       </div>
       <div className="card">
       <Link to="/csgo">
-        <img className="img-card" src="https://www.digiseller.ru/preview/988672/p1_3258494_b4dd2956.jpg" alt="" />
+        <img className="img-card" src="/static/media/csgo.f22432638a2e8a453567.jpeg" alt="csgo" />
       </Link>
       </div>
       <div className="card">
         <Link to="/wow">
-        <img className="img-card" src="https://m.media-amazon.com/images/I/81feWhChfIL.jpg" alt="" />
+        <img className="img-card" src="/static/media/wow.f5895ac0e9a9f5c07264.jpeg" alt="Word of Warcraft" />
         </Link>
       </div>
     </div>
