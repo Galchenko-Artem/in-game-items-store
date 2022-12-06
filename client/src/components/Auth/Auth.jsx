@@ -33,8 +33,8 @@ export default function Auth({ setUser }) {
         }
         if (res.status === 'success') {
           setAnswer(res.msg);
-          setUser({ login: res.login });
           setTimeout(() => {
+            setUser({ login: res.login });
             navigate('/');
           }, 1000);
         }

@@ -33,8 +33,8 @@ export default function Reg({ setUser }) {
           setRegMsg(res.msg);
         } else if (res.status === 'success') {
           setRegMsg(res.msg);
-          setUser({ login: res.login });
           setTimeout(() => {
+            setUser({ login: res.login });
             navigate('/');
           }, 1000);
         }
