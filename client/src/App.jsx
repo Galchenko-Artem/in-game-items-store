@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './app.css';
 import Reg from './components/Reg/Reg';
 import Nav from './components/Nav/Nav';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,8 +29,9 @@ function App() {
     <Nav user={user} setUser={setUser} />
     <Routes>
 
-      <Route path="/" element={<div>Главная страница</div>} />
+      <Route path="/" element={<MainPage />} />
       <Route path="/reg" element={<Reg setUser={setUser} />} />
+      <Route path="/auth" element={<Reg setUser={setUser} />} />
 
     </Routes>
     </>
