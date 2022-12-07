@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import './supportform.css';
 
 export default function SupportForm() {
+  const [answerSupport, setAnswerSupport] = useState('');
+
   const [form, setForm] = useState({
     text: '',
     tel: '',
+    telegramAcc: '',
   });
 
   const handleInput = (e) => {
@@ -23,20 +27,31 @@ export default function SupportForm() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        if (res.status === 'error') {
+          setAnswerSupport(res.msg);
+        } else if (res.status === 'success') {
+          setAnswerSupport(res.msg);
+        }
       });
   };
 
   return (
+    <>
     <div className="supportForm">
       <form onSubmit={handleSubmit}>
-      <div className="inputSupport">
-      <label className="labeSupport">Опишите вашу проблему</label>
-      <input className="inputSupport" type="text" value={form.text} name="text" onChange={handleInput} placeholder="..." autoComplete="on" />
+      <div className="divInput">
+      <label className="labeSupport">Опишите вашу проблему <sup>*</sup></label>
+      <textarea className="inputSupport problem" rows="10" cols="45" name="text" value={form.text} onChange={handleInput} placeholder="..." autoComplete="on" />
       </div>
 
-      <div className="inputSupport">
-      <label className="labeSupport">Оставьте номер телефона на случай экстренной связи</label>
+      <div className="divInput">
+      <label className="labeSupport">Оставьте ваш номер телефона на случай экстренной связи <sup>*</sup></label>
       <input className="inputSupport" type="integer" value={form.tel} name="tel" onChange={handleInput} placeholder="Номер должен начинаться с 89.." autoComplete="on" />
+      </div>
+
+      <div className="divInput">
+      <label className="labeSupport">Для оперативного уведомления вы можете оставить аккаунт в Telegram</label>
+      <input className="inputSupport" type="text" value={form.telegramAcc} name="telegramAcc" onChange={handleInput} placeholder="@Никнейм" autoComplete="on" />
       </div>
 
       <div className="supportBtnSubmitDiv">
@@ -45,5 +60,7 @@ export default function SupportForm() {
       <div className="answerSupport" />
       </form>
     </div>
+    <div className="supportAnwer">{answerSupport}</div>
+    </>
   );
 }

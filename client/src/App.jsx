@@ -24,9 +24,9 @@ import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages'
 import SupportForm from './components/SupportForm/SupportForm';
 import { userAuth } from './store/actions/userAction';
 
-
 function App() {
   const user = useSelector((state) => state.userStore);
+  console.log('===>>> 👉👉👉 file: App.jsx:30 👉👉👉 user', user);
   const dispatch = useDispatch();
   useEffect(() => {
     const abortController = new AbortController();
