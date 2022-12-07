@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import dota2 from './images/dota2.jpeg';
+import wow from './images/wow.jpeg';
+import csgo from './images/csgo.jpeg';
 
 import './mainPage.css';
 
@@ -8,17 +11,17 @@ export default function MainPage() {
     <div className="container">
       <div className="card">
         <Link to="/dota2">
-       <img className="img-card" src="/static/media/dota2.71d3acb6eeab27cf86fd.jpeg" alt="dota2" />
+       <img className="img-card" src={dota2} alt="dota2" />
         </Link>
       </div>
       <div className="card">
       <Link to="/csgo">
-        <img className="img-card" src="/static/media/csgo.f22432638a2e8a453567.jpeg" alt="csgo" />
+        <img className="img-card" src={csgo} alt="csgo" />
       </Link>
       </div>
       <div className="card">
         <Link to="/wow">
-        <img className="img-card" src="/static/media/wow.f5895ac0e9a9f5c07264.jpeg" alt="Word of Warcraft" />
+        <img className="img-card" src={wow} alt="Word of Warcraft" />
         </Link>
       </div>
     </div>
