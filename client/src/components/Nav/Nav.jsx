@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './nav.css';
 
 export default function Nav({ user, setUser }) {
   const navigate = useNavigate();
@@ -18,13 +19,16 @@ export default function Nav({ user, setUser }) {
   };
 
   return (
-    <>
+  <div className="nav-div">
     <Link className="nav-main" to="/">Главная</Link>
   {user ? (
- <button onClick={handleLogout} type="button">Выйти</button>
+ <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
   ) : (
+    <>
     <Link className="nav-main" to="/reg">Регистрация</Link>
-  )}
+    <Link className="nav-main" to="/auth">Авторизация</Link>
     </>
+  )}
+  </div>
   );
 }

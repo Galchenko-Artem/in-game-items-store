@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './reg.css';
 import { useNavigate } from 'react-router-dom';
+import classes from './reg.module.css';
 
 export default function Reg({ setUser }) {
   const [regMsg, setRegMsg] = useState(null);
@@ -28,41 +28,41 @@ export default function Reg({ setUser }) {
     })
       .then((res) => res.json())
       .then(((res) => {
+        console.log(res);
         if (res.status === 'error') {
-          console.log(res);
-        } else if (res.status === 'success') {
-          console.log(res);
           setRegMsg(res.msg);
-          setUser({ login: res.login });
+        } else if (res.status === 'success') {
+          setRegMsg(res.msg);
           setTimeout(() => {
+            setUser({ login: res.login });
             navigate('/');
           }, 1000);
         }
       }));
   };
   return (
-    <div className="regForm">
+    <div className={classes.regForm}>
     <form onSubmit={handleSubmit}>
-    <div className="inputForm">
-    <label className="labelForm">Ваш логин:</label>
-    <input className="inputReg" type="text" value={form.name} name="login" placeholder="..." onChange={handleInput} autoComplete="on" />
+    <div className={classes.inputForm}>
+    <label className={classes.labelForm}>Ваш логин:</label>
+    <input className={classes.inputReg} type="text" value={form.name} name="login" placeholder="..." onChange={handleInput} autoComplete="on" />
     </div>
-    <div className="inputForm">
-    <label className="labelForm">E-mail адрес</label>
-    <input className="inputReg" type="email" value={form.email} name="email" placeholder="..." onChange={handleInput} autoComplete="on" />
+    <div className={classes.inputForm}>
+    <label className={classes.labelForm}>E-mail адрес</label>
+    <input className={classes.inputReg} type="email" value={form.email} name="email" placeholder="..." onChange={handleInput} autoComplete="on" />
     </div>
-    <div className="inputForm">
-    <label className="labelForm">Пароль:</label>
-    <input className="inputReg" type="password" value={form.password} name="password" placeholder="..." onChange={handleInput} autoComplete="on" />
+    <div className={classes.inputForm}>
+    <label className={classes.labelForm}>Пароль:</label>
+    <input className={classes.inputReg} type="password" value={form.password} name="password" placeholder="..." onChange={handleInput} autoComplete="on" />
     </div>
-    <div className="inputForm">
-    <label className="labelForm">Повторите пароль</label>
-    <input className="inputReg" type="password" value={form.confirmPassword} placeholder="..." name="confirmPassword" onChange={handleInput} autoComplete="on" />
+    <div className={classes.inputForm}>
+    <label className={classes.labelForm}>Повторите пароль</label>
+    <input className={classes.inputReg} type="password" value={form.confirmPassword} placeholder="..." name="confirmPassword" onChange={handleInput} autoComplete="on" />
     </div>
-      <div className="btnSubmit">
-    <button className="regBtn" type="submit">Submit</button>
+      <div className={classes.btnSubmit}>
+    <button className={classes.regBtn} type="submit">Submit</button>
       </div>
-      <div className="answerReg">{regMsg}</div>
+      <div className={classes.answerReg}>{regMsg}</div>
     </form>
 
     </div>
