@@ -22,7 +22,10 @@ export default function Nav({ user, setUser }) {
   <div className="nav-div">
     <Link className="nav-main" to="/">Главная</Link>
   {user ? (
+    <>
+    <Link className="nav-main" to="/support"> Поддержка </Link>
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
+    </>
   ) : (
     <>
     <Link className="nav-main" to="/reg">Регистрация</Link>
