@@ -34,8 +34,9 @@ router.post('/', async (req, res) => {
       const hash = await bcrypt.hash(password, 10);
       const newUser = await User.create({ login, email, password: hash });
       req.session.login = newUser.login;
+      req.session.userId = newUser.id;
       return res.json({
-        status: 'success', msg: 'Успешная регистрация', login: req.session.login,
+        status: 'success', msg: 'Успешная регистрация', login: req.session.login, userId: req.session.userId,
       });
     }
   } catch (error) {

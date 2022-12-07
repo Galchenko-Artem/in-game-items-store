@@ -13,8 +13,9 @@ router.post('/', async (req, res) => {
       const validPassword = await bcrypt.compare(password, user.password);
       if (validPassword) {
         req.session.login = user.login;
+        req.session.userId = user.id;
         return res.json({
-          status: 'success', msg: 'Успешный вход', login: req.session.login,
+          status: 'success', msg: 'Успешный вход', login: req.session.login, userId: req.session.userId,
         });
       }
     }

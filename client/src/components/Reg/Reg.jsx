@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import classes from './reg.module.css';
 
-export default function Reg({ setUser }) {
+import { userRegistration } from '../../store/actions/userAction';
+
+export default function Reg() {
+  const dispatch = useDispatch();
+
   const [regMsg, setRegMsg] = useState(null);
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -28,13 +33,12 @@ export default function Reg({ setUser }) {
     })
       .then((res) => res.json())
       .then(((res) => {
-        console.log(res);
         if (res.status === 'error') {
           setRegMsg(res.msg);
         } else if (res.status === 'success') {
           setRegMsg(res.msg);
           setTimeout(() => {
-            setUser({ login: res.login });
+            dispatch(userRegistration({ login: res.login, userId: res.userId }));
             navigate('/');
           }, 1000);
         }
