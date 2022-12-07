@@ -31,9 +31,6 @@ module.exports = {
       details: {
         type: Sequelize.TEXT,
       },
-      details: {
-        type: Sequelize.TEXT
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -44,6 +41,7 @@ module.exports = {
       },
     });
   },
+  // eslint-disable-next-line no-unused-vars
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Purchases');
   },
