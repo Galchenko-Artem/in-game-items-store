@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import './auth.css';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { userAuth } from '../../store/actions/userAction';
 
-export default function Auth({ setUser }) {
+export default function Auth() {
+  const user = useSelector((store) => store.userStore);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const [form, setForm] = useState({
     login: '',
@@ -34,7 +39,7 @@ export default function Auth({ setUser }) {
         if (res.status === 'success') {
           setAnswer(res.msg);
           setTimeout(() => {
-            setUser({ login: res.login });
+            dispatch(userAuth({ login: res.login, userId: res.userId }));
             navigate('/');
           }, 1000);
         }
