@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-export default function SkinsDotaCreate() {
+export default function SkinsCs() {
   const [form, setForm] = useState({
     name: '',
     price: '',
-    GameId: 3,
+    GameId: 1,
     CategoryId: 2,
     image: '',
     description: '',
@@ -15,7 +15,7 @@ export default function SkinsDotaCreate() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/newLot/dota/skinsCreate', {
+    fetch('http://localhost:3001/account/newLot/csgo/skinsCreate', {
       method: 'POST',
       credentials: 'include',
       headers: {

@@ -1,11 +1,13 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
+import './StyleAcc.css';
 
-export default function ServicesDota() {
+export default function ListAccWowCreate() {
   const [form, setForm] = useState({
     name: '',
     price: '',
-    GameId: 3,
-    CategoryId: 3,
+    GameId: 2,
+    CategoryId: 1,
     image: '',
     description: '',
   });
@@ -15,7 +17,7 @@ export default function ServicesDota() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/newLot/dota/servicesCreate', {
+    fetch('http://localhost:3001/account/newLot/wow/createAcc', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -27,13 +29,14 @@ export default function ServicesDota() {
     setForm(form);
     console.log(form);
   };
+
   return (
     <form className="containerInput" onSubmit={handleSubmit}>
-    <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
-    <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
-    <input onChange={handeleInput} name="image" value={form.image} placeholder="img" />
-    <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-    <button type="submit">Submit</button>
+        <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
+        <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
+        <input onChange={handeleInput} name="image" value={form.image} placeholder="img" />
+        <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
+        <button type="submit">Submit</button>
     </form>
   );
 }

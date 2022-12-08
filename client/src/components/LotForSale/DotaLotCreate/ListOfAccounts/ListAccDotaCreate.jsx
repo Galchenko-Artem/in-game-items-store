@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import './StyleAcc.css';
 
-export default function ListAccWowCreate() {
+export default function ListAccDotaCreate() {
   const [form, setForm] = useState({
     name: '',
     price: '',
-    GameId: 2,
+    GameId: 3,
     CategoryId: 1,
     image: '',
     description: '',
@@ -17,7 +17,7 @@ export default function ListAccWowCreate() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/newLot/wow/createAcc', {
+    fetch('http://localhost:3001/account/newLot/dota/createAcc', {
       method: 'POST',
       credentials: 'include',
       headers: {

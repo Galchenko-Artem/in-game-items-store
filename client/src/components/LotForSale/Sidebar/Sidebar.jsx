@@ -5,13 +5,13 @@ import './StyleSideBar.css';
 export default function Sidebar() {
   return (
     <div className="containerSideBar">
-     <Link to="/newLot/csgo">
+     <Link to="/account/newLot/csgo">
      <button>CSGo</button>
      </Link>
-    <Link to="/newLot/dota">
+    <Link to="/account/newLot/dota">
     <button>Dota</button>
     </Link>
-   <Link to="/newLot/wow">
+   <Link to="/account/newLot/wow">
    <button>WOW</button>
    </Link>
     </div>
