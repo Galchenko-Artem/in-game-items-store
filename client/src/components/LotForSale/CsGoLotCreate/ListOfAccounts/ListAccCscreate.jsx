@@ -41,9 +41,7 @@ export default function ListAccCscreate() {
     <form className="containerInput" onSubmit={handleSubmit}>
         <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
         <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
-
         <input type="file" onChange={testImg} />
-
         <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
         <button type="submit">Submit</button>
     </form>
