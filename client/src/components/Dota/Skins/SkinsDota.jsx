@@ -27,7 +27,7 @@ export default function SkinsDota() {
             {skins && skins.map((el) => (
             <div key={el.id} className="boxItems">
                 <div className="containerImgItems">
-                <img className="ImgAcc" src={el.image} alt="img" />
+                <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
                 <div className="containerBtn">
                     <div>{el.name}</div>
