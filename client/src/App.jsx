@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './app.css';
