@@ -99,7 +99,7 @@ export default function Lots() {
 <div>
   {lots && lots.map((lot) => (
     <div key={lot.id}>
-      <div><img src={lot.image} alt={lot.name} /></div>
+      <div><img src={`http://localhost:3001/${lot.image}`} alt={lot.name} /></div>
       <div>Название: {lot.name}</div>
       <div>Цена: {lot.price} </div>
       <div>Описание: {lot.description}</div>
