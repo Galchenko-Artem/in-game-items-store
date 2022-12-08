@@ -30,7 +30,7 @@ export default function testMulter() {
       <div className="avatar">
         {
           avatar
-            ? <img className="logo" src={`/${avatar}`} alt="avatar" />
+            ? <img className="logo" src={`http://localhost:3001/${avatar}`} alt="avatar" />
             : <img className="logo" src="https://img1.freepng.ru/20180624/ivq/kisspng-business-organization-computer-software-tom-clancy-unknown-person-5b2f72c6649235.833799281529836230412.jpg" alt="avatar" />
         }
       </div>

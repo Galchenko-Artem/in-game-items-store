@@ -32,6 +32,8 @@ export default function Nav() {
 
     <Link className="nav-main" to="/account"> Личный кабинет </Link>
 
+    <Link className="nav-main" to="/userPlea">Обращения пользователя</Link>
+
     <Link className="nav-main" to="/basket"> Корзина </Link>
 
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>

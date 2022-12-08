@@ -42,6 +42,7 @@ import SkinsDotaCreate from './components/ LotForSale/DotaLotCreate/Skins/SkinsD
 import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWowCreate';
 import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
+import UserPlea from './components/UserPlea/UserPlea';
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -70,6 +71,7 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
+      <Route path="/userPlea" element={<UserPlea />} />
 
       <Route path="/account" element={<Account />}>
         <Route path="lots" element={<Lots />} />
