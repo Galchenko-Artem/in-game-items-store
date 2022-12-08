@@ -3,6 +3,13 @@ const router = require('express').Router();
 const fetch = require('node-fetch');
 const { Support } = require('../../db/models');
 
+router.get('/', async (req, res) => {
+  const { userId } = req.session;
+  const allUserPleasData = await Support.findAll({ where: { UserId: userId } });
+  const allUserPleas = allUserPleasData.map((el) => el.dataValues);
+  res.json(allUserPleas);
+});
+
 router.post('/', async (req, res) => {
   function validPhone(tel) {
     const isPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(tel);
