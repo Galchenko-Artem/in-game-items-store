@@ -15,6 +15,7 @@ const regRouter = require('./routers/regRouter');
 const logoutRouter = require('./routers/logoutRouter');
 const authRouter = require('./routers/authRouter');
 const telegramRouter = require('./routers/telegramRouter');
+const lotsRouter = require('./routers/lotsRouter');
 
 // Проверяем подключение к базе данных!
 dbCheck();
@@ -30,6 +31,7 @@ app.use('/reg', regRouter);
 app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
+app.use('/lots', lotsRouter);
 
 const PORT = process.env.PORT ?? 3001;
 

@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   Lot.init({
     UserId: DataTypes.INTEGER,
     ProductId: DataTypes.INTEGER,
-    sold: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Lot',

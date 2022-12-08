@@ -22,8 +22,11 @@ import Auth from './components/Auth/Auth';
 import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 import SupportForm from './components/SupportForm/SupportForm';
+import Account from './components/Account/Account';
+import Lots from './components/Account/Lots/Lots';
+import Sales from './components/Account/Sales/Sales';
+import Product from './components/Product/Product';
 import { userAuth } from './store/actions/userAction';
-
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -51,6 +54,10 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
+      <Route path="/account" element={<Account />}>
+        <Route path="lots" element={<Lots />} />
+        <Route path="sales" element={<Sales />} />
+      </Route>
 
       <Route element={<ProtectedRouter />}>
         <Route path="/reg" element={<Reg />} />
@@ -81,6 +88,8 @@ function App() {
         <Route path="skins" element={<SkinsCsGO />} />
         <Route path="services" element={<ServicesCS />} />
       </Route>
+
+      <Route path="/product/:id" element={<Product />} />
 
     </Routes>
     </>

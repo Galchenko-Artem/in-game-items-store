@@ -29,6 +29,7 @@ export default function Nav() {
   {user.user ? (
     <>
     <Link className="nav-main" to="/support"> Поддержка </Link>
+    <Link className="nav-main" to="/account"> Личный кабинет </Link>
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
     </>
   ) : (
