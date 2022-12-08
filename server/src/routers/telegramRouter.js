@@ -1,7 +1,7 @@
 require('dotenv').config();
 const router = require('express').Router();
-
 const fetch = require('node-fetch');
+const { Support } = require('../../db/models');
 
 router.post('/', async (req, res) => {
   function validPhone(tel) {
@@ -10,8 +10,8 @@ router.post('/', async (req, res) => {
   }
   try {
     const { text, tel, telegramAcc } = req.body;
+    const { userId } = req.session;
 
-    console.log(req.body);
     const br = '%0A';
     const msg = `Новая заявка с сайта inGame-store:${br} _________________ ${br}${br}Телефон пользователя:${br}${tel}${br}${br}Аккаунт в Telegram:${br}${telegramAcc}${br}${br}Сообщение:${br}${text}`;
     const { CHAT_ID } = process.env;
@@ -26,10 +26,19 @@ router.post('/', async (req, res) => {
     if (!validPhone(tel)) {
       return res.json({ status: 'error', msg: 'Неправильный формат мобильного номера телефона' });
     }
+
+    const findUserPlea = await Support.findAll({ where: { UserId: userId, status: false } });
+    if (findUserPlea.length > 0) {
+      return res.json({ status: 'error', msg: 'В работе может быть максимум 1 обращение, ожидайте ответ! После этого при необходимости можно будет создать еще одно обращение.' });
+    }
+
     if (telegramAcc[0] === '@' || !telegramAcc.length) {
       await fetch(
         url,
       );
+      const newPlea = await Support.create({
+        question: text, answer: null, status: false, UserId: userId,
+      });
       return res.json({
         status: 'success',
         msg:
@@ -40,7 +49,7 @@ router.post('/', async (req, res) => {
       return res.json({ status: 'error', msg: 'Telegram аккаунт должен начинаться с @' });
     }
   } catch (error) {
-    res.status(500).json({ status: 'success', msg: 'Ошибка в файле telegramRouter' });
+    res.status(500).json({ msg: `${error.message}` });
   }
 });
 
