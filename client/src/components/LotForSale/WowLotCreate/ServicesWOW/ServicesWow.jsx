@@ -1,13 +1,11 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
-import './StyleAcc.css';
 
-export default function ListAccCscreate() {
+export default function ServicesWow() {
   const [form, setForm] = useState({
     name: '',
     price: '',
-    GameId: 1,
-    CategoryId: 1,
+    GameId: 2,
+    CategoryId: 3,
     image: '',
     description: '',
   });
@@ -17,7 +15,7 @@ export default function ListAccCscreate() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/newLot/csgo/createAcc', {
+    fetch('http://localhost:3001/account/newLot/wow/servicesCreate', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -29,14 +27,13 @@ export default function ListAccCscreate() {
     setForm(form);
     console.log(form);
   };
-
   return (
     <form className="containerInput" onSubmit={handleSubmit}>
-        <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
-        <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
-        <input onChange={handeleInput} name="image" value={form.image} placeholder="img" />
-        <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-        <button type="submit">Submit</button>
+    <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
+    <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
+    <input onChange={handeleInput} name="image" value={form.image} placeholder="img" />
+    <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
+    <button type="submit">Submit</button>
     </form>
   );
 }

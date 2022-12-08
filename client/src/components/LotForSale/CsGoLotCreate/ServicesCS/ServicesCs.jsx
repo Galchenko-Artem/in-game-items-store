@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-export default function ServicesWow() {
+export default function ServicesCs() {
   const [form, setForm] = useState({
     name: '',
     price: '',
-    GameId: 2,
+    GameId: 1,
     CategoryId: 3,
     image: '',
     description: '',
@@ -15,7 +15,7 @@ export default function ServicesWow() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/newLot/wow/servicesCreate', {
+    fetch('http://localhost:3001/account/newLot/csgo/servicesCreate', {
       method: 'POST',
       credentials: 'include',
       headers: {

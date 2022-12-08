@@ -43,6 +43,8 @@ import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWow
 import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
 import UserPlea from './components/UserPlea/UserPlea';
+import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDota/ServicesDotaCreate';
+
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -76,6 +78,23 @@ function App() {
       <Route path="/account" element={<Account />}>
         <Route path="lots" element={<Lots />} />
         <Route path="sales" element={<Sales />} />
+        <Route path="newLot" element={<NewLot />}>
+          <Route path="csgo" element={<CsGoLotCreate />}>
+            <Route path="createAcc" element={<ListAccCscreate />} />
+            <Route path="skinsCreate" element={<SkinsCs />} />
+            <Route path="servicesCreate" element={<ServicesCs />} />
+          </Route>
+              <Route path="wow" element={<WowLotCreate />}>
+                <Route path="createAcc" element={<ListAccWowCreate />} />
+                <Route path="skinsCreate" element={<ItemsWowCreate />} />
+                <Route path="servicesCreate" element={<ServicesWow />} />
+              </Route>
+                      <Route path="dota" element={<DotaLotCreate />}>
+                        <Route path="createAcc" element={<ListAccDotaCreate />} />
+                        <Route path="skinsCreate" element={<SkinsDotaCreate />} />
+                        <Route path="servicesCreate" element={<ServicesDotaCreate />} />
+                      </Route>
+        </Route>
       </Route>
 
       <Route path="/basket" element={<Basket />} />
@@ -112,24 +131,6 @@ function App() {
       </Route>
 
       <Route path="/product/:id" element={<Product />} />
-
-        <Route path="/newLot" element={<NewLot />}>
-          <Route path="csgo" element={<CsGoLotCreate />}>
-            <Route path="createAcc" element={<ListAccCscreate />} />
-            <Route path="skinsCreate" element={<SkinsCs />} />
-            <Route path="servicesCreate" element={<ServicesCs />} />
-          </Route>
-              <Route path="wow" element={<WowLotCreate />}>
-                <Route path="createAcc" element={<ListAccWowCreate />} />
-                <Route path="skinsCreate" element={<ItemsWowCreate />} />
-                <Route path="servicesCreate" element={<ServicesWow />} />
-              </Route>
-                      <Route path="dota" element={<DotaLotCreate />}>
-                        <Route path="createAcc" element={<ListAccDotaCreate />} />
-                        <Route path="skinsCreate" element={<SkinsDotaCreate />} />
-                        <Route path="servicesCreate" element={<ListAccDotaCreate />} />
-                      </Route>
-        </Route>
 
     </Routes>
     </>
