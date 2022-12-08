@@ -26,7 +26,7 @@ export default function ServicesCS() {
                 {services && services.map((el) => (
                     <div key={el.id} className="boxAccount">
                     <div className="containerImg">
-                        <img className="ImgAcc" src={el.image} alt="img" />
+                        <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
                     </div>
                         <div>
                             <button>Info</button>
