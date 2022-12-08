@@ -24,12 +24,12 @@ export default function ListAccCscreate() {
     fetch('http://localhost:3001/account/newLot/csgo/createAcc', {
       method: 'POST',
       credentials: 'include',
-
       body: data,
     })
       .then((res) => res.json())
       .then((res) => console.log(res));
     setForm(form);
+    console.log(form);
   };
 
   const testImg = (e) => {
