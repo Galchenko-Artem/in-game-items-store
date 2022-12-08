@@ -15,6 +15,7 @@ export default function ListOfAccounts() {
       })
       .catch(console.log);
   }, []);
+
   return (
     <div className="containerItems">
         ListOfAccounts

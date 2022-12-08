@@ -32,7 +32,8 @@ export default function ListAccCS() {
                          <div>
                              <button>Info</button>
                          </div>
-                                 <div>$:{el.price}</div>
+                                 <div>{el.price}$</div>
+                                 <p>{el.description}</p>
                                      <div>
                                          <button>Корзина</button>
                                      </div>

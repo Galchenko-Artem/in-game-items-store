@@ -30,16 +30,21 @@ export default function SkinsDota() {
                 <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
                 <div className="containerBtn">
-                    <div>{el.name}</div>
-                        <div>{el.price}$</div>
-                            <div>
+                    <div className="element">{el.name}</div>
+                        <div className="element">{el.price}$</div>
+                            <div className="element">
                                 <button>Info</button>
                             </div>
-                                <div>
+                                <div className="element">
                                     <button>Корзина</button>
                                 </div>
                 </div>
+                              <div className="descriptionDotaSkins">
+                                  {el.description}
+                              </div>
+
             </div>
+
             )) }
 
         </div>

@@ -32,11 +32,12 @@ export default function ListAccDota() {
               <div key={el.id} className="boxAccount">
                   <div key={el.id} className="containerImg">
                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
+                    <p>{el.description}</p>
                   </div>
                       <div>
                           <button>Info</button>
                       </div>
-                              <div>$:{el.price}</div>
+                              <div>{el.price} $</div>
                                   <div>
                                       <button>Корзина</button>
                                   </div>
