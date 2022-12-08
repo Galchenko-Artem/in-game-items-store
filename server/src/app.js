@@ -35,7 +35,9 @@ app.use(cors);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, '../public')));
+
+// console.log(path.join(path.join(__dirname, '../public')));
 
 app.use('/user', userRouter);
 app.use('/reg', regRouter);
@@ -51,6 +53,7 @@ app.use('/', GameDotaCreateRouter);
 app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
+
 
 app.use('/upload', uploadRouter);
 

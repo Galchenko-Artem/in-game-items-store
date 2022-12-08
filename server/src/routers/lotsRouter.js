@@ -12,6 +12,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const { userId } = req.session;
+    const {
+      id, name, price, GameId, CategoryId, image, description,
+    } = req.body;
+    const product = await Product.findOne({ where: { id } });
+    console.log('НАЙДЕННЫЙ ПРОДУКТ ПО АЙДИ', product);
+    const editProduct = await product.update({
+      name, price, GameId, CategoryId, image, description, approved: false,
+    });
+    console.log('ИЗМЕНЕННЫЙ ПРОДУКТ', editProduct);
+    res.json(editProduct);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.delete('/', async (req, res) => {
   try {
     // console.log('АЙДИ ЛОТА БЭК', req.body.id);

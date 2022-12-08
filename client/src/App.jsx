@@ -28,21 +28,23 @@ import Sales from './components/Account/Sales/Sales';
 import Product from './components/Product/Product';
 import { userAuth } from './store/actions/userAction';
 
-import NewLot from './components/LotForSale/NewLot';
-import CsGoLotCreate from './components/LotForSale/CsGoLotCreate/CsGoLotCreate';
-import ListAccCscreate from './components/LotForSale/CsGoLotCreate/ListOfAccounts/ListAccCscreate';
-import SkinsCs from './components/LotForSale/CsGoLotCreate/Skins/SkinsCs';
-import ServicesCs from './components/LotForSale/CsGoLotCreate/ServicesCS/ServicesCs';
-import WowLotCreate from './components/LotForSale/WowLotCreate/WowLotCreate';
-import ListAccWowCreate from './components/LotForSale/WowLotCreate/ListOfAccounts/ListAccWowCreate';
-import ServicesWow from './components/LotForSale/WowLotCreate/ServicesWOW/ServicesWow';
-import DotaLotCreate from './components/LotForSale/DotaLotCreate/DotaLotCreate';
-import ListAccDotaCreate from './components/LotForSale/DotaLotCreate/ListOfAccounts/ListAccDotaCreate';
-import SkinsDotaCreate from './components/LotForSale/DotaLotCreate/Skins/SkinsDotaCreate';
-import ItemsWowCreate from './components/LotForSale/WowLotCreate/Items/ItemsWowCreate';
+import NewLot from './components/ LotForSale/NewLot';
+import CsGoLotCreate from './components/ LotForSale/CsGoLotCreate/CsGoLotCreate';
+import ListAccCscreate from './components/ LotForSale/CsGoLotCreate/ListOfAccounts/ListAccCscreate';
+import SkinsCs from './components/ LotForSale/CsGoLotCreate/Skins/SkinsCs';
+import ServicesCs from './components/ LotForSale/CsGoLotCreate/ServicesCS/ServicesCs';
+import WowLotCreate from './components/ LotForSale/WowLotCreate/WowLotCreate';
+import ListAccWowCreate from './components/ LotForSale/WowLotCreate/ListOfAccounts/ListAccWowCreate';
+import ServicesWow from './components/ LotForSale/WowLotCreate/ServicesWOW/ServicesWow';
+import DotaLotCreate from './components/ LotForSale/DotaLotCreate/DotaLotCreate';
+import ListAccDotaCreate from './components/ LotForSale/DotaLotCreate/ListOfAccounts/ListAccDotaCreate';
+import SkinsDotaCreate from './components/ LotForSale/DotaLotCreate/Skins/SkinsDotaCreate';
+import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWowCreate';
 import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
+import UserPlea from './components/UserPlea/UserPlea';
 import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDota/ServicesDotaCreate';
+
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -71,6 +73,7 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
+      <Route path="/userPlea" element={<UserPlea />} />
 
       <Route path="/account" element={<Account />}>
         <Route path="lots" element={<Lots />} />

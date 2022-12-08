@@ -1,0 +1,13 @@
+.wrapperUserPlea {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.inWork {
+  color: red
+}
+
+.done {
+  color: teal;
+}
