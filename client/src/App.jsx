@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './app.css';
@@ -28,8 +27,6 @@ import Sales from './components/Account/Sales/Sales';
 import Product from './components/Product/Product';
 import { userAuth } from './store/actions/userAction';
 
-
-
 import NewLot from './components/ LotForSale/NewLot';
 import CsGoLotCreate from './components/ LotForSale/CsGoLotCreate/CsGoLotCreate';
 import ListAccCscreate from './components/ LotForSale/CsGoLotCreate/ListOfAccounts/ListAccCscreate';
@@ -44,9 +41,6 @@ import SkinsDotaCreate from './components/ LotForSale/DotaLotCreate/Skins/SkinsD
 import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWowCreate';
 import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
-
-
-
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -81,10 +75,8 @@ function App() {
         <Route path="sales" element={<Sales />} />
       </Route>
 
-
       <Route path="/basket" element={<Basket />} />
       <Route path="/multer" element={<TestMulter />} />
-      
 
       <Route element={<ProtectedRouter />}>
         <Route path="/reg" element={<Reg />} />
@@ -135,7 +127,6 @@ function App() {
                         <Route path="servicesCreate" element={<ListAccDotaCreate />} />
                       </Route>
         </Route>
-
 
     </Routes>
     </>
