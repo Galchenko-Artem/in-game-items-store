@@ -27,7 +27,7 @@ export default function ListOfAccounts() {
             {acc && acc.map((el) => (
                 <div key={el.id} className="boxAccount">
                     <div key={el.id} className="containerImg">
-                    <img className="ImgAcc" src={el.image} alt="" />
+                    <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
                     </div>
                         <div>
                             <button>Info</button>
