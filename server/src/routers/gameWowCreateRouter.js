@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { Product, Lot} = require('../../db/models');
+const { Product, Lot } = require('../../db/models');
 
-router.post('/newLot/wow/createAcc', async (req, res) => {
+router.post('/account/newLot/wow/createAcc', async (req, res) => {
   try {
     const { userId } = req.session;
     const {
@@ -19,7 +19,7 @@ router.post('/newLot/wow/createAcc', async (req, res) => {
   }
 });
 
-router.post('/newLot/wow/servicesCreate', async (req, res) => {
+router.post('/account/newLot/wow/servicesCreate', async (req, res) => {
   try {
     const { userId } = req.session;
     const {
@@ -37,7 +37,7 @@ router.post('/newLot/wow/servicesCreate', async (req, res) => {
   }
 });
 
-router.post('/newLot/wow/skinsCreate', async (req, res) => {
+router.post('/account/newLot/wow/skinsCreate', async (req, res) => {
   try {
     const { userId } = req.session;
     const {
