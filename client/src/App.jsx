@@ -23,6 +23,7 @@ import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 import SupportForm from './components/SupportForm/SupportForm';
 import { userAuth } from './store/actions/userAction';
+
 import NewLot from './components/ LotForSale/NewLot';
 import CsGoLotCreate from './components/ LotForSale/CsGoLotCreate/CsGoLotCreate';
 import ListAccCscreate from './components/ LotForSale/CsGoLotCreate/ListOfAccounts/ListAccCscreate';
@@ -35,9 +36,14 @@ import DotaLotCreate from './components/ LotForSale/DotaLotCreate/DotaLotCreate'
 import ListAccDotaCreate from './components/ LotForSale/DotaLotCreate/ListOfAccounts/ListAccDotaCreate';
 import SkinsDotaCreate from './components/ LotForSale/DotaLotCreate/Skins/SkinsDotaCreate';
 import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWowCreate';
+import Basket from './components/Basket/Basket';
+import TestMulter from './components/TestMulter/TestMulter';
+
+
 
 function App() {
   const user = useSelector((state) => state.userStore);
+  console.log('===>>> 👉👉👉 file: App.jsx:30 👉👉👉 user', user);
   const dispatch = useDispatch();
   useEffect(() => {
     const abortController = new AbortController();
@@ -62,7 +68,9 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
-
+      <Route path="/basket" element={<Basket />} />
+      <Route path="/multer" element={<TestMulter />} />
+      
       <Route element={<ProtectedRouter />}>
         <Route path="/reg" element={<Reg />} />
         <Route path="/auth" element={<Auth />} />

@@ -10,7 +10,7 @@ export default function MainPage() {
   return (
     <div className="container">
       <div className="card">
-        <Link to="/dota2">
+        <Link to="/dota">
        <img className="img-card" src={dota2} alt="dota2" />
         </Link>
       </div>
