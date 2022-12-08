@@ -16,14 +16,25 @@ import ServicesDota from './components/Dota/ServiceDota/ServicesDota';
 import CsGo from './components/CS_GO/CsGo';
 import ListAccCS from './components/CS_GO/ListOfAccounts/ListAccCS';
 import SkinsCsGO from './components/CS_GO/Skins/SkinsCsGO';
-import ServicesCS from './components/CS_GO/ServiceDota/ServicesCS';
+import ServicesCS from './components/CS_GO/ServiceCS/ServicesCS';
 import MainPage from './components/MainPage/MainPage';
 import Auth from './components/Auth/Auth';
 import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 import SupportForm from './components/SupportForm/SupportForm';
 import { userAuth } from './store/actions/userAction';
-
+import NewLot from './components/ LotForSale/NewLot';
+import CsGoLotCreate from './components/ LotForSale/CsGoLotCreate/CsGoLotCreate';
+import ListAccCscreate from './components/ LotForSale/CsGoLotCreate/ListOfAccounts/ListAccCscreate';
+import SkinsCs from './components/ LotForSale/CsGoLotCreate/Skins/SkinsCs';
+import ServicesCs from './components/ LotForSale/CsGoLotCreate/ServicesCS/ServicesCs';
+import WowLotCreate from './components/ LotForSale/WowLotCreate/WowLotCreate';
+import ListAccWowCreate from './components/ LotForSale/WowLotCreate/ListOfAccounts/ListAccWowCreate';
+import ServicesWow from './components/ LotForSale/WowLotCreate/ServicesWOW/ServicesWow';
+import DotaLotCreate from './components/ LotForSale/DotaLotCreate/DotaLotCreate';
+import ListAccDotaCreate from './components/ LotForSale/DotaLotCreate/ListOfAccounts/ListAccDotaCreate';
+import SkinsDotaCreate from './components/ LotForSale/DotaLotCreate/Skins/SkinsDotaCreate';
+import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWowCreate';
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -68,19 +79,37 @@ function App() {
           <Route path="services" element={<Services />} />
       </Route>
 
-      <Route path="/dota" element={<Dota />}>
+      <Route path="/dota2" element={<Dota />}>
         <Route index element={<div />} />
         <Route path="listOfAccounts" element={<ListAccDota />} />
         <Route path="skins" element={<SkinsDota />} />
         <Route path="services" element={<ServicesDota />} />
       </Route>
 
-      <Route path="/csGo" element={<CsGo />}>
+      <Route path="/csgo" element={<CsGo />}>
         <Route index element={<div />} />
         <Route path="listOfAccounts" element={<ListAccCS />} />
         <Route path="skins" element={<SkinsCsGO />} />
         <Route path="services" element={<ServicesCS />} />
       </Route>
+
+        <Route path="/newLot" element={<NewLot />}>
+          <Route path="csgo" element={<CsGoLotCreate />}>
+            <Route path="createAcc" element={<ListAccCscreate />} />
+            <Route path="skinsCreate" element={<SkinsCs />} />
+            <Route path="servicesCreate" element={<ServicesCs />} />
+          </Route>
+              <Route path="wow" element={<WowLotCreate />}>
+                <Route path="createAcc" element={<ListAccWowCreate />} />
+                <Route path="skinsCreate" element={<ItemsWowCreate />} />
+                <Route path="servicesCreate" element={<ServicesWow />} />
+              </Route>
+                      <Route path="dota" element={<DotaLotCreate />}>
+                        <Route path="createAcc" element={<ListAccDotaCreate />} />
+                        <Route path="skinsCreate" element={<SkinsDotaCreate />} />
+                        <Route path="servicesCreate" element={<ListAccDotaCreate />} />
+                      </Route>
+        </Route>
 
     </Routes>
     </>

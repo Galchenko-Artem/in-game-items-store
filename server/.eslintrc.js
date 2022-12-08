@@ -18,6 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
-    'eslint-disable-next-line no-unused-vars': 0,
+    'no-unused-vars': 0,
+    'no-console': 0,
+    'consistent-return': 0,
   },
 };

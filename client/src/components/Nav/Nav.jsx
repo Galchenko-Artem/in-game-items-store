@@ -30,6 +30,7 @@ export default function Nav() {
     <>
     <Link className="nav-main" to="/support"> Поддержка </Link>
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
+              <Link to="/newLot">CS</Link>
     </>
   ) : (
     <>
