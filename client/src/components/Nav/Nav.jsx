@@ -25,6 +25,7 @@ export default function Nav() {
   return (
   <div className="nav-div">
     <Link className="nav-main" to="/">Главная</Link>
+    <Link className="nav-main" to="/multer">Мультер</Link>
   {user.user ? (
     <>
     <Link className="nav-main" to="/support"> Поддержка </Link>
