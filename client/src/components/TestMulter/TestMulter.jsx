@@ -11,19 +11,14 @@ export default function testMulter() {
       const data = new FormData();
       data.append('avatar', img);
 
-      // await axios.post('http://localhost:3001/upload', data, {
-      //   headers: {
-      //     'content-type': 'multipart/form-data',
-      //   },
-      // })
-      fetch('http://localhost:3001/upload', {
-        method: 'POST',
-        body: data,
+      await axios.post('http://localhost:3001/upload', data, {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
       })
-        .then((res) => res.json())
         .then((res) => {
-          console.log(res.path);
-          setAvatar(res.path);
+          console.log(res.data.path);
+          setAvatar(res.data.path);
         });
     } catch (error) {
       console.log('===>>> 👉👉👉 file: testMulter.jsx:19 👉👉👉 error', error);
