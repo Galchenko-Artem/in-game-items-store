@@ -1,0 +1,38 @@
+.supportForm {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.divInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.inputSupport {
+  width: 500px;
+  margin-top: 15px;
+}
+
+.problem {
+  height: 50px;
+}
+
+.labeSupport {
+  text-align: center;
+}
+
+.supportBtnSubmitDiv {
+  text-align: center;
+}
+
+.supportAnwer {
+  margin-top: 20px;
+  color: teal;
+  text-align: center;
+}
+
+sup {
+  color:red
+}

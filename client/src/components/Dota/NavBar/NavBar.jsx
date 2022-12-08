@@ -6,13 +6,13 @@ import './StyleNavbar.css';
 export default function NavBar() {
   return (
     <div className="contanerNavbar">
-    <Link to="/dota/listOfAccounts">
+    <Link to="/dota2/listOfAccounts">
         <button> Список Аккаунтов </button>
     </Link>
-    <Link to="/dota/skins">
+    <Link to="/dota2/skins">
       <button>Скины</button>
     </Link>
-    <Link to="/dota/services">
+    <Link to="/dota2/services">
        <button>Услуги</button>
     </Link>
     </div>

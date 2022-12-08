@@ -1,0 +1,4 @@
+.containerInput{
+    display: flex;
+    flex-direction: column;
+}

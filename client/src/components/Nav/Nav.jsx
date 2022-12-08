@@ -7,7 +7,6 @@ import { userLogout } from '../../store/actions/userAction';
 
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
-  console.log('===>>> 👉👉👉 file: Nav.jsx:9 👉👉👉 user', user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,11 +25,17 @@ export default function Nav() {
   return (
   <div className="nav-div">
     <Link className="nav-main" to="/">Главная</Link>
+    <Link className="nav-main" to="/multer">Мультер</Link>
   {user.user ? (
     <>
     <Link className="nav-main" to="/support"> Поддержка </Link>
+
     <Link className="nav-main" to="/account"> Личный кабинет </Link>
+
+    <Link className="nav-main" to="/basket"> Корзина </Link>
+
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
+              <Link to="/newLot">CS</Link>
     </>
   ) : (
     <>

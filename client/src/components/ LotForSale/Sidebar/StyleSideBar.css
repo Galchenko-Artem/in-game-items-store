@@ -1,0 +1,9 @@
+.containerSideBar{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-right: 50px;
+    max-height: 4rem;
+}

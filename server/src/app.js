@@ -1,5 +1,6 @@
 require('@babel/register');
 require('dotenv').config();
+const path = require('path');
 
 const express = require('express');
 const morgan = require('morgan');
@@ -17,14 +18,21 @@ const authRouter = require('./routers/authRouter');
 const telegramRouter = require('./routers/telegramRouter');
 const lotsRouter = require('./routers/lotsRouter');
 
+const GamecreateRoute = require('./routers/gameCsGoCreateRouter');
+const GameWowCreateRouter = require('./routers/gameWowCreateRouter');
+const GameDotaCreateRouter = require('./routers/gameDotaCreateRouter');
+
+const uploadRouter = require('./routers/uploadRouter');
+
+
 // Проверяем подключение к базе данных!
 dbCheck();
-
 app.use(sessions);
 app.use(cors);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRouter);
 app.use('/reg', regRouter);
@@ -32,6 +40,13 @@ app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
 app.use('/lots', lotsRouter);
+
+app.use('/', GamecreateRoute);
+app.use('/', GameWowCreateRouter);
+app.use('/', GameDotaCreateRouter);
+
+app.use('/upload', uploadRouter);
+
 
 const PORT = process.env.PORT ?? 3001;
 
