@@ -23,7 +23,9 @@ import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 import SupportForm from './components/SupportForm/SupportForm';
 import { userAuth } from './store/actions/userAction';
+import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
+
 
 function App() {
   const user = useSelector((state) => state.userStore);
@@ -52,8 +54,9 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
+      <Route path="/basket" element={<Basket />} />
       <Route path="/multer" element={<TestMulter />} />
-
+      
       <Route element={<ProtectedRouter />}>
         <Route path="/reg" element={<Reg />} />
         <Route path="/auth" element={<Auth />} />
