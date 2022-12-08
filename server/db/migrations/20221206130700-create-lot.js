@@ -24,10 +24,7 @@ module.exports = {
           key: 'id',
         },
         allowNull: false,
-      },
-      sold: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+        onDelete: 'cascade',
       },
       createdAt: {
         allowNull: false,

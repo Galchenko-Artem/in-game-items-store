@@ -16,6 +16,7 @@ const regRouter = require('./routers/regRouter');
 const logoutRouter = require('./routers/logoutRouter');
 const authRouter = require('./routers/authRouter');
 const telegramRouter = require('./routers/telegramRouter');
+const lotsRouter = require('./routers/lotsRouter');
 
 const GamecreateRoute = require('./routers/gameCsGoCreateRouter');
 const GameWowCreateRouter = require('./routers/gameWowCreateRouter');
@@ -38,6 +39,7 @@ app.use('/reg', regRouter);
 app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
+app.use('/lots', lotsRouter);
 
 app.use('/', GamecreateRoute);
 app.use('/', GameWowCreateRouter);

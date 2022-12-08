@@ -22,7 +22,13 @@ import Auth from './components/Auth/Auth';
 import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 import SupportForm from './components/SupportForm/SupportForm';
+import Account from './components/Account/Account';
+import Lots from './components/Account/Lots/Lots';
+import Sales from './components/Account/Sales/Sales';
+import Product from './components/Product/Product';
 import { userAuth } from './store/actions/userAction';
+
+
 
 import NewLot from './components/ LotForSale/NewLot';
 import CsGoLotCreate from './components/ LotForSale/CsGoLotCreate/CsGoLotCreate';
@@ -38,6 +44,7 @@ import SkinsDotaCreate from './components/ LotForSale/DotaLotCreate/Skins/SkinsD
 import ItemsWowCreate from './components/ LotForSale/WowLotCreate/Items/ItemsWowCreate';
 import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
+
 
 
 
@@ -68,9 +75,17 @@ function App() {
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
+
+      <Route path="/account" element={<Account />}>
+        <Route path="lots" element={<Lots />} />
+        <Route path="sales" element={<Sales />} />
+      </Route>
+
+
       <Route path="/basket" element={<Basket />} />
       <Route path="/multer" element={<TestMulter />} />
       
+
       <Route element={<ProtectedRouter />}>
         <Route path="/reg" element={<Reg />} />
         <Route path="/auth" element={<Auth />} />
@@ -101,6 +116,8 @@ function App() {
         <Route path="services" element={<ServicesCS />} />
       </Route>
 
+      <Route path="/product/:id" element={<Product />} />
+
         <Route path="/newLot" element={<NewLot />}>
           <Route path="csgo" element={<CsGoLotCreate />}>
             <Route path="createAcc" element={<ListAccCscreate />} />
@@ -118,6 +135,7 @@ function App() {
                         <Route path="servicesCreate" element={<ListAccDotaCreate />} />
                       </Route>
         </Route>
+
 
     </Routes>
     </>

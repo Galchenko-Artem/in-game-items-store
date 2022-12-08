@@ -29,7 +29,11 @@ export default function Nav() {
   {user.user ? (
     <>
     <Link className="nav-main" to="/support"> Поддержка </Link>
+
+    <Link className="nav-main" to="/account"> Личный кабинет </Link>
+
     <Link className="nav-main" to="/basket"> Корзина </Link>
+
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
               <Link to="/newLot">CS</Link>
     </>

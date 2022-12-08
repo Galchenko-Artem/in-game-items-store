@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Purchases', {
+    await queryInterface.createTable('Histories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,18 +17,10 @@ module.exports = {
         onDelete: 'cascade',
         allowNull: false,
       },
-      ProductId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Products',
-          key: 'id',
-        },
-        allowNull: false,
+      purchase: {
+        type: Sequelize.TEXT,
       },
-      price: {
-        type: Sequelize.INTEGER,
-      },
-      details: {
+      sales: {
         type: Sequelize.TEXT,
       },
       createdAt: {
@@ -43,6 +35,6 @@ module.exports = {
   },
   // eslint-disable-next-line no-unused-vars
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Purchases');
+    await queryInterface.dropTable('Histories');
   },
 };
