@@ -6,13 +6,13 @@ import './StyleNavbar.css';
 export default function NavBar() {
   return (
     <div className="contanerNavbar">
-    <Link to="/csGo/listOfAccounts">
+    <Link to="/csgo/listOfAccounts">
         <button> Список Аккаунтов </button>
     </Link>
-    <Link to="/csGo/skins">
+    <Link to="/csgo/skins">
       <button>Скины</button>
     </Link>
-    <Link to="/csGo/services">
+    <Link to="/csgo/services">
        <button>Услуги</button>
     </Link>
     </div>

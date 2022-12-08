@@ -16,7 +16,13 @@ const regRouter = require('./routers/regRouter');
 const logoutRouter = require('./routers/logoutRouter');
 const authRouter = require('./routers/authRouter');
 const telegramRouter = require('./routers/telegramRouter');
+
+const GamecreateRoute = require('./routers/gameCsGoCreateRouter');
+const GameWowCreateRouter = require('./routers/gameWowCreateRouter');
+const GameDotaCreateRouter = require('./routers/gameDotaCreateRouter');
+
 const uploadRouter = require('./routers/uploadRouter');
+
 
 // Проверяем подключение к базе данных!
 dbCheck();
@@ -32,7 +38,13 @@ app.use('/reg', regRouter);
 app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
+
+app.use('/', GamecreateRoute);
+app.use('/', GameWowCreateRouter);
+app.use('/', GameDotaCreateRouter);
+
 app.use('/upload', uploadRouter);
+
 
 const PORT = process.env.PORT ?? 3001;
 
