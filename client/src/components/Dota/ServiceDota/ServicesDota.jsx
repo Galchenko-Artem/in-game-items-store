@@ -1,5 +1,8 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
 import { basketAdd } from '../../../store/actions/basketAction';
 
@@ -37,7 +40,7 @@ export default function ServicesDota() {
                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
                     <div>
-                        <button>Info</button>
+                    <Link to={`${el.id}`}><button>Info</button></Link>
                     </div>
                             <div>{el.price}$</div>
                                 <div>

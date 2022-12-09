@@ -24,7 +24,7 @@ import SupportForm from './components/SupportForm/SupportForm';
 import Account from './components/Account/Account';
 import Lots from './components/Account/Lots/Lots';
 import Sales from './components/Account/Sales/Sales';
-import Product from './components/Product/Product';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 import { userAuth } from './store/actions/userAction';
 
 import NewLot from './components/LotForSale/NewLot';
@@ -43,10 +43,11 @@ import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
 import UserPlea from './components/UserPlea/UserPlea';
 import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDota/ServicesDotaCreate';
+import SupportPage from './components/SupportPage/SupportPage';
+import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPage';
 
 function App() {
   const user = useSelector((state) => state.userStore);
-  console.log('===>>> 👉👉👉 file: App.jsx:30 👉👉👉 user', user);
   const dispatch = useDispatch();
   useEffect(() => {
     const abortController = new AbortController();
@@ -57,17 +58,24 @@ function App() {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         dispatch(userAuth(res));
+        console.log(res);
       });
 
     return () => {
       abortController.abort();
     };
   }, []);
+  console.log(user);
   return (
     <>
     <Nav />
     <Routes>
+
+      <Route element={<ProtectedAdminPage />}>
+        <Route path="/admin" element={<SupportPage />} />
+      </Route>
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
@@ -128,7 +136,15 @@ function App() {
         <Route path="services" element={<ServicesCS />} />
       </Route>
 
-      <Route path="/product/:id" element={<Product />} />
+      <Route path="/csgo/listOfAccounts/:id" element={<ProductDetails />} />
+      <Route path="/csgo/skins/:id" element={<ProductDetails />} />
+      <Route path="/csgo/services/:id" element={<ProductDetails />} />
+      <Route path="/dota2/listOfAccounts/:id" element={<ProductDetails />} />
+      <Route path="/dota2/skins/:id" element={<ProductDetails />} />
+      <Route path="/dota2/services/:id" element={<ProductDetails />} />
+      <Route path="/wow/listOfAccounts/:id" element={<ProductDetails />} />
+      <Route path="/wow/items/:id" element={<ProductDetails />} />
+      <Route path="/wow/services/:id" element={<ProductDetails />} />
 
     </Routes>
     </>

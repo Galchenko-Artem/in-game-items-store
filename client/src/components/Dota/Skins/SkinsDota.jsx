@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './StyleSkins.css';
 import { useDispatch } from 'react-redux';
 import { basketAdd } from '../../../store/actions/basketAction';
@@ -41,7 +42,7 @@ export default function SkinsDota() {
                     <div className="element">{el.name}</div>
                         <div className="element">{el.price}$</div>
                             <div className="element">
-                                <button>Info</button>
+                            <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
                                 <div className="element">
        <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>

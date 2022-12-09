@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './StyleAccounts.css';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { basketAdd } from '../../../store/actions/basketAction';
 
 export default function ListAccCS() {
@@ -47,7 +48,7 @@ export default function ListAccCS() {
                      <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
                      </div>
                          <div>
-                             <button>Info</button>
+                         <Link to={`${el.id}`}><button>Info</button></Link>
                          </div>
                                  <div id="id" className="price">{el.price}$</div>
                                   <p>{el.description}</p>
