@@ -27,6 +27,7 @@ const GameLotGetCsGoRouter = require('./routers/gameLotGetCsGoRouter');
 const GameLotGetWowRouter = require('./routers/gameLotGetWowRouter');
 
 const uploadRouter = require('./routers/uploadRouter');
+const SupportRouter = require('./routers/supportRouter');
 
 // Проверяем подключение к базе данных!
 dbCheck();
@@ -45,6 +46,7 @@ app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
 app.use('/lots', lotsRouter);
+app.use('/admin', SupportRouter);
 
 app.use('/', GamecreateRoute);
 app.use('/', GameWowCreateRouter);
@@ -53,7 +55,6 @@ app.use('/', GameDotaCreateRouter);
 app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
-
 
 app.use('/upload', uploadRouter);
 

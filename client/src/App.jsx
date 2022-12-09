@@ -43,10 +43,11 @@ import Basket from './components/Basket/Basket';
 import TestMulter from './components/TestMulter/TestMulter';
 import UserPlea from './components/UserPlea/UserPlea';
 import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDota/ServicesDotaCreate';
+import SupportPage from './components/SupportPage/SupportPage';
+import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPage';
 
 function App() {
   const user = useSelector((state) => state.userStore);
-  console.log('===>>> 👉👉👉 file: App.jsx:30 👉👉👉 user', user);
   const dispatch = useDispatch();
   useEffect(() => {
     const abortController = new AbortController();
@@ -57,6 +58,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         dispatch(userAuth(res));
       });
 
@@ -68,6 +70,10 @@ function App() {
     <>
     <Nav />
     <Routes>
+
+      <Route element={<ProtectedAdminPage />}>
+        <Route path="/admin" element={<SupportPage />} />
+      </Route>
 
       <Route path="/" element={<MainPage />} />
       <Route path="/support" element={<SupportForm />} />
