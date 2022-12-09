@@ -26,6 +26,8 @@ const GameLotGetDotaRouter = require('./routers/gameLotGetDotaRouter');
 const GameLotGetCsGoRouter = require('./routers/gameLotGetCsGoRouter');
 const GameLotGetWowRouter = require('./routers/gameLotGetWowRouter');
 
+const AvatarUpdateRouter = require('./routers/AvatarUpdateRoute');
+
 const uploadRouter = require('./routers/uploadRouter');
 
 // Проверяем подключение к базе данных!
@@ -54,8 +56,9 @@ app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
 
-
 app.use('/upload', uploadRouter);
+
+app.use('/', AvatarUpdateRouter);
 
 const PORT = process.env.PORT ?? 3001;
 

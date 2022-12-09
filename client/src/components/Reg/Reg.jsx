@@ -38,7 +38,11 @@ export default function Reg() {
         } else if (res.status === 'success') {
           setRegMsg(res.msg);
           setTimeout(() => {
-            dispatch(userRegistration({ login: res.login, userId: res.userId }));
+            dispatch(userRegistration({
+              login: res.login,
+              userId: res.userId,
+              image: res.image,
+            }));
             navigate('/');
           }, 1000);
         }

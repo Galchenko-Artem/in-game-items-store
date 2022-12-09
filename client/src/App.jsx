@@ -46,7 +46,7 @@ import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDo
 
 function App() {
   const user = useSelector((state) => state.userStore);
-  console.log('===>>> 👉👉👉 file: App.jsx:30 👉👉👉 user', user);
+  // console.log('===>>> 👉👉👉 file: App.jsx:30 👉👉👉 user', user);
   const dispatch = useDispatch();
   useEffect(() => {
     const abortController = new AbortController();
@@ -58,12 +58,14 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         dispatch(userAuth(res));
+        console.log(res);
       });
 
     return () => {
       abortController.abort();
     };
   }, []);
+  console.log(user);
   return (
     <>
     <Nav />

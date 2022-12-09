@@ -3,7 +3,11 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
   try {
     if (req.session.login) {
-      res.json({ login: req.session.login, userId: req.session.userId });
+      res.json({
+        login: req.session.login,
+        userId: req.session.userId,
+        image: req.session.avatarUser,
+      });
     } else {
       res.json(null);
     }

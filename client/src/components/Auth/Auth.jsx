@@ -39,7 +39,7 @@ export default function Auth() {
         if (res.status === 'success') {
           setAnswer(res.msg);
           setTimeout(() => {
-            dispatch(userAuth({ login: res.login, userId: res.userId }));
+            dispatch(userAuth({ login: res.login, userId: res.userId, image: res.image }));
             navigate('/');
           }, 1000);
         }
