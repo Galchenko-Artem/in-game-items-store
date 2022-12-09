@@ -12,7 +12,6 @@ router.put('/', async (req, res) => {
   const adminMsg = req.body;
   console.log(adminMsg);
   const currentPlea = await Support.findOne({ where: { id: adminMsg.userPleaId } });
-  console.log('===>>> 👉👉👉 file: supportRouter.js:15 👉👉👉 currentPlea', currentPlea);
   const updatedPlea = await currentPlea.update({ answer: adminMsg.adminAnswer, status: true });
-  console.log('===>>> 👉👉👉 file: supportRouter.js:16 👉👉👉 updatedPlea', updatedPlea);
+  res.json({ status: 'success', updatedPlea });
 });

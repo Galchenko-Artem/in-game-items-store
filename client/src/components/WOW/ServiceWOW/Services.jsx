@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { basketAdd } from '../../../store/actions/basketAction';
 
-
 export default function Services() {
   const [services, setServices] = useState();
   const dispatch = useDispatch();
