@@ -1,9 +1,12 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import './StyleAccounts.css';
+import { useDispatch } from 'react-redux';
+import { basketAdd } from '../../../store/actions/basketAction';
 
 export default function ListAccCS() {
   const [acc, setAcc] = useState();
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/csgo/listOfAccounts', {
       credentials: 'include',
@@ -15,6 +18,11 @@ export default function ListAccCS() {
       })
       .catch(console.log);
   }, []);
+
+  const addToBasket = (el) => {
+    dispatch(basketAdd(el));
+  };
+
   return (
     <div className="containerItems">
         ListOfAccounts
@@ -32,11 +40,11 @@ export default function ListAccCS() {
                          <div>
                              <button>Info</button>
                          </div>
-                                 <div>{el.price}$</div>
-                                 <p>{el.description}</p>
-                                     <div>
-                                         <button>Корзина</button>
-                                     </div>
+                                 <div id="id" className="price">{el.price}$</div>
+                                  <p>{el.description}</p>
+                                     <p>
+                     <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>
+                                     </p>
                      </div>
                 ))}
 

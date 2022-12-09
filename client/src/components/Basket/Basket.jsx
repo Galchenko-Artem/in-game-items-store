@@ -1,31 +1,32 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './Basket.module.css';
+import { basketDel } from '../../store/actions/basketAction';
 
 export default function Basket() {
+  const dispatch = useDispatch();
+  const basket = useSelector((store) => store.basketStore);
+
+  const delBasket = (el) => {
+    console.log(basket);
+    dispatch(basketDel(el));
+  };
+
   return (
-    <div className={styles.containerItems}>
-        Basket
-        <div className={styles.containerBasket}>
-            <div className={styles.mainItems}>
-              ТОВАРЫ
-                <div className="boxAccount">
-                    <div className={styles}> img</div>
-                        <div>
-                           Name
-                        </div>
-                                <div>Price</div>
-                                    <div>
-                                        <button type="button">Удалить</button>
-                                    </div>
-                </div>
-              <div className={styles.arrange}>
-              <div>
-                Сумма
-              </div>
-                <button type="button">Оформить заказ</button>
-              </div>
-            </div>
-        </div>
+    <>
+    <div>
+      { basket.map((el) => (
+         <div key={el.id}>
+           <div> {el.name}</div>
+           <div> {el.price}</div>
+           <div> <img src={`http://localhost:3001/${el.image}`} alt="" /></div>
+           <button onClick={() => delBasket(el.id)} type="button">Удалить</button>
+         </div>
+      )) }
     </div>
+    <div> Общая сумма: {basket.reduce((a, b) => a + b.price, 0)}</div>
+    <button type="button">Оформить заказ</button>
+
+    </>
   );
 }
