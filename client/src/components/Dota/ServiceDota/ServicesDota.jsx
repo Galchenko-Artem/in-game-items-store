@@ -1,9 +1,15 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { basketAdd } from '../../../store/actions/basketAction';
+
 
 export default function ServicesDota() {
   const [services, setServices] = useState();
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/dota2/services', {
       credentials: 'include',
@@ -15,6 +21,11 @@ export default function ServicesDota() {
       })
       .catch(console.log);
   }, []);
+
+  const addToBasket = (el) => {
+    dispatch(basketAdd(el));
+  };
+
   return (
     <div className="containerItems">
         Services
@@ -34,7 +45,7 @@ export default function ServicesDota() {
                     </div>
                             <div>{el.price}$</div>
                                 <div>
-                                    <button>Корзина</button>
+   <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>
                                 </div>
                 </div>
                 ))}

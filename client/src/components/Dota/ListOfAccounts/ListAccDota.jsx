@@ -1,12 +1,14 @@
-/* eslint-disable import/no-duplicates */
-/* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import './StyleAccounts.css';
+import { useDispatch } from 'react-redux';
+import { basketAdd } from '../../../store/actions/basketAction';
 
 export default function ListAccDota() {
   const [acc, setAcc] = useState();
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/dota2/listOfAccounts', {
       credentials: 'include',
@@ -18,6 +20,10 @@ export default function ListAccDota() {
       })
       .catch(console.log);
   }, []);
+
+  const addToBasket = (el) => {
+    dispatch(basketAdd(el));
+  };
 
   return (
     <div className="containerItems">
@@ -40,7 +46,7 @@ export default function ListAccDota() {
                       </div>
                               <div>{el.price} $</div>
                                   <div>
-                                      <button>Корзина</button>
+          <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>
                                   </div>
               </div>
 
