@@ -11,8 +11,8 @@ router.post('/', async (req, res) => {
     price: el.price,
     image: el.image,
     UserId: user_id,
-
   });
+  res.json({ status: 'success' });
 });
 
 module.exports = router;

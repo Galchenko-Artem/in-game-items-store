@@ -7,14 +7,14 @@ export default function Basket() {
   const dispatch = useDispatch();
   const basket = useSelector((store) => store.basketStore);
 
-  useEffect(() => {
-    fetch('http://localhost:3001/basket', {
-      credentials: 'include',
-    })
-      .then((res) => res.json())
-      .then((data) => {
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/basket', {
+  //     credentials: 'include',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //     });
+  // }, []);
 
   const delBasket = (el) => {
     console.log(basket);
