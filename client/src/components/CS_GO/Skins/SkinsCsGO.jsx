@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './StyleSkins.css';
 import { useDispatch } from 'react-redux';
 import { basketAdd } from '../../../store/actions/basketAction';
@@ -42,7 +43,7 @@ export default function SkinsCsGO() {
                     <div>{el.name}</div>
                         <div>{el.price}$</div>
                             <div>
-                                <button>Info</button>
+                            <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
                                 <div>
          <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>

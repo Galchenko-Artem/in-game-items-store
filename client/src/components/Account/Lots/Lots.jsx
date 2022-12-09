@@ -94,6 +94,10 @@ export default function Lots() {
       }).catch(console.log);
   };
 
+  const handleClose = () => {
+    setIsEdit(!isEdit);
+  }
+
   return (
     <div style={{ display: 'flex' }}>
 <div>
@@ -106,7 +110,7 @@ export default function Lots() {
       {!lot.approved ? (<div>Статус: На рассмотрении</div>) : (null) }
       <div>Выставлен на продажу: {new Date(lot.updatedAt).toLocaleDateString()}</div>
       <button type="button" onClick={handleDeleteLot} id={lot.id}> Удалить</button>
-      <button type="button" onClick={handleEditLot} id={lot.id}> Редактировать</button>
+      <button type="button" className={`${!isEdit ? 'visible' : 'invisible'}`} onClick={handleEditLot} id={lot.id}> Редактировать</button>
     </div>
   ))}
 </div>
@@ -117,7 +121,8 @@ export default function Lots() {
     <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
     <input onChange={handeleInput} name="image" value={form.image} placeholder="img" />
     <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-    <button type="submit">Отправить изменения</button>
+    <button type="button" onClick={handleClose}> Закрыть</button>
+    <button type="submit" onClick={handleClose}>Отправить изменения</button>
 </form>
 </div>
     </div>

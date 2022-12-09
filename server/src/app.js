@@ -27,6 +27,7 @@ const GameLotGetCsGoRouter = require('./routers/gameLotGetCsGoRouter');
 const GameLotGetWowRouter = require('./routers/gameLotGetWowRouter');
 
 const uploadRouter = require('./routers/uploadRouter');
+const productRouter = require('./routers/productRouter')
 
 // Проверяем подключение к базе данных!
 dbCheck();
@@ -53,6 +54,8 @@ app.use('/', GameDotaCreateRouter);
 app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
+
+app.use('/product', productRouter)
 
 
 app.use('/upload', uploadRouter);
