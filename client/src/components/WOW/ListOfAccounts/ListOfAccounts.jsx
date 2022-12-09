@@ -1,9 +1,12 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import './StyleAccounts.css';
+import { useDispatch } from 'react-redux';
+import { basketAdd } from '../../../store/actions/basketAction';
 
 export default function ListOfAccounts() {
   const [acc, setAcc] = useState();
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/wow/listOfAccounts', {
       credentials: 'include',
@@ -15,6 +18,10 @@ export default function ListOfAccounts() {
       })
       .catch(console.log);
   }, []);
+
+  const addToBasket = (el) => {
+    dispatch(basketAdd(el));
+  };
 
   return (
     <div className="containerItems">
@@ -35,7 +42,7 @@ export default function ListOfAccounts() {
                         </div>
                                 <div>$:{el.price}</div>
                                     <div>
-                                        <button>Корзина</button>
+    <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>
                                     </div>
                 </div>
 
