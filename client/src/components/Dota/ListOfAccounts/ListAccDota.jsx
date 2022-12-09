@@ -1,6 +1,7 @@
 /* eslint-disable import/no-duplicates */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './StyleAccounts.css';
 
@@ -35,7 +36,7 @@ export default function ListAccDota() {
                     <p>{el.description}</p>
                   </div>
                       <div>
-                          <button>Info</button>
+                      <Link to={`${el.id}`}><button>Info</button></Link>
                       </div>
                               <div>{el.price} $</div>
                                   <div>

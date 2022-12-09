@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './StyleItems.css';
 
 export default function Items() {
@@ -33,7 +34,7 @@ export default function Items() {
                     <div>{el.name}</div>
                         <div>{el.price}$</div>
                             <div>
-                                <button>Info</button>
+                            <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
                                 <div>
                                     <button>Корзина</button>

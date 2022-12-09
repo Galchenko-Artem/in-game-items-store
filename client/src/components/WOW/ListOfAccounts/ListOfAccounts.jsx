@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './StyleAccounts.css';
 
 export default function ListOfAccounts() {
@@ -31,7 +32,7 @@ export default function ListOfAccounts() {
                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
                     </div>
                         <div>
-                            <button>Info</button>
+                        <Link to={`${el.id}`}><button>Info</button></Link>
                         </div>
                                 <div>$:{el.price}</div>
                                     <div>

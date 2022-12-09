@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './StyleSkins.css';
 
 export default function SkinsCsGO() {
@@ -34,7 +35,7 @@ export default function SkinsCsGO() {
                     <div>{el.name}</div>
                         <div>{el.price}$</div>
                             <div>
-                                <button>Info</button>
+                            <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
                                 <div>
                                     <button>Корзина</button>
