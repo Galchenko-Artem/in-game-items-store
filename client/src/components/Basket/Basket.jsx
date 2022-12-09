@@ -26,7 +26,6 @@ export default function Basket() {
     </div>
     <div> Общая сумма: {basket.reduce((a, b) => a + b.price, 0)}</div>
     <button type="button">Оформить заказ</button>
-
     </>
   );
 }
