@@ -3,7 +3,6 @@ import './userPlea.css';
 
 export default function UserPlea() {
   const [userPleas, setUserPleas] = useState([]);
-  console.log('===>>> 👉👉👉 file: UserPlea.jsx:5 👉👉👉 userPleas', userPleas);
   useEffect(() => {
     fetch('http://localhost:3001/request', {
       credentials: 'include',

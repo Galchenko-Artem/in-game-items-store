@@ -59,16 +59,13 @@ function App() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         dispatch(userAuth(res));
-        console.log(res);
       });
 
     return () => {
       abortController.abort();
     };
   }, []);
-  console.log(user);
   return (
     <>
     <Nav />

@@ -33,6 +33,23 @@ export default function SupportLots() {
         }
       });
   };
+
+  const removeLot = (el) => {
+    fetch('http://localhost:3001/admin/lots', {
+      credentials: 'include',
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(el),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 'success') {
+          setProducts(products.filter((product) => product.id !== el.id));
+        }
+      });
+  };
   return (
     <>
     <Link className="nav-main" to="/admin"><button>Назад к обращениям</button></Link>
@@ -45,7 +62,7 @@ export default function SupportLots() {
          Цена: {product.price}
          <br />
         <button type="button" onClick={() => addLot(product)}>Одобрить</button>
-        <button type="button">Отклонить</button>
+        <button type="button" onClick={() => removeLot(product)}>Отклонить</button>
       </div>
     </div>
     ))}

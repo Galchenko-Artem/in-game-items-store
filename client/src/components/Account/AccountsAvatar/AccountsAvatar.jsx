@@ -41,7 +41,6 @@ export default function AccountsAvatar() {
         setUseBD(res.image);
       });
   };
-  console.log('>>>>>>', userBD);
 
   const testImg = (e) => {
     setImg(e.target.files[0]);

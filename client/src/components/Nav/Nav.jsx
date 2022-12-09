@@ -8,7 +8,6 @@ import { userLogout, userAvatar } from '../../store/actions/userAction';
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
   const [userBD, setUseBD] = useState(`${user?.image}`);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,6 +23,7 @@ export default function Nav() {
       });
   };
   useEffect(() => {
+    console.log('nav usseffect');
     fetch('http://localhost:3001/account', {
 
       credentials: 'include',
@@ -31,7 +31,7 @@ export default function Nav() {
     })
       .then((res) => res.json())
       .then((res) => {
-        // dispatch(userAvatar(res.image));
+        dispatch(userAvatar(res.image));
         setUseBD(res.image);
       });
   }, []);
@@ -49,7 +49,7 @@ export default function Nav() {
 
     <Link className="nav-main" to="/basket"> Корзина </Link>
      <Link className="nav-mainAvatar" to="/account"> Личный кабинет
-    {user.image ? <p>Privet</p> : <img className="imgAvatar" src={`http://localhost:3001/${userBD && userBD}`} alt="Avatar" /> }
+    {!user.user.image ? <p>Privet</p> : <img className="imgAvatar" src={`http://localhost:3001/${user.user?.image && user.user?.image}`} alt="Avatar" /> }
      </Link>
 
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
