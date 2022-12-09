@@ -5,7 +5,6 @@ export default function SupportPage() {
   const [pleas, setPleas] = useState([]);
   const [classForm, setClassForm] = useState('formClassNone');
   const [adminMsg, setAdminMsg] = useState({ adminAnswer: '', userPleaId: '' });
-
   useEffect(() => {
     console.log('useeffect');
     fetch('http://localhost:3001/admin', {
@@ -41,10 +40,12 @@ export default function SupportPage() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        if (res.status === 'success') {
+          setPleas(pleas.filter((el) => el.id !== +adminMsg.userPleaId));
+        }
       });
   };
-
+  console.log(pleas);
   return (
     <>
     <h2>Запросы пользователей</h2>
