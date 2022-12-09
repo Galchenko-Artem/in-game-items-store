@@ -43,7 +43,9 @@ export default function Auth() {
               login: res.login,
               userId: res.userId,
               isAdmin: res.isAdmin,
+              image: res.image
             }));
+
             navigate('/');
           }, 1000);
         }

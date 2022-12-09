@@ -9,6 +9,14 @@
   text-decoration: none;
   color: black
 }
+.nav-mainAvatar{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  text-decoration: none;
+  color: black
+  
+}
 
 .nav-main:hover {
   color: orange
@@ -48,4 +56,10 @@
 .logout-btn:before {
   left: 150px;
   transition: .5s ease-in-out;
+}
+
+.imgAvatar{
+  max-width: 5rem;
+  border-radius: 100%;
+  margin-left: 10px;
 }

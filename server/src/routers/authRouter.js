@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
       if (validPassword) {
         req.session.login = user.login;
         req.session.userId = user.id;
+        req.session.avatarUser = user.image;
         req.session.isAdmin = user.isAdmin;
         return res.json({
           status: 'success',
@@ -21,6 +22,7 @@ router.post('/', async (req, res) => {
           login: req.session.login,
           userId: req.session.userId,
           isAdmin: req.session.isAdmin,
+          image: req.session.avatarUser
         });
       }
     }
