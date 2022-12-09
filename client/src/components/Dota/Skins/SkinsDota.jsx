@@ -1,9 +1,12 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import './StyleSkins.css';
+import { useDispatch } from 'react-redux';
+import { basketAdd } from '../../../store/actions/basketAction';
 
 export default function SkinsDota() {
   const [skins, setSkins] = useState();
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/dota2/services', {
       credentials: 'include',
@@ -15,6 +18,11 @@ export default function SkinsDota() {
       })
       .catch(console.log);
   }, []);
+
+  const addToBasket = (el) => {
+    dispatch(basketAdd(el));
+  };
+
   return (
     <div className="containerItems">
     Skins
@@ -36,7 +44,7 @@ export default function SkinsDota() {
                                 <button>Info</button>
                             </div>
                                 <div className="element">
-                                    <button>Корзина</button>
+       <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>
                                 </div>
                 </div>
                               <div className="descriptionDotaSkins">
