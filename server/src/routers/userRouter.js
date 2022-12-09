@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
       res.json({
         login: req.session.login,
         userId: req.session.userId,
+        isAdmin: req.session.isAdmin,
         image: req.session.avatarUser,
       });
     } else {

@@ -8,6 +8,7 @@ import { userLogout, userAvatar } from '../../store/actions/userAction';
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
   const [userBD, setUseBD] = useState(`${user?.image}`);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -37,6 +38,7 @@ export default function Nav() {
   }, []);
 
   return (
+
   <div className="nav-div">
     <Link className="nav-main" to="/">Главная</Link>
     <Link className="nav-main" to="/multer">Мультер</Link>
@@ -53,6 +55,7 @@ export default function Nav() {
 
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
 
+ {user.user.isAdmin && <Link className="nav-main" to="/admin"> Админ </Link>}
     </>
   ) : (
     <>

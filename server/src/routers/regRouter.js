@@ -35,12 +35,14 @@ router.post('/', async (req, res) => {
       const newUser = await User.create({ login, email, password: hash });
       req.session.login = newUser.login;
       req.session.userId = newUser.id;
+      req.session.isAdmin = newUser.isAdmin;
       req.session.avatarUser = newUser.image;
       return res.json({
         status: 'success',
         msg: 'Успешная регистрация',
         login: req.session.login,
         userId: req.session.userId,
+        isAdmin: req.session.isAdmin,
         image: req.session.avatarUser,
       });
     }
