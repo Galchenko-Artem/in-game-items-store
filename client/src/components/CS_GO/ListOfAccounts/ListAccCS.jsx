@@ -21,6 +21,15 @@ export default function ListAccCS() {
 
   const addToBasket = (el) => {
     dispatch(basketAdd(el));
+    fetch('http://localhost:3001/basket', {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(el),
+    })
+      .then((res) => console.log(res));
   };
 
   return (
