@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Basket.module.css';
 import { basketDel } from '../../store/actions/basketAction';
@@ -6,6 +6,15 @@ import { basketDel } from '../../store/actions/basketAction';
 export default function Basket() {
   const dispatch = useDispatch();
   const basket = useSelector((store) => store.basketStore);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/basket', {
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+      });
+  }, []);
 
   const delBasket = (el) => {
     console.log(basket);
