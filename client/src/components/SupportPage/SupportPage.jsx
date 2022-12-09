@@ -29,6 +29,7 @@ export default function SupportPage() {
   };
 
   const sendAnswer = () => {
+    setClassForm('formClassNone');
     fetch('http://localhost:3001/admin', {
       credentials: 'include',
       method: 'PUT',
