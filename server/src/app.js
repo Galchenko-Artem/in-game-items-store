@@ -31,8 +31,9 @@ const AvatarUpdateRouter = require('./routers/AvatarUpdateRoute');
 const uploadRouter = require('./routers/uploadRouter');
 
 const SupportRouter = require('./routers/supportRouter');
+const SupportLotsRouter = require('./routers/supportLotsRouter');
 
-const productRouter = require('./routers/productRouter')
+const productRouter = require('./routers/productRouter');
 
 // Проверяем подключение к базе данных!
 dbCheck();
@@ -51,7 +52,9 @@ app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
 app.use('/lots', lotsRouter);
+
 app.use('/admin', SupportRouter);
+app.use('/admin/lots', SupportLotsRouter);
 
 app.use('/', GamecreateRoute);
 app.use('/', GameWowCreateRouter);
@@ -61,9 +64,7 @@ app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
 
-
-app.use('/product', productRouter)
-
+app.use('/product', productRouter);
 
 app.use('/upload', uploadRouter);
 

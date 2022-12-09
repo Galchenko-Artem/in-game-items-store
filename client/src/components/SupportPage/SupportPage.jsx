@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './supportpage.css';
+import { Link } from 'react-router-dom';
+import './supportPage.css';
 
 export default function SupportPage() {
   const [pleas, setPleas] = useState([]);
@@ -20,10 +21,8 @@ export default function SupportPage() {
 
   const showAnwerForm = (el) => {
     setClassForm('formAnswerPleas');
-    console.log(el);
     setAdminMsg({ adminAnswer: '', userPleaId: el.id });
   };
-  console.log(adminMsg);
 
   const textAreaMsg = (e) => {
     setAdminMsg({ ...adminMsg, adminAnswer: e.target.value });
@@ -45,9 +44,12 @@ export default function SupportPage() {
         }
       });
   };
-  console.log(pleas);
+
+  const currentPlea = pleas.find((el) => el.id === adminMsg.userPleaId);
+
   return (
     <>
+   <Link className="nav-main" to="/admin/lots"><button>Перейти на лоты</button></Link>
     <h2>Запросы пользователей</h2>
     {!pleas.length ? (
       <p>Запросов на данный момент нет</p>
@@ -62,6 +64,7 @@ export default function SupportPage() {
       </div>
     )}
   <form className={classForm} action="">
+    <div>{currentPlea?.question}</div>
         <textarea onChange={textAreaMsg} className="formElement inputPleaAnswer" placeholder="Ответ" type="text" name="adminAnswer" value={adminMsg.adminAnswer} id="" />
         <button onClick={sendAnswer} className="formElement" type="button">Отправить</button>
   </form>

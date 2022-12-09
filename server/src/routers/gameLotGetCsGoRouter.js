@@ -3,7 +3,7 @@ const { Product } = require('../../db/models');
 
 router.get('/csgo/listOfAccounts', async (req, res) => {
   try {
-    const gameLots = await Product.findAll();
+    const gameLots = await Product.findAll({ where: { approved: true } });
 
     res.json(gameLots);
     // console.log(gameLots);

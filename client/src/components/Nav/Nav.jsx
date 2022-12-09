@@ -8,7 +8,7 @@ import { userLogout, userAvatar } from '../../store/actions/userAction';
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
   const [userBD, setUseBD] = useState(`${user?.image}`);
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,7 +31,6 @@ export default function Nav() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log('UseEffect...>>>', res);
         // dispatch(userAvatar(res.image));
         setUseBD(res.image);
       });
