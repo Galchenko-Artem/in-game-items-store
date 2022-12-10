@@ -1,0 +1,14 @@
+.supportLotWrapper {
+  display: flex;
+  max-width: 600px;
+  max-height: 70px;
+}
+
+.supportLot {
+  background-color: rgba(157, 162, 162, 0.5);
+}
+
+.imgLot {
+  max-width: 55px;
+  max-height: 70px;
+}

@@ -26,7 +26,15 @@ const GameLotGetDotaRouter = require('./routers/gameLotGetDotaRouter');
 const GameLotGetCsGoRouter = require('./routers/gameLotGetCsGoRouter');
 const GameLotGetWowRouter = require('./routers/gameLotGetWowRouter');
 
+const AvatarUpdateRouter = require('./routers/AvatarUpdateRoute');
+
 const uploadRouter = require('./routers/uploadRouter');
+
+const basketRouter = require('./routers/basketRouter');
+
+const SupportRouter = require('./routers/supportRouter');
+const SupportLotsRouter = require('./routers/supportLotsRouter');
+
 const productRouter = require('./routers/productRouter');
 
 // Проверяем подключение к базе данных!
@@ -47,6 +55,12 @@ app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
 app.use('/lots', lotsRouter);
 
+app.use('/basket', basketRouter);
+
+app.use('/admin', SupportRouter);
+app.use('/admin/lots', SupportLotsRouter);
+
+
 app.use('/', GamecreateRoute);
 app.use('/', GameWowCreateRouter);
 app.use('/', GameDotaCreateRouter);
@@ -58,6 +72,8 @@ app.use('/', GameLotGetWowRouter);
 app.use('/product', productRouter);
 
 app.use('/upload', uploadRouter);
+
+app.use('/', AvatarUpdateRouter);
 
 const PORT = process.env.PORT ?? 3001;
 

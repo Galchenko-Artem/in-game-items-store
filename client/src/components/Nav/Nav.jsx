@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './nav.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { userLogout } from '../../store/actions/userAction';
+import { userLogout, userAvatar } from '../../store/actions/userAction';
 
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
+  const [userBD, setUseBD] = useState(`${user?.image}`);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,8 +22,22 @@ export default function Nav() {
         navigate('/');
       });
   };
+  useEffect(() => {
+    console.log('nav usseffect');
+    fetch('http://localhost:3001/account', {
+
+      credentials: 'include',
+
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(userAvatar(res.image));
+        setUseBD(res.image);
+      });
+  }, []);
 
   return (
+
   <div className="nav-div">
     <Link className="nav-main" to="/">Главная</Link>
     <Link className="nav-main" to="/multer">Мультер</Link>
@@ -30,14 +45,16 @@ export default function Nav() {
     <>
     <Link className="nav-main" to="/support"> Поддержка </Link>
 
-    <Link className="nav-main" to="/account"> Личный кабинет </Link>
-
     <Link className="nav-main" to="/userPlea">Обращения пользователя</Link>
 
     <Link className="nav-main" to="/basket"> Корзина </Link>
+     <Link className="nav-mainAvatar" to="/account"> Личный кабинет
+    {!user.user.image ? <p>Privet</p> : <img className="imgAvatar" src={`http://localhost:3001/${user.user?.image && user.user?.image}`} alt="Avatar" /> }
+     </Link>
 
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
 
+ {user.user.isAdmin && <Link className="nav-main" to="/admin"> Админ </Link>}
     </>
   ) : (
     <>

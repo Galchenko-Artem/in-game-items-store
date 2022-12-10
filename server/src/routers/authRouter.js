@@ -14,8 +14,15 @@ router.post('/', async (req, res) => {
       if (validPassword) {
         req.session.login = user.login;
         req.session.userId = user.id;
+        req.session.avatarUser = user.image;
+        req.session.isAdmin = user.isAdmin;
         return res.json({
-          status: 'success', msg: 'Успешный вход', login: req.session.login, userId: req.session.userId,
+          status: 'success',
+          msg: 'Успешный вход',
+          login: req.session.login,
+          userId: req.session.userId,
+          isAdmin: req.session.isAdmin,
+          image: req.session.avatarUser,
         });
       }
     }

@@ -11,6 +11,8 @@ export const userReducer = (state = { user: null }, action) => {
     case type.USER_LOGOUT:
       return { ...state, user: action.payload };
 
+    case type.USER_AVATAR:
+      return { ...state, user: { ...state.user, image: action.payload } };
     default:
       return state;
   }
