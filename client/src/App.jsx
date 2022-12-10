@@ -89,16 +89,16 @@ function App() {
             <Route path="skinsCreate" element={<SkinsCs />} />
             <Route path="servicesCreate" element={<ServicesCs />} />
           </Route>
-              <Route path="wow" element={<WowLotCreate />}>
-                <Route path="createAcc" element={<ListAccWowCreate />} />
-                <Route path="skinsCreate" element={<ItemsWowCreate />} />
-                <Route path="servicesCreate" element={<ServicesWow />} />
-              </Route>
-                      <Route path="dota" element={<DotaLotCreate />}>
-                        <Route path="createAcc" element={<ListAccDotaCreate />} />
-                        <Route path="skinsCreate" element={<SkinsDotaCreate />} />
-                        <Route path="servicesCreate" element={<ServicesDotaCreate />} />
-                      </Route>
+          <Route path="wow" element={<WowLotCreate />}>
+            <Route path="createAcc" element={<ListAccWowCreate />} />
+            <Route path="skinsCreate" element={<ItemsWowCreate />} />
+            <Route path="servicesCreate" element={<ServicesWow />} />
+          </Route>
+          <Route path="dota" element={<DotaLotCreate />}>
+            <Route path="createAcc" element={<ListAccDotaCreate />} />
+            <Route path="skinsCreate" element={<SkinsDotaCreate />} />
+            <Route path="servicesCreate" element={<ServicesDotaCreate />} />
+          </Route>
         </Route>
       </Route>
 
