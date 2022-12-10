@@ -8,6 +8,9 @@ export const basketReducer = (state = [], action) => {
     case type.BASKET_DELL:
       return state.filter((el) => el.id !== action.payload);
 
+    case type.BASKET_ADD_FROM_BD:
+      return action.payload;
+
     default:
       return state;
   }
