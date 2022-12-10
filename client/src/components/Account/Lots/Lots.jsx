@@ -5,8 +5,15 @@ export default function Lots() {
   const [lots, setLots] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
 
+  const [form, setForm] = useState({
+    name: '',
+    price: '',
+    description: '',
+  });
+  const [img, setImg] = useState(null);
+
   useEffect(() => {
-    const abortController = new AbortController();
+    // const abortController = new AbortController();
     fetch('http://localhost:3001/lots', {
       credentials: 'include',
     })
@@ -43,13 +50,6 @@ export default function Lots() {
       }).catch(console.log);
   };
 
-  const [form, setForm] = useState({
-    name: '',
-    price: '',
-    image: '',
-    description: '',
-  });
-
   const handleEditLot = (e) => {
     // console.log(e.target.id);
     setIsEdit(!isEdit);
@@ -74,29 +74,38 @@ export default function Lots() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = new FormData();
+    data.append('avatar', img);
+    data.append('form', JSON.stringify(form));
     fetch('http://localhost:3001/lots', {
       method: 'POST',
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form),
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      // body: JSON.stringify(form),
+      body: data,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((res) => {
         // console.log('ИЗМЕНЕННЫЙ ПРОДУКТ', data);
         setLots((arr) => arr.map((el) => {
-          if (el.id === data.id) {
-            return data;
+          if (el.id === res.id) {
+            return res;
           }
           return el;
         }));
       }).catch(console.log);
   };
 
+  const testImg = (e) => {
+    setImg(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+
   const handleClose = () => {
     setIsEdit(!isEdit);
-  }
+  };
 
   return (
     <div style={{ display: 'flex' }}>
@@ -119,7 +128,8 @@ export default function Lots() {
 <form className="containerInput" onSubmit={handleSubmit}>
     <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
     <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
-    <input onChange={handeleInput} name="image" value={form.image} placeholder="img" />
+    {/* <input onChange={handeleInput} name="image" value={form.image} placeholder="img" /> */}
+    <div>Изменить картинку: <input type="file" onChange={testImg} /></div>
     <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
     <button type="button" onClick={handleClose}> Закрыть</button>
     <button type="submit" onClick={handleClose}>Отправить изменения</button>
