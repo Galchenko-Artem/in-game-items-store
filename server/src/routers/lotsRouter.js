@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.post('/', fileMiddleware.single('avatar'), async (req, res) => {
   try {
     const newForm = JSON.parse(req.body.form);
-    console.log('ФАЙЛ ПРИ РЕДАКТИРОВАНИИ', req.file);
+    // console.log('ФАЙЛ ПРИ РЕДАКТИРОВАНИИ', req.file); 
     const { userId } = req.session;
     const {
       id, name, price, GameId, CategoryId, image, description,

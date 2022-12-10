@@ -9,13 +9,16 @@ router.get('/:id', async (req, res) => {
     const product = await Product.findOne(
       {
         where: { id: +req.params.id },
-        include: [Category, Game, Lot],
+        include: [Category, Game],
         // include: [Category, Game, { model: Lot, include: User }],
         // include: [Category, Game, { model: Lot, where:  }],
       },
     );
     console.log('КОНКРЕТНЫЙ ПРОДУКТ', product);
-    res.json(product);
+    const vendor = await Lot.findOne({ where: { ProductId: +req.params.id }, include: User });
+    // console.log('USER======>', vendor.dataValues.User.dataValues.login);
+    const vendorName = vendor?.dataValues.User.dataValues.login;
+    res.json({ product, vendorName });
   } catch (error) {
     console.log(error);
   }
