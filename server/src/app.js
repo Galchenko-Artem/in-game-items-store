@@ -29,6 +29,7 @@ const GameLotGetWowRouter = require('./routers/gameLotGetWowRouter');
 const AvatarUpdateRouter = require('./routers/AvatarUpdateRoute');
 
 const uploadRouter = require('./routers/uploadRouter');
+
 const basketRouter = require('./routers/basketRouter');
 
 const SupportRouter = require('./routers/supportRouter');
@@ -68,8 +69,7 @@ app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
 
-
-app.use('/product', productRouter)
+app.use('/product', productRouter);
 
 app.use('/upload', uploadRouter);
 
