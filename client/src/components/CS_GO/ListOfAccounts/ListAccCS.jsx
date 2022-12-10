@@ -30,6 +30,7 @@ export default function ListAccCS() {
       },
       body: JSON.stringify(el),
     })
+      .then((res) => res.json())
       .then((res) => console.log(res));
   };
 
