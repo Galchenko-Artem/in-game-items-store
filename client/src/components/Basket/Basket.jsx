@@ -1,56 +1,68 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Basket.module.css';
-import { basketDel, BasketAddFromBd } from '../../store/actions/basketAction';
+import { basketDel } from '../../store/actions/basketAction';
 
 export default function Basket() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch('http://localhost:3001/basket', {
-      credentials: 'include',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch(BasketAddFromBd(res));
-      })
-      .catch();
-  }, []);
-
   const basket = useSelector((store) => store.basketStore);
+  console.log('===>>> 👉👉👉 file: Basket.jsx:10 👉👉👉 basket', basket);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/basket/1', {
+  //     credentials: 'include',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setBasket(res);
+  //       console.log(res);
+  //     })
+  //     .catch();
+  // }, []);
 
   const delBasket = (el) => {
-    console.log('===>>> 👉👉👉 file: Basket.jsx:20 👉👉👉 el', el);
-    dispatch(basketDel(el));
     fetch('http://localhost:3001/basket', {
       method: 'DELETE',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        id: el,
-      }),
+      body: JSON.stringify(
+        el,
+      ),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.status === 'deleted') {
+          dispatch(basketDel(el.id));
+        }
+      })
       .catch();
+  };
+
+  const butItems = (e) => {
+    e.preventDefault();
+    const money = document.querySelector('.allMoney').textContent;
+    console.log(money);
+    console.log(basket);
   };
 
   return (
     <>
     <div>
-      {basket.length > 0 && basket.map((el) => (
+      {basket?.length > 0 && basket.map((el) => (
          <div key={el.id}>
            <div> {el.name}</div>
            <div> {el.price}</div>
            <div> <img src={`http://localhost:3001/${el.image}`} alt="" /></div>
-           <button onClick={() => delBasket(el.id)} type="button">Удалить</button>
+           <button onClick={() => delBasket(el)} type="button">Удалить</button>
          </div>
       )) }
     </div>
-     <div> Общая сумма: {basket.reduce((acc, el) => acc + el.price, 0)}</div>
-     <button type="button">Оформить заказ</button>
+        <div>
+          Общая сумма: <span className="allMoney">{basket.reduce((acc, el) => acc + el.price, 0)}</span>
+        </div>
+     <button onClick={butItems} type="button">Оформить заказ</button>
     </>
   );
 }

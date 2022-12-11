@@ -18,7 +18,9 @@ export default function Nav() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        if (res.status === 'success') { dispatch(userLogout(null)); }
+        if (res.status === 'success') {
+          dispatch(userLogout(null));
+        }
         navigate('/');
       });
   };

@@ -59,7 +59,6 @@ app.use('/basket', basketRouter);
 app.use('/admin', SupportRouter);
 app.use('/admin/lots', SupportLotsRouter);
 
-
 app.use('/', GamecreateRoute);
 app.use('/', GameWowCreateRouter);
 app.use('/', GameDotaCreateRouter);
@@ -68,8 +67,7 @@ app.use('/', GameLotGetDotaRouter);
 app.use('/', GameLotGetCsGoRouter);
 app.use('/', GameLotGetWowRouter);
 
-
-app.use('/product', productRouter)
+app.use('/product', productRouter);
 
 app.use('/upload', uploadRouter);
 

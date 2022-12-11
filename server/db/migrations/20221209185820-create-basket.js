@@ -8,19 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.TEXT,
-      },
-      price: {
-        type: Sequelize.INTEGER,
-      },
-      image: {
-        type: Sequelize.TEXT,
-      },
       UserId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
+          key: 'id',
+        },
+      },
+      ProductId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Products',
           key: 'id',
         },
       },
