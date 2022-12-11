@@ -29,7 +29,6 @@ router.post('/', async (req, res) => {
 router.delete('/', async (req, res) => {
   const { id } = req.body;
   const { userId } = req.session;
-  console.log(req.body, id, 'DELETE');
   const deleted = await Basket.destroy({ where: { UserId: userId, ProductId: id } });
   res.json({ status: 'deleted', msg: 'Удалено из корзины' });
 });
