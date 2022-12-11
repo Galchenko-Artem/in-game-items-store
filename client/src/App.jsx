@@ -46,9 +46,10 @@ import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDo
 import SupportPage from './components/SupportPage/SupportPage';
 import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPage';
 import SupportLots from './components/SupportPage/SupportLots/SupportLots';
+import { BasketAddFromBd } from './store/actions/basketAction';
 
 function App() {
-  const user = useSelector((state) => state.userStore);
+  // const user = useSelector((state) => state.userStore);
   const dispatch = useDispatch();
   useEffect(() => {
     const abortController = new AbortController();
@@ -58,14 +59,28 @@ function App() {
       signal: abortController.signal,
     })
       .then((res) => res.json())
-      .then((res) => {
-        dispatch(userAuth(res));
+      .then(({ user, basket }) => {
+        console.log('===>>> 👉👉👉 file: App.jsx:63 👉👉👉 res', user, basket);
+        dispatch(userAuth(user));
+        dispatch(BasketAddFromBd(basket));
       });
 
     return () => {
       abortController.abort();
     };
   }, []);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/basket', {
+  //     credentials: 'include',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       dispatch(BasketAddFromBd(res));
+  //     })
+  //     .catch();
+  // }, []);
+
   return (
     <>
     <Nav />

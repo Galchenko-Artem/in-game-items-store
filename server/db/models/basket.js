@@ -9,14 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User }) {
+    static associate({ User, Product }) {
       this.belongsTo(User);
+      this.belongsTo(Product);
     }
   }
   Basket.init({
-    name: DataTypes.TEXT,
-    price: DataTypes.INTEGER,
-    image: DataTypes.TEXT,
+    ProductId: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER,
   }, {
     sequelize,

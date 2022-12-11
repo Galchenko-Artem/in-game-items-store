@@ -14,7 +14,6 @@ export default function SkinsCsGO() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setSkins(data.filter((el) => el.CategoryId === 2 && el.GameId === 1));
       })
       .catch(console.log);
@@ -22,16 +21,16 @@ export default function SkinsCsGO() {
 
   const addToBasket = (el) => {
     dispatch(basketAdd(el));
-    fetch('http://localhost:3001/basket', {
-      credentials: 'include',
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(el),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    // fetch('http://localhost:3001/basket', {
+    //   credentials: 'include',
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify(el),
+    // })
+    //   .then((res) => res.json())
+    //   .then((res) => console.log(res));
   };
 
   return (
