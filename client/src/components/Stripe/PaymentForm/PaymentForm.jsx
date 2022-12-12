@@ -26,11 +26,18 @@ const CARD_OPTIONS = {
 
 export default function PaymentForm() {
   const [success, setSuccess] = useState(false);
+  const [stripeForm, setStripeForm] = useState('visible');
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!stripe || !elements) {
+      setStripeForm('unvisible');
+      // Stripe.js has not yet loaded.
+      // Make sure to disable form submission until Stripe.js has loaded.
+      return;
+    }
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement),
@@ -55,7 +62,7 @@ export default function PaymentForm() {
 
         {!success
           ? (
-  <form onSubmit={handleSubmit}>
+  <form className={stripeForm} onSubmit={handleSubmit}>
     <fieldset className="FormGroup">
         <div className="FormRow">
       <CardElement options={CARD_OPTIONS} />

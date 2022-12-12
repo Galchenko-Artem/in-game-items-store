@@ -13,6 +13,8 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  const { login } = req.session;
+
   function validPhone(tel) {
     const isPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(tel);
     return isPhone;
@@ -22,7 +24,7 @@ router.post('/', async (req, res) => {
     const { userId } = req.session;
 
     const br = '%0A';
-    const msg = `Новая заявка с сайта inGame-store:${br} _________________ ${br}${br}Телефон пользователя:${br}${tel}${br}${br}Аккаунт в Telegram:${br}${telegramAcc}${br}${br}Сообщение:${br}${text}`;
+    const msg = `Новая заявка с сайта inGame-store:${br} _________________ ${br}${br}Имя пользователя:${br}${login}${br}${br}Id пользователя:${br}${userId}${br}${br}Телефон пользователя:${br}${tel}${br}${br}Аккаунт в Telegram:${br}${telegramAcc}${br}${br}Сообщение:${br}${text}`;
     const { CHAT_ID } = process.env;
     const { BOT } = process.env;
     const url = `https://api.telegram.org/bot${BOT}/sendMessage?chat_id=${CHAT_ID}&parse_mode=HTML&text=${msg}`;
@@ -50,7 +52,7 @@ router.post('/', async (req, res) => {
       });
       const message = {
         to: 'ingamestore.topgames@mail.ru',
-        subject: 'Новое обращение от пользователя',
+        subject: `Новое обращение от пользователя ${login} id: ${userId}`,
         text: `${text}`,
       };
       mailer(message);
