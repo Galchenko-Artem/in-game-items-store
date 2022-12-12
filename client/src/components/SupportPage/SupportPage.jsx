@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import './supportPage.css';
+import './supportpage.css';
 
 export default function SupportPage() {
   const [pleas, setPleas] = useState([]);
