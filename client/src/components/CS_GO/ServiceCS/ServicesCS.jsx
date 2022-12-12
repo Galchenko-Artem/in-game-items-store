@@ -1,12 +1,14 @@
 /* eslint-disable react/button-has-type */
 
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { basketAdd } from '../../../store/actions/basketAction';
+import { basketAdd, basketDel } from '../../../store/actions/basketAction';
 
 export default function ServicesCS() {
   const [services, setServices] = useState();
+  const basket = useSelector((store) => store.basketStore);
+
   const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/csgo/services', {
@@ -21,17 +23,40 @@ export default function ServicesCS() {
   }, []);
 
   const addToBasket = (el) => {
-    dispatch(basketAdd(el));
-    // fetch('http://localhost:3001/basket', {
-    //   credentials: 'include',
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify(el),
-    // })
-    //   .then((res) => res.json())
-    //   .then((res) => console.log(res));
+    const isInBasket = basket.some((item) => item.id === el.id);
+    if (!isInBasket) {
+      dispatch(basketAdd(el));
+      console.log('Добавляем в редакс так как его нет в корзине');
+    }
+    fetch('http://localhost:3001/basket', {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(el),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
+  const removeFromBasket = (el) => {
+    dispatch(basketDel(el.id));
+    fetch('http://localhost:3001/basket', {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(
+        el,
+      ),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch();
   };
 
   return (
@@ -53,7 +78,11 @@ export default function ServicesCS() {
                         </div>
                                 <div>{el.price}$</div>
                                     <div>
-                       <button onClick={() => addToBasket(el)} id={el.id}>Корзина</button>
+                                    {basket.some((item) => item.id === el.id) ? (
+                                    <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                    ) : (
+                                    <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                    )}
                                     </div>
                     </div>
                 ))}
