@@ -25,7 +25,7 @@ import Account from './components/Account/Account';
 import Lots from './components/Account/Lots/Lots';
 import Sales from './components/Account/Sales/Sales';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import { userAuth } from './store/actions/userAction';
+import { userAuth, userAvatar } from './store/actions/userAction';
 
 import NewLot from './components/LotForSale/NewLot';
 import CsGoLotCreate from './components/LotForSale/CsGoLotCreate/CsGoLotCreate';
@@ -51,6 +51,7 @@ import Stripe from './components/Stripe/Stripe';
 // import ChatPage from './components/Chat/ChatPage';
 
 function App() {
+  const [loading, setLoading] = useState(true);
   // const user = useSelector((state) => state.userStore);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -61,10 +62,18 @@ function App() {
       signal: abortController.signal,
     })
       .then((res) => res.json())
-      .then(({ user, basket }) => {
-        console.log('===>>> 👉👉👉 file: App.jsx:63 👉👉👉 res', user, basket);
-        dispatch(userAuth(user));
-        dispatch(BasketAddFromBd(basket));
+      .then(({ user, basket, userAva }) => {
+        if (user && basket && userAva) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 100);
+          dispatch(userAuth(user));
+          dispatch(BasketAddFromBd(basket));
+          dispatch(userAvatar(userAva.image));
+        } else {
+          console.log('else');
+          setLoading(false);
+        }
       });
 
     return () => {
@@ -72,17 +81,9 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/basket', {
-  //     credentials: 'include',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       dispatch(BasketAddFromBd(res));
-  //     })
-  //     .catch();
-  // }, []);
-
+  if (loading) {
+    return <div className="spin" />;
+  }
   return (
     <>
     <Nav />
