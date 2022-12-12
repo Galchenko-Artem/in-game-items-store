@@ -64,14 +64,13 @@ function App() {
       .then((res) => res.json())
       .then(({ user, basket, userAva }) => {
         if (user && basket && userAva) {
-          setTimeout(() => {
-            setLoading(false);
-          }, 100);
           dispatch(userAuth(user));
           dispatch(BasketAddFromBd(basket));
           dispatch(userAvatar(userAva.image));
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
         } else {
-          console.log('else');
           setLoading(false);
         }
       });
