@@ -47,6 +47,7 @@ import SupportPage from './components/SupportPage/SupportPage';
 import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPage';
 import SupportLots from './components/SupportPage/SupportLots/SupportLots';
 import { BasketAddFromBd } from './store/actions/basketAction';
+import Stripe from './components/Stripe/Stripe';
 
 function App() {
   // const user = useSelector((state) => state.userStore);
@@ -85,6 +86,8 @@ function App() {
     <>
     <Nav />
     <Routes>
+
+      <Route path="/stripe" element={<Stripe />} />
 
       <Route element={<ProtectedAdminPage />}>
         <Route path="/admin" element={<SupportPage />} />
