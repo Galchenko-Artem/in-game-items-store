@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './nav.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { userLogout, userAvatar } from '../../store/actions/userAction';
+import { basketLogout } from '../../store/actions/basketAction';
 
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
@@ -20,6 +21,7 @@ export default function Nav() {
         console.log(res);
         if (res.status === 'success') {
           dispatch(userLogout(null));
+          dispatch(basketLogout([]));
         }
         navigate('/');
       });

@@ -3,9 +3,10 @@ import './auth.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userAuth } from '../../store/actions/userAction';
+import { BasketAddFromBd } from '../../store/actions/basketAction';
 
 export default function Auth() {
-  const user = useSelector((store) => store.userStore);
+  // const user = useSelector((store) => store.userStore);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -31,20 +32,24 @@ export default function Auth() {
       body: JSON.stringify(form),
     })
       .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        if (res.status === 'error') {
-          setAnswer(res.msg);
+      .then(({
+        user, basket, status, msg,
+      }) => {
+        // console.log(user, basket, status, msg);
+        if (status === 'error') {
+          setAnswer(msg);
         }
-        if (res.status === 'success') {
-          setAnswer(res.msg);
+        if (status === 'success') {
+          setAnswer(msg);
           setTimeout(() => {
-            dispatch(userAuth({
-              login: res.login,
-              userId: res.userId,
-              isAdmin: res.isAdmin,
-              image: res.image,
-            }));
+            // dispatch(userAuth({
+            //   login: res.login,
+            //   userId: res.userId,
+            //   isAdmin: res.isAdmin,
+            //   image: res.image,
+            // }));
+            dispatch(userAuth(user));
+            dispatch(BasketAddFromBd(basket));
 
             navigate('/');
           }, 1000);
