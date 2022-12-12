@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
         // include: [Category, Game, { model: Lot, where:  }],
       },
     );
-    console.log('КОНКРЕТНЫЙ ПРОДУКТ', product);
+    // console.log('КОНКРЕТНЫЙ ПРОДУКТ', product);
     const vendor = await Lot.findOne({ where: { ProductId: +req.params.id }, include: User });
     // console.log('USER======>', vendor.dataValues.User.dataValues.login);
     const vendorName = vendor?.dataValues.User.dataValues.login;

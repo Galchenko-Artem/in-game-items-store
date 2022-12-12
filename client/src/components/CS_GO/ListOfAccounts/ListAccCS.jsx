@@ -1,13 +1,14 @@
-/* eslint-disable max-len */
-/* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import './StyleAccounts.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
+import Select from '../../Filtr/Select';
 
 export default function ListAccCS() {
   const [acc, setAcc] = useState();
+  const [sort, setSort] = useState('');
+  const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
 
   const dispatch = useDispatch();
@@ -59,16 +60,34 @@ export default function ListAccCS() {
       .catch();
   };
 
+  const sortPrice = (el) => {
+    setSort(el);
+    setAcc([...acc].sort((a, b) => a[el] - b[el]));
+  };
+  const filterAcc = acc?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div className="containerItems">
         ListOfAccounts
         <div className="containerAccount">
             <div className="filtr">
-                <div>SortPrise</div>
-                <button>Poisk</button>
+              <input
+                placeholder="Поиск...."
+                value={search}
+                type="text"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <Select
+                value={sort}
+                onChange={sortPrice}
+                defaultValue="Сортировка"
+                options={[
+                  { value: 'price', name: 'По цене(по возрастанию)' },
+                ]}
+              />
             </div>
             <div className="mainItems">
-                {acc && acc.map((el) => (
+                {filterAcc && filterAcc.map((el) => (
                      <div key={el.id} className="boxAccount">
                      <div className="containerImg">
                      <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />

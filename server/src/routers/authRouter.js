@@ -1,28 +1,50 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User } = require('../../db/models');
+const { User, Basket, Product } = require('../../db/models');
 
 router.post('/', async (req, res) => {
   const { login, password } = req.body;
   try {
-    const user = await User.findOne({ where: { login } });
+    // console.log('REQ BODY2', req.body);
+    const userAuth = await User.findOne({ where: { login } });
     if (!login.trim() || !password.trim()) {
       return res.json({ status: 'error', msg: 'Необходимо заполнить все поля' });
     }
-    if (user) {
-      const validPassword = await bcrypt.compare(password, user.password);
+    if (userAuth) {
+      // console.log('ЮЗЕР НАЙДЕН', userAuth);
+      const validPassword = await bcrypt.compare(password, userAuth.password);
       if (validPassword) {
-        req.session.login = user.login;
-        req.session.userId = user.id;
-        req.session.avatarUser = user.image;
-        req.session.isAdmin = user.isAdmin;
-        return res.json({
-          status: 'success',
-          msg: 'Успешный вход',
+        console.log('ПАРОЛЬ СОВПАЛ', userAuth);
+        req.session.login = userAuth.login;
+        req.session.userId = userAuth.id;
+        req.session.avatarUser = userAuth.image;
+        req.session.isAdmin = userAuth.isAdmin;
+        // return res.json({
+        //   status: 'success',
+        //   msg: 'Успешный вход',
+        //   login: req.session.login,
+        //   userId: req.session.userId,
+        //   isAdmin: req.session.isAdmin,
+        //   image: req.session.avatarUser,
+        // });
+        // console.log('СЕССИЯ', req.session.userId);
+        const basketProduct = await Basket.findAll({ include: Product, where: { UserId: req.session.userId } });
+        console.log('Корзина', basketProduct);
+        const basketWithoutData = basketProduct.map((el) => el.dataValues);
+        const productData = basketWithoutData.map((el) => el.Product);
+        const basket = productData.map((el) => el.dataValues);
+        const user = {
           login: req.session.login,
           userId: req.session.userId,
           isAdmin: req.session.isAdmin,
           image: req.session.avatarUser,
+        };
+        console.log('ЮЗЕР КОРЗИНА НАШЛИСЬ ПРИ АВТОРИЗАЦИИ', user, basket);
+        return res.json({
+          user,
+          basket,
+          msg: 'Успешный вход',
+          status: 'success',
         });
       }
     }

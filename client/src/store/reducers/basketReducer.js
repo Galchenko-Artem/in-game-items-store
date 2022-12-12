@@ -11,6 +11,9 @@ export const basketReducer = (state = [], action) => {
     case type.BASKET_ADD_FROM_BD:
       return action.payload;
 
+    case type.BASKET_LOGOUT:
+      return action.payload;
+
     default:
       return state;
   }
