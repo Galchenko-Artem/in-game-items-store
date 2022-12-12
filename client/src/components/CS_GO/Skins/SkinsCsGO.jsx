@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './StyleSkins.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
+import Select from '../../Filtr/Select';
 
 export default function SkinsCsGO() {
   const [skins, setSkins] = useState();
@@ -58,6 +59,12 @@ export default function SkinsCsGO() {
       .then((res) => console.log(res))
       .catch();
   };
+  const sortPrice = (el) => {
+    setSort(el);
+    setSkins([...skins].sort((a, b) => a[el] - b[el]));
+  };
+
+  const filterSkins = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   const filterAcc = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
@@ -72,10 +79,19 @@ export default function SkinsCsGO() {
           type="text"
           onChange={(e) => setSearch(e.target.value)}
         />
+
+         <Select
+           value={sort}
+           onChange={sortPrice}
+           defaultValue="Сортировка"
+           options={[
+             { value: 'price', name: 'По цене(по возрастанию)' },
+           ]}
+         />
         </div>
         <div className="mainItems">
 
-        {filterAcc && filterAcc.map((el) => (
+        {filterSkins && filterSkins.map((el) => (
             <div key={el.id} className="boxItems">
                 <div className="containerImgItems">
                 <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
