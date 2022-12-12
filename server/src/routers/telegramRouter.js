@@ -1,7 +1,9 @@
 require('dotenv').config();
+
 const router = require('express').Router();
 const fetch = require('node-fetch');
 const { Support } = require('../../db/models');
+const mailer = require('../nodeMailer');
 
 router.get('/', async (req, res) => {
   const { userId } = req.session;
@@ -46,6 +48,12 @@ router.post('/', async (req, res) => {
       const newPlea = await Support.create({
         question: text, answer: null, status: false, UserId: userId,
       });
+      const message = {
+        to: 'ingamestore.topgames@mail.ru',
+        subject: 'Новое обращение от пользователя',
+        text: `${text}`,
+      };
+      mailer(message);
       return res.json({
         status: 'success',
         msg:
