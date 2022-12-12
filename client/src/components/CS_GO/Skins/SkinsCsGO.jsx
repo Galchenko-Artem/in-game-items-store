@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './StyleSkins.css';
@@ -7,6 +6,9 @@ import { basketAdd } from '../../../store/actions/basketAction';
 
 export default function SkinsCsGO() {
   const [skins, setSkins] = useState();
+  const [sort, setSort] = useState('');
+  const [search, setSearch] = useState('');
+
   const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/csgo/services', {
@@ -33,17 +35,23 @@ export default function SkinsCsGO() {
     //   .then((res) => console.log(res));
   };
 
+  const filterAcc = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div className="containerItems">
     Skins
     <div className="containerAccount">
         <div className="filtr">
-            <div>SortPrise</div>
-            <button>Poisk</button>
+        <input
+          placeholder="Поиск...."
+          value={search}
+          type="text"
+          onChange={(e) => setSearch(e.target.value)}
+        />
         </div>
         <div className="mainItems">
 
-        {skins && skins.map((el) => (
+        {filterAcc && filterAcc.map((el) => (
             <div key={el.id} className="boxItems">
                 <div className="containerImgItems">
                 <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
