@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import './StyleSkins.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
+import Select from '../../Filtr/Select';
 
 export default function SkinsDota() {
   const [skins, setSkins] = useState();
+  const [sort, setSort] = useState('');
+  const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
 
   const dispatch = useDispatch();
@@ -58,17 +61,35 @@ export default function SkinsDota() {
       .then((res) => console.log(res))
       .catch();
   };
+  const sortPrice = (el) => {
+    setSort(el);
+    setSkins([...skins].sort((a, b) => a[el] - b[el]));
+  };
+
+  const filterSkins = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div className="containerItems">
     Skins
     <div className="containerAccount">
         <div className="filtr">
-            <div>SortPrise</div>
-            <button>Poisk</button>
+        <input
+          placeholder="Поиск...."
+          value={search}
+          type="text"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+         <Select
+           value={sort}
+           onChange={sortPrice}
+           defaultValue="Сортировка"
+           options={[
+             { value: 'price', name: 'По цене(по возрастанию)' },
+           ]}
+         />
         </div>
         <div className="mainItems">
-            {skins && skins.map((el) => (
+            {filterSkins && filterSkins.map((el) => (
             <div key={el.id} className="boxItems">
                 <div className="containerImgItems">
                 <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />

@@ -1,13 +1,14 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
-
 import { Link } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
+import Select from '../../Filtr/Select';
 
 export default function Services() {
   const [services, setServices] = useState();
+  const [sort, setSort] = useState('');
+  const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -58,17 +59,34 @@ export default function Services() {
       .then((res) => console.log(res))
       .catch();
   };
+  const sortPrice = (el) => {
+    setSort(el);
+    setServices([...services].sort((a, b) => a[el] - b[el]));
+  };
+  const filterSer = services?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div className="containerItems">
         Services
         <div className="containerAccount">
             <div className="filtr">
-                <div>SortPrise</div>
-                <button>Poisk</button>
+            <input
+              placeholder="Поиск...."
+              value={search}
+              type="text"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+              <Select
+                value={sort}
+                onChange={sortPrice}
+                defaultValue="Сортировка"
+                options={[
+                  { value: 'price', name: 'По цене(по возрастанию)' },
+                ]}
+              />
             </div>
             <div className="mainItems">
-            {services && services.map((el) => (
+            {filterSer && filterSer.map((el) => (
                 <div key={el.id} className="boxAccount">
                 <div className="containerImg">
                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
