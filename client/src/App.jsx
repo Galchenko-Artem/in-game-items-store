@@ -48,6 +48,7 @@ import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPa
 import SupportLots from './components/SupportPage/SupportLots/SupportLots';
 import { BasketAddFromBd } from './store/actions/basketAction';
 import Stripe from './components/Stripe/Stripe';
+// import ChatPage from './components/Chat/ChatPage';
 
 function App() {
   // const user = useSelector((state) => state.userStore);
@@ -88,6 +89,7 @@ function App() {
     <Routes>
 
       <Route path="/stripe" element={<Stripe />} />
+      {/* <Route path="/chat" element={<ChatPage />} /> */}
 
       <Route element={<ProtectedAdminPage />}>
         <Route path="/admin" element={<SupportPage />} />
