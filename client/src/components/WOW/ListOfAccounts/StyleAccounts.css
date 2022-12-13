@@ -12,10 +12,12 @@
 .mainItems{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-content: flex-start;
-    width: 700px;
-    height: 1800px;
+    width: 1800px;
+    height: 1100px;
     border: 1px solid black;
+    overflow: scroll;
 }
 .boxAccount{
     display: flex;
@@ -25,4 +27,5 @@
     margin: 0.9rem;
     justify-content: space-evenly;
     border: 1px solid black;
+    overflow: hidden;
 }

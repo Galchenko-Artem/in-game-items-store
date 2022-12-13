@@ -50,7 +50,6 @@ export default function Nav() {
     <Link className="nav-main" to="/support"> Поддержка </Link>
 
     <Link className="nav-main" to="/userPlea">Обращения пользователя</Link>
-
     <Link className="nav-main" to="/basket"> Корзина </Link>
      <Link className="nav-mainAvatar" to="/account"> Личный кабинет
     {!user.user.image ? <p>Privet</p> : <img className="imgAvatar" src={`http://localhost:3001/${user.user?.image && user.user?.image}`} alt="Avatar" /> }
