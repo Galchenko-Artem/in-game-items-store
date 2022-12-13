@@ -6,7 +6,7 @@ module.exports = {
       [
         {
           name: 'AWP | История о драконе',
-          price: 15655,
+          price: 15,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/dragonfly_322.png',
@@ -17,7 +17,7 @@ module.exports = {
         },
         {
           name: 'AK-47 | Дикий лотос',
-          price: 5514,
+          price: 50,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/wildLotos_242.png',
@@ -28,7 +28,7 @@ module.exports = {
         },
         {
           name: 'M4A4 | Вой',
-          price: 3004,
+          price: 14,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/voi_888.png',
@@ -39,7 +39,7 @@ module.exports = {
         },
         {
           name: 'AUG | Акихабара',
-          price: 312,
+          price: 31,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/aug_322.png',
@@ -50,7 +50,7 @@ module.exports = {
         },
         {
           name: '★ Штык-нож M9 | Волны Сапфир',
-          price: 17242,
+          price: 17,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/stik_3231.png',
@@ -61,7 +61,7 @@ module.exports = {
         },
         {
           name: 'Desert Eagle | Пламя',
-          price: 521,
+          price: 30,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/eagle_37217.png',
@@ -72,7 +72,7 @@ module.exports = {
         },
         {
           name: 'Desert Eagle | Океанское побережье',
-          price: 231,
+          price: 25,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/rainbow_eagle_232.png',
@@ -83,7 +83,7 @@ module.exports = {
         },
         {
           name: 'Negev | Мьёльнир',
-          price: 411,
+          price: 15,
           GameId: 1,
           CategoryId: 2,
           image: 'public/images/melnir_422.png',

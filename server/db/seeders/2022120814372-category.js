@@ -15,7 +15,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          title: 'Services',
+          title: 'Servces ',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
