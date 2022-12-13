@@ -10,6 +10,7 @@ export default function SkinsCsGO() {
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
+  const user = useSelector((state) => state.userStore);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -69,8 +70,8 @@ export default function SkinsCsGO() {
   const filterAcc = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="containerItems">
-    Skins
+  <div className="containerItems">
+    скины
     <div className="containerAccount">
         <div className="filtr">
         <input
@@ -103,11 +104,18 @@ export default function SkinsCsGO() {
                             <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
                                 <div>
-                                {basket.some((item) => item.id === el.id) ? (
+                                  {user.user ? (
+                                    <div>
+                                       {basket.some((item) => item.id === el.id) ? (
                                     <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
-                                ) : (
+                                       ) : (
                                     <button onClick={(e) => addToBasket(el)}>В корзину</button>
-                                )}
+                                       )}
+                                    </div>
+                                  ) : (
+                                    null
+                                  )}
+
                                 </div>
                 </div>
             </div>
@@ -115,6 +123,6 @@ export default function SkinsCsGO() {
         </div>
     </div>
 
-    </div>
+  </div>
   );
 }
