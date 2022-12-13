@@ -8,6 +8,9 @@ export default function ProtectedRouter({ redirectPath = '/' }) {
   if (user.user) {
     return <Navigate to={redirectPath} replace />;
   }
+  // if (!user.user) {
+  //   return <Navigate to={redirectPath} replace />;
+  // }
   return (
     <Outlet />
   );

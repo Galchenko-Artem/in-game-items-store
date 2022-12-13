@@ -11,6 +11,7 @@ export default function SkinsDota() {
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
+  const user = useSelector((state) => state.userStore);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -70,55 +71,54 @@ export default function SkinsDota() {
 
   return (
     <div className="containerItems">
-    Skins
-    <div className="containerAccount">
+    Скины
+      <div className="containerAccount">
         <div className="filtr">
-        <input
-          placeholder="Поиск...."
-          value={search}
-          type="text"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-         <Select
-           value={sort}
-           onChange={sortPrice}
-           defaultValue="Сортировка"
-           options={[
-             { value: 'price', name: 'По цене(по возрастанию)' },
-           ]}
-         />
+          <input
+            placeholder="Поиск...."
+            value={search}
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Select
+            value={sort}
+            onChange={sortPrice}
+            defaultValue="Сортировка"
+            options={[
+              { value: 'price', name: 'По цене(по возрастанию)' },
+            ]}
+          />
         </div>
         <div className="mainItems">
             {filterSkins && filterSkins.map((el) => (
             <div key={el.id} className="boxItems">
                 <div className="containerImgItems">
-                <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
+                  <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
                 <div className="containerBtn">
                     <div className="element">{el.name}</div>
                         <div className="element">{el.price}$</div>
                             <div className="element">
-                            <Link to={`${el.id}`}><button>Info</button></Link>
+                              <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
                                 <div className="element">
-                                {basket.some((item) => item.id === el.id) ? (
-                                    <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
-                                ) : (
-                                    <button onClick={(e) => addToBasket(el)}>В корзину</button>
-                                )}
+                                    {user.user ? (
+                                      <div>
+                                        {basket.some((item) => item.id === el.id) ? (
+                                        <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                        ) : (
+                                        <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                        )}
+                                      </div>
+                                    ) : (
+                                      null
+                                    )}
                                 </div>
                 </div>
-                              <div className="descriptionDotaSkins">
-                                  {el.description}
-                              </div>
-
             </div>
-
             )) }
-
         </div>
-    </div>
-
+      </div>
     </div>
   );
 }

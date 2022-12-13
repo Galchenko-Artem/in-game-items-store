@@ -1,0 +1,105 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert(
+      'Products',
+      [
+        {
+          name: 'Орда',
+          price: 100,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: '60 минут обучения WoW 3.3.5 📖📘📕',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Альянс',
+          price: 540,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: '❗[Тест бесплатно]⭐[Авто PvE]⭐[Все КЛАССЫ]⭐[Все СПЕЦИАЛИЗАЦИИ]⭐[1 КЛАСС]⭐[Поддержка Т4/Т5]❗',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Орда',
+          price: 350,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: 'horde',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Альянс',
+          price: 120,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: '❗Подписка на [ВСЕ КЛАССЫ] ⭐DarhangeR Rotations ©⭐❗',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Орда',
+          price: 500,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: '⭐WoW Byster [Авто PvE] - [Информация в описании] [Тест бесплатно]⭐',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Альянс',
+          price: 300,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: '[Sirus.su Scourge x2] Быстрый Старт',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Oрда',
+          price: 250,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: 'Мгновенная прокачка с 1 по 90 уровень',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Альянс',
+          price: 100,
+          GameId: 2,
+          CategoryId: 3,
+          image: 'public/images/wow_servic.jpg',
+          description: 'буст арены СИРУС х5',
+          approved: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {},
+    );
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Products', null, {});
+  },
+};

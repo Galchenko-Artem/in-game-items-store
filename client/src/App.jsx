@@ -20,6 +20,7 @@ import MainPage from './components/MainPage/MainPage';
 import Auth from './components/Auth/Auth';
 import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
+import ProtectedRouterNotAuth from './components/ProtectedRouterNotAuth/ProtectedRouterNotAuth';
 import SupportForm from './components/SupportForm/SupportForm';
 import Account from './components/Account/Account';
 import Lots from './components/Account/Lots/Lots';
@@ -41,7 +42,6 @@ import ListAccDotaCreate from './components/LotForSale/DotaLotCreate/ListOfAccou
 import SkinsDotaCreate from './components/LotForSale/DotaLotCreate/Skins/SkinsDotaCreate';
 import ItemsWowCreate from './components/LotForSale/WowLotCreate/Items/ItemsWowCreate';
 import Basket from './components/Basket/Basket';
-import TestMulter from './components/TestMulter/TestMulter';
 import UserPlea from './components/UserPlea/UserPlea';
 import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDota/ServicesDotaCreate';
 import SupportPage from './components/SupportPage/SupportPage';
@@ -94,7 +94,6 @@ function App() {
     <Nav />
     <Routes>
 
-      <Route path="/stripe" element={<Stripe />} />
       {/* <Route path="/chat" element={<ChatPage />} /> */}
 
       <Route element={<ProtectedAdminPage />}>
@@ -103,34 +102,36 @@ function App() {
       </Route>
 
       <Route path="/" element={<MainPage />} />
-      <Route path="/support" element={<SupportForm />} />
-      <Route path="/userPlea" element={<UserPlea />} />
 
-      <Route path="/account" element={<Account />}>
-        <Route path="lots" element={<Lots />} />
-        <Route path="sales" element={<Sales />} />
-        <Route path="purchases" element={<Purchases />} />
-        <Route path="newLot" element={<NewLot />}>
-          <Route path="csgo" element={<CsGoLotCreate />}>
-            <Route path="createAcc" element={<ListAccCscreate />} />
-            <Route path="skinsCreate" element={<SkinsCs />} />
-            <Route path="servicesCreate" element={<ServicesCs />} />
+      <Route element={<ProtectedRouterNotAuth />}>
+          <Route path="/support" element={<SupportForm />} />
+          <Route path="/userPlea" element={<UserPlea />} />
+
+          <Route path="/basket" element={<Basket />} />
+          <Route path="/payment" element={<Stripe />} />
+          <Route path="/account" element={<Account />}>
+            <Route path="lots" element={<Lots />} />
+            <Route path="sales" element={<Sales />} />
+            <Route path="purchases" element={<Purchases />} />
+            <Route path="newLot" element={<NewLot />}>
+              <Route path="csgo" element={<CsGoLotCreate />}>
+                <Route path="createAcc" element={<ListAccCscreate />} />
+                <Route path="skinsCreate" element={<SkinsCs />} />
+                <Route path="servicesCreate" element={<ServicesCs />} />
+              </Route>
+              <Route path="wow" element={<WowLotCreate />}>
+                <Route path="createAcc" element={<ListAccWowCreate />} />
+                <Route path="skinsCreate" element={<ItemsWowCreate />} />
+                <Route path="servicesCreate" element={<ServicesWow />} />
+              </Route>
+              <Route path="dota" element={<DotaLotCreate />}>
+                <Route path="createAcc" element={<ListAccDotaCreate />} />
+                <Route path="skinsCreate" element={<SkinsDotaCreate />} />
+                <Route path="servicesCreate" element={<ServicesDotaCreate />} />
+              </Route>
+            </Route>
           </Route>
-          <Route path="wow" element={<WowLotCreate />}>
-            <Route path="createAcc" element={<ListAccWowCreate />} />
-            <Route path="skinsCreate" element={<ItemsWowCreate />} />
-            <Route path="servicesCreate" element={<ServicesWow />} />
-          </Route>
-          <Route path="dota" element={<DotaLotCreate />}>
-            <Route path="createAcc" element={<ListAccDotaCreate />} />
-            <Route path="skinsCreate" element={<SkinsDotaCreate />} />
-            <Route path="servicesCreate" element={<ServicesDotaCreate />} />
-          </Route>
-        </Route>
       </Route>
-
-      <Route path="/basket" element={<Basket />} />
-      <Route path="/multer" element={<TestMulter />} />
 
       <Route element={<ProtectedRouter />}>
         <Route path="/reg" element={<Reg />} />
