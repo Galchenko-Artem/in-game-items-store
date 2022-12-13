@@ -10,6 +10,7 @@ export default function Services() {
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
+  const user = useSelector((state) => state.userStore);
   const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3001/wow/services', {
@@ -91,17 +92,22 @@ export default function Services() {
                 <div className="containerImg">
                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
-                    <div>
-                    <Link to={`${el.id}`}><button>Info</button></Link>
-                    </div>
+
                             <div>{el.price}$</div>
-                                <div>
+                            <div>{el.name}</div>
+                            {user.user ? (
+                              <div>
                                 {basket.some((item) => item.id === el.id) ? (
                                     <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
                                 ) : (
                                     <button onClick={(e) => addToBasket(el)}>В корзину</button>
                                 )}
-                                </div>
+                              </div>
+                            ) : (null)}
+                    <div>
+                      <Link to={`${el.id}`}><button>Info</button></Link>
+                    </div>
+
                 </div>
             ))}
             </div>
