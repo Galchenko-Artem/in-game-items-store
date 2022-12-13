@@ -88,7 +88,7 @@ function App() {
     <Nav />
     <Routes>
 
-      <Route path="/stripe" element={<Stripe />} />
+      <Route path="/payment" element={<Stripe />} />
       {/* <Route path="/chat" element={<ChatPage />} /> */}
 
       <Route element={<ProtectedAdminPage />}>
