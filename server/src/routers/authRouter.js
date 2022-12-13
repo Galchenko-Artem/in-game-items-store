@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
       // console.log('ЮЗЕР НАЙДЕН', userAuth);
       const validPassword = await bcrypt.compare(password, userAuth.password);
       if (validPassword) {
-        console.log('ПАРОЛЬ СОВПАЛ', userAuth);
+        // console.log('ПАРОЛЬ СОВПАЛ', userAuth);
         req.session.login = userAuth.login;
         req.session.userId = userAuth.id;
         req.session.avatarUser = userAuth.image;
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
         // });
         // console.log('СЕССИЯ', req.session.userId);
         const basketProduct = await Basket.findAll({ include: Product, where: { UserId: req.session.userId } });
-        console.log('Корзина', basketProduct);
+        // console.log('Корзина', basketProduct);
         const basketWithoutData = basketProduct.map((el) => el.dataValues);
         const productData = basketWithoutData.map((el) => el.Product);
         const basket = productData.map((el) => el.dataValues);
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
           isAdmin: req.session.isAdmin,
           image: req.session.avatarUser,
         };
-        console.log('ЮЗЕР КОРЗИНА НАШЛИСЬ ПРИ АВТОРИЗАЦИИ', user, basket);
+        // console.log('ЮЗЕР КОРЗИНА НАШЛИСЬ ПРИ АВТОРИЗАЦИИ', user, basket);
         return res.json({
           user,
           basket,

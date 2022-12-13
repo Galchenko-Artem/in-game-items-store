@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Basket.module.css';
-import { basketDel } from '../../store/actions/basketAction';
+import { basketDel, basketLogout } from '../../store/actions/basketAction';
 
 export default function Basket() {
   const dispatch = useDispatch();
@@ -41,10 +41,28 @@ export default function Basket() {
   };
 
   const butItems = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const money = document.querySelector('.allMoney').textContent;
     console.log(money);
     console.log(basket);
+    fetch('http://localhost:3001/basket', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(
+        basket,
+      ),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 'bought') {
+          dispatch(basketLogout([]));
+        }
+      })
+      .catch();
   };
 
   return (
