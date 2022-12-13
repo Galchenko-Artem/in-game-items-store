@@ -10,6 +10,7 @@ export default function ListAccDota() {
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
+  const user = useSelector((state) => state.userStore);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -92,18 +93,24 @@ export default function ListAccDota() {
               <div key={el.id} className="boxAccount">
                   <div key={el.id} className="containerImg">
                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
-                    <p>{el.description}</p>
+                    <p>{el.name}</p>
                   </div>
                       <div>
-                      <Link to={`${el.id}`}><button>Info</button></Link>
+                        <Link to={`${el.id}`}><button>Info</button></Link>
                       </div>
                               <div>{el.price} $</div>
                                   <div>
-                                  {basket.some((item) => item.id === el.id) ? (
-                                    <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
-                                  ) : (
-                                    <button onClick={(e) => addToBasket(el)}>В корзину</button>
-                                  )}
+                                    {user.user ? (
+                                      <div>
+                                          {basket.some((item) => item.id === el.id) ? (
+                                        <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                          ) : (
+                                        <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                          )}
+                                      </div>
+                                    ) : (
+                                      null
+                                    )}
                                   </div>
               </div>
 

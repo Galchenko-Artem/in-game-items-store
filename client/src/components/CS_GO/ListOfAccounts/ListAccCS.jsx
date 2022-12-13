@@ -88,42 +88,32 @@ export default function ListAccCS() {
                 ]}
               />
             </div>
-            {user.user ? (
-              <div className="mainItems">
+            <div className="mainItems">
                 {filterAcc && filterAcc.map((el) => (
-                  <div key={el.id} className="boxAccount">
-                    <div className="containerImg">
-                      <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
-                    </div>
-                       <div>
-                        <Link to={`${el.id}`}><button>Info</button></Link>
-                       </div>
-                            <div id="id" className="price">{el.price}$</div>
-                                <p>{el.description}</p>
-                                {basket.some((item) => item.id === el.id) ? (
-                                  <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
-                                ) : (
-                                  <button onClick={(e) => addToBasket(el)}>В корзину</button>
-                                )}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="mainItems">
-                  {filterAcc && filterAcc.map((el) => (
                      <div key={el.id} className="boxAccount">
-                        <div className="containerImg">
-                          <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
-                        </div>
+                      <div className="containerImg">
+                        <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
+                      </div>
                          <div>
-                            <Link to={`${el.id}`}><button>Info</button></Link>
+                         <Link to={`${el.id}`}><button>Info</button></Link>
                          </div>
-                            <div id="id" className="price">{el.price}$</div>
-                              <p>{el.description}</p>
+                                 <div id="id" className="price">{el.price}$</div>
+                                  <p>{el.name}</p>
+
+                                {user.user ? (
+                        <div>
+                          {basket.some((item) => item.id === el.id) ? (
+                          <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                          ) : (
+                          <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                          )}
+                        </div>
+                                ) : (
+                                  null
+                                )}
                      </div>
-                  ))}
-              </div>
-            )}
+                ))}
+            </div>
         </div>
     </div>
   );
