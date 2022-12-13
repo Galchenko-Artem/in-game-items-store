@@ -5,8 +5,8 @@ module.exports = {
       'Products',
       [
         {
-          name: 'Буст аккаунтов',
-          price: 170,
+          name: 'Доу-буст',
+          price: 17,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/11.png',
@@ -16,8 +16,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 300,
+          name: 'Буст ММР',
+          price: 30,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/22.png',
@@ -27,8 +27,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 320,
+          name: 'Буст ММР',
+          price: 32,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/33.png',
@@ -38,8 +38,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 250,
+          name: 'Отмыв ЛП',
+          price: 25,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/55.png',
@@ -49,8 +49,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 70,
+          name: 'Клибровка',
+          price: 17,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/44.png',
@@ -60,8 +60,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 200,
+          name: 'Доу-буст',
+          price: 20,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/66.png',
@@ -71,8 +71,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 120,
+          name: 'Отмыв ЛП',
+          price: 12,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/77.png',
@@ -82,8 +82,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст аккаунтов',
-          price: 100,
+          name: 'Калибровка',
+          price: 10,
           GameId: 3,
           CategoryId: 3,
           image: 'public/images/88.png',
