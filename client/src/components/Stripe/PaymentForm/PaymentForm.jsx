@@ -30,14 +30,11 @@ export default function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [load, setLoad] = useState(false);
+
   const handleSubmit = async (e) => {
+    setLoad(true);
     e.preventDefault();
-    if (!stripe || !elements) {
-      setStripeForm('unvisible');
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    }
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement),
@@ -50,6 +47,7 @@ export default function PaymentForm() {
       });
 
       if (response.data.success) {
+        setLoad(false);
         console.log(response.data);
         console.log('Succesful payment!');
         setSuccess(true);
@@ -69,6 +67,16 @@ export default function PaymentForm() {
         </div>
     </fieldset>
     <button>Оплатить</button>
+    {load
+    && (
+  <>
+    <div id="wrapper">
+    <div id="corpus" />
+    <div id="spinner" />
+    </div>
+  <div id="text">&nbsp;Loading ...</div>
+  </>
+    )}
   </form>
           ) : (
     <div>
