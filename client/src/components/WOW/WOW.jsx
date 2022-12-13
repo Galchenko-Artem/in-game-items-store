@@ -1,15 +1,20 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import NavBar from './NavBar/NavBar';
+import videoWow from './Video/Ролик World of Warcraft_ Battle for Azeroth (online-video-cutter.com).mp4';
+import './styleWow.css';
 
 export default function WOW() {
-  const navigate = useNavigate();
   return (
     <>
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <button type="button" onClick={() => navigate('/')}>Вернуться к играм</button>
+    <div className="navBar">
       <NavBar />
     </div>
+    <div className="containerVideo">
+        <video className="VideoWow" src={videoWow} autoPlay loop muted />
+    </div>
+
     <Outlet />
     </>
   );

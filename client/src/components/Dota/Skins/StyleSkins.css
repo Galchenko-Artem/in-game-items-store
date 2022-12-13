@@ -3,6 +3,7 @@
     height: 18rem;
     margin: 1rem;
     border: 1px solid black;
+    overflow: hidden;
 }
 
 .containerImgItems{

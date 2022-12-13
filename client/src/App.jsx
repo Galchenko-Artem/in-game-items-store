@@ -48,8 +48,13 @@ import SupportPage from './components/SupportPage/SupportPage';
 import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPage';
 import SupportLots from './components/SupportPage/SupportLots/SupportLots';
 import { BasketAddFromBd } from './store/actions/basketAction';
+
+import Сontacts from './components/Footer/Сontacts/Сontacts';
+import Footer from './components/Footer/Footer';
+
 import Stripe from './components/Stripe/Stripe';
 // import ChatPage from './components/Chat/ChatPage';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -86,6 +91,7 @@ function App() {
   }
   return (
     <>
+
     <Nav />
     <Routes>
 
@@ -166,8 +172,11 @@ function App() {
       <Route path="/wow/listOfAccounts/:id" element={<ProductDetails />} />
       <Route path="/wow/items/:id" element={<ProductDetails />} />
       <Route path="/wow/services/:id" element={<ProductDetails />} />
+      <Route path="/contacts" element={<Сontacts />} />
 
     </Routes>
+    <Footer className="footer" />
+
     </>
   );
 }

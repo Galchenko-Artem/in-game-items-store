@@ -6,6 +6,8 @@
   margin-top: 15vh;
   display: flex;
   justify-content: space-evenly;
+  flex:1 1 auto;
+  
 }
 
 
@@ -20,3 +22,6 @@
   transform: scale(1.1);
   transition: 0.5s;
 }
+
+
+

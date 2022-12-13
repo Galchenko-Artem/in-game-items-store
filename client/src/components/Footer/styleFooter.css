@@ -1,0 +1,25 @@
+:root{
+    --index: calc(1vw + 1vh);
+    --text:   rgb(255, 217, 0);
+}
+
+.footer {
+    position: absolute;
+    bottom: calc(var(--index)* -6.5);
+    overflow: .45;
+    letter-spacing: calc(var(--index) / 8);
+  }
+.imgTeleg{
+    max-width: 4rem;
+
+}
+.containerCont{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 200px;
+}
+.conatainerCreator{
+
+    margin-right: 70px;
+}
