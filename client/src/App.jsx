@@ -24,6 +24,7 @@ import SupportForm from './components/SupportForm/SupportForm';
 import Account from './components/Account/Account';
 import Lots from './components/Account/Lots/Lots';
 import Sales from './components/Account/Sales/Sales';
+import Purchases from './components/Account/Purchases/Purchases';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import { userAuth } from './store/actions/userAction';
 
@@ -98,6 +99,7 @@ function App() {
       <Route path="/account" element={<Account />}>
         <Route path="lots" element={<Lots />} />
         <Route path="sales" element={<Sales />} />
+        <Route path="purchases" element={<Purchases />} />
         <Route path="newLot" element={<NewLot />}>
           <Route path="csgo" element={<CsGoLotCreate />}>
             <Route path="createAcc" element={<ListAccCscreate />} />
