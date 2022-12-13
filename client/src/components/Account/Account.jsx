@@ -11,6 +11,7 @@ export default function Account() {
             <h3>Личный кабинет</h3>
             <Link to="/account/lots"><button type="button">Мои лоты</button></Link>
             <Link to="/account/sales"><button type="button">Мои продажи</button></Link>
+            <Link to="/account/purchases"><button type="button">Мои покупки</button></Link>
             <Link to="/account/newLot"><button type="button">Создать Новый лот</button></Link>
         </div>
         <Outlet />

@@ -66,6 +66,8 @@ export default function SkinsCsGO() {
 
   const filterSkins = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
+  const filterAcc = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div className="containerItems">
     Skins
@@ -77,6 +79,7 @@ export default function SkinsCsGO() {
           type="text"
           onChange={(e) => setSearch(e.target.value)}
         />
+
          <Select
            value={sort}
            onChange={sortPrice}

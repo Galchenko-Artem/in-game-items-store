@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { Basket, Product } = require('../../db/models');
+const {
+  Basket, Product, History, Lot,
+} = require('../../db/models');
 
 // router.get('/', async (req, res) => {
 //   const { userId } = req.session;
@@ -29,20 +31,27 @@ router.post('/', async (req, res) => {
 router.delete('/', async (req, res) => {
   const { id } = req.body;
   const { userId } = req.session;
-  console.log(req.body, id, 'DELETE');
   const deleted = await Basket.destroy({ where: { UserId: userId, ProductId: id } });
   res.json({ status: 'deleted', msg: 'Удалено из корзины' });
 });
 
-// router.delete('/1', async (req, res) => {
-//   const el = req.body;
-//   const { userId } = req.session;
-//   console.log('req.body delete', req.body);
-//   const ourBasketitem = await Basket.findOne({ where: { UserId: userId, ProductId: el.id } });
-//   if (ourBasketitem) {
-//     ourBasketitem.destroy();
-//   }
-//   res.json({ status: 'success', msg: 'Удалено из корзины' });
-// });
+router.put('/', async (req, res) => {
+  const basket = req.body;
+  const { userId } = req.session;
+  // console.log('ПРОДУКТЫ ПРИ ПОКУПКЕ', basket, userId);
+  basket.map(async (prod) => {
+    const product = JSON.stringify(prod);
+    const purchase = await History.create({ UserId: userId, purchase: product });
+    // console.log('СОЗДАНИЕ ЗАПИСИ В ПОКУПКАХ, АЙТИ ПРОДУКТА', purchase, prod.id);
+    const vendor = await Lot.findOne({ where: { ProductId: prod.id } });
+    // console.log('АЙДИ ПРОДАВЦА', vendor.dataValues.UserId);
+    const sales = await History.create({ UserId: vendor.dataValues.UserId, sales: product });
+
+    await Lot.destroy({ where: { ProductId: prod.id, UserId: vendor.dataValues.UserId } });
+    await Basket.destroy({ where: { UserId: userId, ProductId: prod.id } });
+    await Product.destroy({ where: { id: prod.id } });
+  });
+  res.json({ status: 'bought' });
+});
 
 module.exports = router;

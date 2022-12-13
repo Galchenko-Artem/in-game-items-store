@@ -8,7 +8,6 @@ import { basketLogout } from '../../store/actions/basketAction';
 
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
-  const [userBD, setUseBD] = useState(`${user?.image}`);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,19 +25,21 @@ export default function Nav() {
         navigate('/');
       });
   };
-  useEffect(() => {
-    console.log('nav usseffect');
-    fetch('http://localhost:3001/account', {
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/account', {
 
-      credentials: 'include',
+  //     credentials: 'include',
 
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch(userAvatar(res.image));
-        setUseBD(res.image);
-      });
-  }, []);
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setTimeout(() => {
+  //         console.log(res.image, 'nav useeffect');
+  //         dispatch(userAvatar(res.image));
+  //         setUseBD(res.image);
+  //       }, 50);
+  //     });
+  // }, []);
 
   return (
 

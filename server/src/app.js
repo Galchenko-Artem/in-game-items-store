@@ -17,6 +17,9 @@ const logoutRouter = require('./routers/logoutRouter');
 const authRouter = require('./routers/authRouter');
 const telegramRouter = require('./routers/telegramRouter');
 const lotsRouter = require('./routers/lotsRouter');
+const salesHistory = require('./routers/historySalesRoute');
+const purchaseHistory = require('./routers/historyPurchaseRoute');
+
 
 const GamecreateRoute = require('./routers/gameCsGoCreateRouter');
 const GameWowCreateRouter = require('./routers/gameWowCreateRouter');
@@ -36,6 +39,7 @@ const SupportRouter = require('./routers/supportRouter');
 const SupportLotsRouter = require('./routers/supportLotsRouter');
 
 const productRouter = require('./routers/productRouter');
+const stripeRouter = require('./routers/stripeRouter');
 
 // Проверяем подключение к базе данных!
 dbCheck();
@@ -54,11 +58,14 @@ app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/request', telegramRouter);
 app.use('/lots', lotsRouter);
+app.use('/salesHistory', salesHistory);
+app.use('/purchasesHistory', purchaseHistory);
 
 app.use('/basket', basketRouter);
 
 app.use('/admin', SupportRouter);
 app.use('/admin/lots', SupportLotsRouter);
+app.use('/payment', stripeRouter);
 
 app.use('/', GamecreateRoute);
 app.use('/', GameWowCreateRouter);
