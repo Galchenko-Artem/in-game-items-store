@@ -44,6 +44,11 @@ export default function Nav() {
   return (
 
   <div className="nav-div">
+    <div className="wrapper">
+  <div className="container">
+    <h1>Game Store</h1>
+  </div>
+    </div>
     <Link className="nav-main" to="/">Главная</Link>
   {user.user ? (
     <>

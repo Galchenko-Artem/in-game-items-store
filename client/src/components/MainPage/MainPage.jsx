@@ -8,7 +8,7 @@ import './mainPage.css';
 
 export default function MainPage() {
   return (
-    <div className="container">
+    <div className="mainContainer">
       <div className="card">
         <Link to="/dota2">
        <img className="img-card" src={dota2} alt="dota2" />
