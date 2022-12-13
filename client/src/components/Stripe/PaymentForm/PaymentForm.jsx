@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import { basketLogout } from '../../../store/actions/basketAction';
 import '../Stripe.css';
 
 const CARD_OPTIONS = {
@@ -25,8 +27,10 @@ const CARD_OPTIONS = {
 };
 
 export default function PaymentForm() {
+  const basket = useSelector((state) => state.basketStore);
+  const dispatch = useDispatch();
+  const finalPrice = basket.reduce((acc, el) => acc + el.price, 0);
   const [success, setSuccess] = useState(false);
-  const [stripeForm, setStripeForm] = useState('visible');
   const stripe = useStripe();
   const elements = useElements();
 
@@ -42,7 +46,7 @@ export default function PaymentForm() {
     if (!error) {
       const { id } = paymentMethod;
       const response = await axios.post('http://localhost:3001/payment', {
-        amount: 1500,
+        amount: finalPrice,
         id,
       });
 
@@ -51,6 +55,25 @@ export default function PaymentForm() {
         console.log(response.data);
         console.log('Succesful payment!');
         setSuccess(true);
+
+        fetch('http://localhost:3001/basket', {
+          method: 'PUT',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(
+            basket,
+          ),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res.status);
+            if (res.status === 'bought') {
+              dispatch(basketLogout([]));
+            }
+          })
+          .catch();
       }
     }
   };
@@ -60,7 +83,7 @@ export default function PaymentForm() {
 
         {!success
           ? (
-  <form className={stripeForm} onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
     <fieldset className="FormGroup">
         <div className="FormRow">
       <CardElement options={CARD_OPTIONS} />
