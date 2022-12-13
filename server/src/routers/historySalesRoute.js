@@ -7,9 +7,9 @@ router.get('/', async (req, res) => {
     const history = [];
     const { userId } = req.session;
     // const sales = await History.findAll({ where: { UserId: userId } });
-    const salesHistory = await History.findAll({ where: { UserId: userId, sales: { [Op.not]: null } }, raw: true, attributes: ['sales', 'createdAt'] });
+    const salesHistory = await History.findAll({ where: { UserId: userId, sales: { [Op.not]: null } }, raw: true, attributes: ['sales', 'createdAt', 'id'] });
     console.log('Продажи', salesHistory);
-    salesHistory.map((el) => history.push({ sales: JSON.parse(el.sales), data: el.createdAt }));
+    salesHistory.map((el) => history.push({id: el.id, sales: JSON.parse(el.sales), data: el.createdAt }));
     console.log('Массив продаж', history);
     res.json(history);
   } catch (error) {

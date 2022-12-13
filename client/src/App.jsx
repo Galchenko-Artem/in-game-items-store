@@ -55,7 +55,6 @@ import Footer from './components/Footer/Footer';
 import Stripe from './components/Stripe/Stripe';
 // import ChatPage from './components/Chat/ChatPage';
 
-
 function App() {
   const [loading, setLoading] = useState(true);
   // const user = useSelector((state) => state.userStore);

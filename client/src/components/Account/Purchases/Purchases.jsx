@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Sales() {
+export default function Purchases() {
   const [purchases, setPurchases] = useState([]);
 
   useEffect(() => {
