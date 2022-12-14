@@ -1,7 +1,9 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
+import styles from './productDetails.module.css';
+
 import { basketAdd, basketDel } from '../../store/actions/basketAction';
 
 export default function Product() {
@@ -27,16 +29,7 @@ export default function Product() {
       .catch(console.log);
   }, []);
 
-  // const addToBasket = (el) => {
-  //   dispatch(basketAdd(el));
-  // };
-
   const addToBasket = (el) => {
-    // const isInBasket = basket.some((item) => item.id === el.id);
-    // if (!isInBasket) {
-    //   dispatch(basketAdd(el));
-    //   console.log('Добавляем в редакс так как его нет в корзине');
-    // }
     fetch('http://localhost:3001/basket', {
       credentials: 'include',
       method: 'POST',
@@ -72,33 +65,34 @@ export default function Product() {
   };
 
   return (
-    <div>
-  <button type="button" onClick={() => navigate(-1)}>Вернуться назад</button>
+    <>
+  {/* <button type="button" onClick={() => navigate(-1)}>Вернуться назад</button> */}
     {product ? (
-<>
-      <div><img src={`http://localhost:3001/${product.product.image}`} alt={product.name} /></div>
-      <div>Название:{product.product.name}</div>
-      <div>Описание: {product.product.description}</div>
-      <div>Цена: {product.product.price}</div>
-      <div>Игра {product.product.Game.title}</div>
-      <div>Имя продавца: {product?.vendorName}</div>
-      {user.user ? (
-      // <div>
-      //     <button onClick={() => addToBasket(product.product)}>Корзина</button>
-      // </div>
+<div className={styles.mainDiv}>
+      <div><img className={styles.image} src={`http://localhost:3001/${product.product.image}`} alt={product.name} /></div>
+
+      <div className={styles.textDiv}>
+        <div> <h2>{product.product.name}</h2></div>
+        <div className={styles.description}>{product.product.description}</div>
+        <div><h2>{product.product.price}$</h2></div>
+        <div className={styles.description}>{product.product.Game.title}</div>
+        <div className={styles.description}>Продавец: {product?.vendorName}</div>
+        {user.user ? (
           <div>
             {basket.some((item) => item.id === product.product.id) ? (
-              <button className="inBasket" onClick={() => removeFromBasket(product.product)}>В корзине</button>
+              <button className={styles.buttonFromBasket} onClick={() => removeFromBasket(product.product)}>В корзине</button>
             ) : (
-              <button onClick={() => addToBasket(product.product)}>В корзину</button>
+              <button className={styles.buttonInBasket} onClick={() => addToBasket(product.product)}>В корзину</button>
             )}
           </div>
 
-      ) : (null)}
+        ) : (null)}
+        <button type={styles.buttonBack} onClick={() => navigate(-1)}>Вернуться назад</button>
+      </div>
 
-</>
+</div>
     ) : (null)}
 
-    </div>
+    </>
   );
 }
