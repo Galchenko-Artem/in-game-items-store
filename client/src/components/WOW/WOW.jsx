@@ -10,11 +10,8 @@ export default function WOW() {
     <>
     <div className="navBar">
       <NavBar />
-    </div>
-    <div className="containerVideo">
         <video className="VideoWow" src={videoWow} autoPlay loop muted />
     </div>
-
     <Outlet />
     </>
   );
