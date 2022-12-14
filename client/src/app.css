@@ -1,10 +1,13 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 
 body{
-    background: rgb(2,0,36);
+    background: rgb(13, 21, 76);
     font-family: Palatino, URW Palladio L, serif;
+    font-family: 'Lobster', cursive;
 }
 
 button:hover { cursor: pointer; }
