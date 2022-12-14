@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import './StyleAccounts.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -69,52 +70,83 @@ export default function ListAccCS() {
   const filterAcc = acc?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="containerItems">
-        ListOfAccounts
-        <div className="containerAccount">
-            <div className="filtr">
-              <input
-                placeholder="Поиск...."
-                value={search}
-                type="text"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <Select
-                value={sort}
-                onChange={sortPrice}
-                defaultValue="Сортировка"
-                options={[
-                  { value: 'price', name: 'По цене(по возрастанию)' },
-                ]}
-              />
-            </div>
-            <div className="mainItems">
-                {filterAcc && filterAcc.map((el) => (
-                     <div key={el.id} className="boxAccount">
-                      <div className="containerImg">
-                        <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
-                      </div>
-                         <div>
-                         <Link to={`${el.id}`}><button>Info</button></Link>
-                         </div>
-                                 <div id="id" className="price">{el.price}$</div>
-                                  <p>{el.name}</p>
+  // <div className="containerItems">
+  //     ListOfAccounts
+  //     <div className="containerAccount">
+  //         <div className="filtr">
+  //           <input
+  //             placeholder="Поиск...."
+  //             value={search}
+  //             type="text"
+  //             onChange={(e) => setSearch(e.target.value)}
+  //           />
+  //           <Select
+  //             value={sort}
+  //             onChange={sortPrice}
+  //             defaultValue="Сортировка"
+  //             options={[
+  //               { value: 'price', name: 'По цене(по возрастанию)' },
+  //             ]}
+  //           />
+  //         </div>
+  //         <div className="mainItems">
+  //             {filterAcc && filterAcc.map((el) => (
+  //                  <div key={el.id} className="boxAccount">
+  //                   <div className="containerImg">
+  //                     <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
+  //                   </div>
+  //                      <div>
+  //                      <Link to={`${el.id}`}><button>Info</button></Link>
+  //                      </div>
+  //                              <div id="id" className="text-sm font-medium text-gray-900">{el.price}$</div>
+  //                               <p>{el.name}</p>
 
-                                {user.user ? (
-                        <div>
-                          {basket.some((item) => item.id === el.id) ? (
-                          <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
-                          ) : (
-                          <button onClick={(e) => addToBasket(el)}>В корзину</button>
-                          )}
-                        </div>
-                                ) : (
-                                  null
-                                )}
-                     </div>
-                ))}
+    //                             {user.user ? (
+    //                     <div>
+    //                       {basket.some((item) => item.id === el.id) ? (
+    //                       <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+    //                       ) : (
+    //                       <button onClick={(e) => addToBasket(el)}>В корзину</button>
+    //                       )}
+    //                     </div>
+    //                             ) : (
+    //                               null
+    //                             )}
+    //                  </div>
+    //             ))}
+    //         </div>
+    //     </div>
+    // </div>
+    <div className="bg-black">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+
+        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {filterAcc && filterAcc.map((product) => (
+            <div key={product.id} className="group relative">
+              <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                <img
+                  src={`http://localhost:3001/${product.image}`}
+                  alt="img"
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.name}
+
+                    <Link to={`${product.id}`}><button>Info</button></Link>
+                  </h3>
+                </div>
+                <p className="text-sm font-medium text-gray-900">{product.price}</p>
+              </div>
             </div>
+          ))}
         </div>
+      </div>
     </div>
   );
 }

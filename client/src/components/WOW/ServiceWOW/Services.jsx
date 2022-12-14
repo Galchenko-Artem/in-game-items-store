@@ -1,8 +1,10 @@
+/* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
+import style from './StyleServices.module.css';
 import Select from '../../Filtr/Select';
 
 export default function Services() {
@@ -67,10 +69,10 @@ export default function Services() {
   const filterSer = services?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="containerItems">
+    <div className={style.containerItems}>
         Services
-        <div className="containerAccount">
-            <div className="filtr">
+        <div className={style.containerAccount}>
+            <div className={style.filtr}>
             <input
               placeholder="Поиск...."
               value={search}
@@ -86,11 +88,11 @@ export default function Services() {
                 ]}
               />
             </div>
-            <div className="mainItems">
+            <div className={style.mainItems}>
             {filterSer && filterSer.map((el) => (
-                <div key={el.id} className="boxAccount">
-                <div className="containerImg">
-                    <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
+                <div key={el.id} className={style.boxAccount}>
+                <div className={style.containerImg}>
+                    <img className={style.ImgAcc} src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
 
                             <div>{el.price}$</div>
@@ -98,7 +100,7 @@ export default function Services() {
                             {user.user ? (
                               <div>
                                 {basket.some((item) => item.id === el.id) ? (
-                                    <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                    <button className={style.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                 ) : (
                                     <button onClick={(e) => addToBasket(el)}>В корзину</button>
                                 )}

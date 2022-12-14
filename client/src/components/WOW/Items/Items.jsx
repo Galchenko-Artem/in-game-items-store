@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './StyleItems.css';
 import { useDispatch, useSelector } from 'react-redux';
+import style from './StyleItems.module.css';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
 import Select from '../../Filtr/Select';
 
@@ -69,10 +70,10 @@ export default function Items() {
   const filterItems = items?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="containerItems">
+    <div className={style.containerItems}>
     Items
-      <div className="containerAccount">
-        <div className="filtr">
+      <div className={style.containerAccount}>
+        <div className={style.filtr}>
           <input
             placeholder="Поиск...."
             value={search}
@@ -88,15 +89,15 @@ export default function Items() {
            ]}
          />
         </div>
-        <div className="mainItems">
+        <div className={style.mainItems}>
           {filterItems && filterItems.map((el) => (
-            <div key={el.id} className="boxItems">
-                <div className="containerImgItems">
-                  <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
+            <div key={el.id} className={style.boxItems}>
+                <div className={style.containerImgItems}>
+                  <img className={style.ImgAcc} src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
-                <div className="containerBtn">
-                    <div>{el.name}</div>
-                        <div>{el.price}$</div>
+                <div className={style.containerBtn}>
+                    <div className={style.nameCont}>{el.name}</div>
+                        <div>Цена: {el.price}$</div>
                             <div>
                               <Link to={`${el.id}`}><button>Info</button></Link>
                             </div>
@@ -104,7 +105,7 @@ export default function Items() {
                                     {user.user ? (
                                       <div>
                                           {basket.some((item) => item.id === el.id) ? (
-                                       <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                       <button className={style.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                           ) : (
                                        <button onClick={(e) => addToBasket(el)}>В корзину</button>
                                           )}
