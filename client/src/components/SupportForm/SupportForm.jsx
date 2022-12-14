@@ -37,28 +37,35 @@ export default function SupportForm() {
 
   return (
     <>
-    <div className="supportForm">
-      <form onSubmit={handleSubmit}>
+    <div className="wrapperFormSupport">
+        <div className="firstFlex">
+          <h2>Привет!</h2>
+          <p>Ты можешь оставить обращение</p>
+          <img className="imgSupport" src="https://www.mightycall.ru/wp-content/uploads/2019/02/kak-organizovat-sluzhbu-podderzhki-po-telefonu.jpg" alt="imgSupport" />
+        </div>
+      <div className="supportForm">
+        <form className="formSupport" onSubmit={handleSubmit}>
+        <div className="divInput">
+            <label className="labeSupport">Опишите вашу проблему <sup>*</sup></label>
+            <textarea className="inputSupport problem" rows="10" cols="45" name="text" value={form.text} onChange={handleInput} placeholder="Сообщение" autoComplete="on" />
+        </div>
+
       <div className="divInput">
-      <label className="labeSupport">Опишите вашу проблему <sup>*</sup></label>
-      <textarea className="inputSupport problem" rows="10" cols="45" name="text" value={form.text} onChange={handleInput} placeholder="..." autoComplete="on" />
+        <label className="labeSupport">Оставьте ваш номер телефона на случай экстренной связи <sup>*</sup></label>
+        <input className="inputSupport" type="integer" value={form.tel} name="tel" onChange={handleInput} placeholder="79.." autoComplete="on" />
       </div>
 
       <div className="divInput">
-      <label className="labeSupport">Оставьте ваш номер телефона на случай экстренной связи <sup>*</sup></label>
-      <input className="inputSupport" type="integer" value={form.tel} name="tel" onChange={handleInput} placeholder="Номер должен начинаться с 89.." autoComplete="on" />
-      </div>
-
-      <div className="divInput">
-      <label className="labeSupport">Для оперативного уведомления вы можете оставить аккаунт в Telegram</label>
-      <input className="inputSupport" type="text" value={form.telegramAcc} name="telegramAcc" onChange={handleInput} placeholder="@Никнейм" autoComplete="on" />
+        <label className="labeSupport">Для оперативного уведомления вы можете оставить аккаунт в Telegram</label>
+        <input className="inputSupport" type="text" value={form.telegramAcc} name="telegramAcc" onChange={handleInput} placeholder="@Никнейм" autoComplete="on" />
       </div>
 
       <div className="supportBtnSubmitDiv">
       <button className="SubmitBtnSupport" type="submit">Отправить</button>
       </div>
       <div className="answerSupport" />
-      </form>
+        </form>
+      </div>
     </div>
     <div className="supportAnwer">{answerSupport}</div>
     </>

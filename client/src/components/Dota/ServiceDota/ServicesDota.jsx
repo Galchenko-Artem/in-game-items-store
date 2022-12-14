@@ -1,10 +1,13 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
 import Select from '../../Filtr/Select';
+import styles from './serviceDota.module.css';
 
 export default function ServicesDota() {
+  const navigate = useNavigate();
   const [services, setServices] = useState();
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
@@ -70,46 +73,51 @@ export default function ServicesDota() {
   };
   const filterSer = services?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
   return (
-    <div className="containerItems">
-        Services
-        <div className="containerAccount">
-            <div className="filtr">
-            <input
-              placeholder="Поиск...."
-              value={search}
-              type="text"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-              <Select
-                value={sort}
-                onChange={sortPrice}
-                defaultValue="Сортировка"
-                options={[
-                  { value: 'price', name: 'По цене(по возрастанию)' },
-                ]}
-              />
-            </div>
-            <div className="mainItems">
-                {filterSer && filterSer.map((el) => (
-                <div key={el.id} className="boxAccount">
-                <div className="containerImg">
-                    <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="img" />
-                </div>
+    <div className={styles.containerItems}>
+        Сервисные услуги
+        <div className={styles.containerAccount}>
+            <div className={styles.filtr}>
+              <div className={styles.filtrColumn}>
+                  <button className={styles.backBtn} type="button" onClick={() => navigate('/')}>Вернуться к играм</button>
 
+                  <input
+                    className={styles.backBtn}
+                    placeholder="Поиск...."
+                    value={search}
+                    type="text"
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <Select
+                    className={styles.backBtn}
+                    value={sort}
+                    onChange={sortPrice}
+                    defaultValue="Сортировка"
+                    options={[
+                      { value: 'price', name: 'По цене(по возрастанию)' },
+                    ]}
+                  />
+              </div>
+            </div>
+            <div className={styles.mainItems}>
+                {filterSer && filterSer.map((el) => (
+                <div key={el.id} className={styles.boxAccount}>
+                <div className={styles.containerImg}>
+                    <img className={styles.ImgAcc} src={`http://localhost:3001/${el.image}`} alt="img" />
+                    <div>{el.name}</div>
+                </div>
                             <div>{el.price}$</div>
-                            <div>{el.name}</div>
+                            <div>
+                        <Link to={`${el.id}`}><button className={styles.btnItem}><span className={styles.span}>Подробнее</span></button></Link>
+                            </div>
                             {user.user ? (
                               <div>
                                 {basket.some((item) => item.id === el.id) ? (
-                                    <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                    <button className={styles.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                 ) : (
-                                    <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                    <button className={styles.btnItem} onClick={(e) => addToBasket(el)}>В корзину</button>
                                 )}
                               </div>
                             ) : (null)}
-                    <div>
-                    <Link to={`${el.id}`}><button>Info</button></Link>
-                    </div>
 
                 </div>
                 ))}
