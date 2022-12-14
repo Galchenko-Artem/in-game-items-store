@@ -28,11 +28,11 @@ export default function ListOfAccounts() {
   }, []);
 
   const addToBasket = (el) => {
-    const isInBasket = basket.some((item) => item.id === el.id);
-    if (!isInBasket) {
-      dispatch(basketAdd(el));
-      console.log('Добавляем в редакс так как его нет в корзине');
-    }
+    // const isInBasket = basket.some((item) => item.id === el.id);
+    // if (!isInBasket) {
+    //   dispatch(basketAdd(el));
+    //   console.log('Добавляем в редакс так как его нет в корзине');
+    // }
     fetch('http://localhost:3001/basket', {
       credentials: 'include',
       method: 'POST',
@@ -44,6 +44,9 @@ export default function ListOfAccounts() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        if (res.status === 'success') {
+          dispatch(basketAdd(el));
+        }
       });
   };
 
@@ -101,6 +104,7 @@ export default function ListOfAccounts() {
                           <Link className={style.text} to={`${el.id}`}>Подробнее...</Link>
                         </div>
                                 <div className={style.Price}>Цена: ${el.price}</div>
+                                <div>{el.name}</div>
                                     <div>
                                       {user.user ? (
                                         <div>

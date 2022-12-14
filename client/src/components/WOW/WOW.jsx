@@ -15,7 +15,6 @@ export default function WOW() {
         <video className={style.VideoWow} src={videoWow} autoPlay loop muted />
       </div>
     </div>
-
     <Outlet />
     </>
   );

@@ -5,8 +5,8 @@ module.exports = {
       'Products',
       [
         {
-          name: 'Иван',
-          price: 15,
+          name: 'Тренер ',
+          price: 10,
           GameId: 1,
           CategoryId: 3,
           image: 'public/images/cs_servis1.jpg',
@@ -16,7 +16,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Егор',
+          name: 'бустану с сильверов до калаша бесплатно',
           price: 50,
           GameId: 1,
           CategoryId: 3,
@@ -27,7 +27,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Илья',
+          name: 'буст аккаунтов фейсит/мм',
           price: 14,
           GameId: 1,
           CategoryId: 3,
@@ -38,7 +38,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Денис',
+          name: 'Калибровка-Дойдём до глобола',
           price: 31,
           GameId: 1,
           CategoryId: 3,
@@ -49,7 +49,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Александр',
+          name: 'Калибровка',
           price: 17,
           GameId: 1,
           CategoryId: 3,
@@ -60,7 +60,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Роман',
+          name: 'Подниму звание до Большой звезды',
           price: 30,
           GameId: 1,
           CategoryId: 3,
@@ -71,7 +71,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Костя',
+          name: 'Готов забустить ваш аккаунт',
           price: 25,
           GameId: 1,
           CategoryId: 3,
@@ -82,7 +82,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Артём',
+          name: 'Буст мм: 100 рублей за 1 звание',
           price: 15,
           GameId: 1,
           CategoryId: 3,

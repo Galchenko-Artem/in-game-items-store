@@ -43,7 +43,6 @@ export default function NavBar() {
 
       </div>
     </div>
-
   //   <div>
   //   <Link className={style.text} to="/wow/listOfAccounts">
   //     Аккаунты

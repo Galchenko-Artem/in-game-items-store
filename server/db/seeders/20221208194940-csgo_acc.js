@@ -5,8 +5,8 @@ module.exports = {
       'Products',
       [
         {
-          name: 'Аккаунт',
-          price: 10,
+          name: 'Серебро-Великий Магистр',
+          price: 40,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/acc_csgo_2131.webp',
@@ -16,7 +16,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
+          name: 'Серебро-2',
           price: 25,
           GameId: 1,
           CategoryId: 1,
@@ -27,8 +27,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
-          price: 20,
+          name: 'Серебро-3',
+          price: 30,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/cs_ak1.jpg',
@@ -38,8 +38,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
-          price: 15,
+          name: 'Серебро-4',
+          price: 35,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/cs_ak2.jpg',
@@ -49,8 +49,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
-          price: 30,
+          name: 'Золотая Звезда-Магистр',
+          price: 100,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/cs_ak3.jpg',
@@ -60,8 +60,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
-          price: 17,
+          name: 'Магистр Хранитель-Элита',
+          price: 120,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/cs_ak4.jpg',
@@ -71,8 +71,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
-          price: 14,
+          name: 'Заслуженный Магистр-Хранитель',
+          price: 150,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/cs_ak5.jpg',
@@ -82,8 +82,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аккаунт',
-          price: 30,
+          name: 'Всемирная Элита или просто глобал',
+          price: 200,
           GameId: 1,
           CategoryId: 1,
           image: 'public/images/cs_ak6.jpg',

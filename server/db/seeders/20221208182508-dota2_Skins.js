@@ -6,7 +6,7 @@ module.exports = {
       [
         {
           name: 'Меч-пушка',
-          price: 500,
+          price: 50,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/sword.png',
@@ -17,7 +17,7 @@ module.exports = {
         },
         {
           name: 'Сердце Аида',
-          price: 300,
+          price: 30,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/wings_100.png',
@@ -28,7 +28,7 @@ module.exports = {
         },
         {
           name: 'Сияющий клинок Алладина',
-          price: 400,
+          price: 40,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/sword_1.png',
@@ -39,7 +39,7 @@ module.exports = {
         },
         {
           name: 'Шкура барона',
-          price: 450,
+          price: 45,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/immo_1.png',
@@ -50,7 +50,7 @@ module.exports = {
         },
         {
           name: 'Пушка Ардалана',
-          price: 1000,
+          price: 100,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/sniper_e.png',
@@ -61,7 +61,7 @@ module.exports = {
         },
         {
           name: 'Магическая палочка Волан-де-Морта',
-          price: 1200,
+          price: 120,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/boom_763.png',
@@ -72,7 +72,7 @@ module.exports = {
         },
         {
           name: 'Клинок Арагорна',
-          price: 800,
+          price: 80,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/sword_1232.png',
@@ -83,7 +83,7 @@ module.exports = {
         },
         {
           name: 'Плащ унылого монаха',
-          price: 600,
+          price: 60,
           GameId: 3,
           CategoryId: 2,
           image: 'public/images/helm_888.png',
