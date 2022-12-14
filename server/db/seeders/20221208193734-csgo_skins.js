@@ -5,7 +5,7 @@ module.exports = {
       'Products',
       [
         {
-          name: 'AWP | История о драконе',
+          name: 'AWP | о драконе',
           price: 15,
           GameId: 1,
           CategoryId: 2,
@@ -16,7 +16,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'AK-47 | Дикий лотос',
+          name: 'AK-47 | Дикий',
           price: 50,
           GameId: 1,
           CategoryId: 2,
@@ -49,7 +49,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: '★ Штык-нож M9 | Волны Сапфир',
+          name: '★ Штык-нож M9 ',
           price: 17,
           GameId: 1,
           CategoryId: 2,
@@ -60,7 +60,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Desert Eagle | Пламя',
+          name: 'Desert Eagle',
           price: 30,
           GameId: 1,
           CategoryId: 2,
@@ -71,7 +71,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Desert Eagle | Океанское побережье',
+          name: 'Desert Eagle',
           price: 25,
           GameId: 1,
           CategoryId: 2,

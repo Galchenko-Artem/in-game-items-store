@@ -16,7 +16,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'бустану с сильверов до калаша бесплатно',
+          name: 'бустану до калаша',
           price: 50,
           GameId: 1,
           CategoryId: 3,
@@ -27,7 +27,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'буст аккаунтов фейсит/мм',
+          name: 'буст аккаунтов',
           price: 14,
           GameId: 1,
           CategoryId: 3,
@@ -38,7 +38,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Калибровка-Дойдём до глобола',
+          name: 'Калибровка-Дойдём',
           price: 31,
           GameId: 1,
           CategoryId: 3,
@@ -60,7 +60,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Подниму звание до Большой звезды',
+          name: 'Подниму звание',
           price: 30,
           GameId: 1,
           CategoryId: 3,
@@ -71,7 +71,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Готов забустить ваш аккаунт',
+          name: 'Готов забустить',
           price: 25,
           GameId: 1,
           CategoryId: 3,
@@ -82,7 +82,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Буст мм: 100 рублей за 1 звание',
+          name: 'Буст мм',
           price: 15,
           GameId: 1,
           CategoryId: 3,
