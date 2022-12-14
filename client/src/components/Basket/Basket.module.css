@@ -1,53 +1,134 @@
-
 .container{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,66,121,1) 21%, rgba(0,212,255,1) 100%);
     max-width: auto;
-    max-height: 1500px;
+    max-height: 150px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
+    /* padding-left: 15px;
+    padding-right: 15px; */
+} 
 
 .product_wrapper{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    column-gap: 30px;
     row-gap: 30px;
-    justify-content: center;
     margin-bottom: 30px;
+    justify-content: center;
 }
 
 .product{
     display: flex;
-    flex-wrap: wrap;
-    background: rgb(70,16,121);
-    background: linear-gradient(0deg, rgba(70,16,121,1) 13%, rgba(27,137,159,1) 52%);
-    height:150px;
-    width: 600px;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgb(15, 72, 95);
+    height:100px;
+    width: 100vw;
     border: 5px;
 }
 .picture{
-    height:150px;
-    width: 225px;
+    height:95px;
+    width: 150px;
+    margin-top: 4px;
 } 
 
-.button1{
-    background: rgb(201,48,38);
-    background: linear-gradient(52deg, rgba(201,48,38,1) 19%, rgba(27,38,159,1) 77%);
-    height:25px;
-    width: 78px;
-    border-radius: 10px;
-}
-
-.button{
-    background: rgb(38,156,201);
-    background: linear-gradient(315deg, rgba(38,156,201,1) 19%, rgba(45,240,123,1) 84%);
-    border-radius: 10px;
-}
-
 .arrange{
+    display: flex;
+    justify-content: center;
+    height:100px;
+    width: 300px;
     text-align: right;
 }
+
+.customBtn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  } 
+  .btn9 {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  .btn9:after {
+    position: absolute;
+    content: " ";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-color: #1fd1f9;
+  background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    transition: all 0.3s ease;
+  }
+  .btn9:hover {
+    background: transparent;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    color: #fff;
+  }
+  .btn9:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  }
+  
+  .btn5 {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: rgb(255,27,0);
+  background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
+  }
+  .btn5:hover {
+    color: #f0094a;
+    background: transparent;
+     box-shadow:none;
+  }
+  .btn5:before,
+  .btn5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #f0094a;
+    box-shadow:
+     -1px -1px 5px 0px #fff,
+     7px 7px 20px 0px #0003,
+     4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+  }
+  .btn5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn5:hover:before,
+  .btn5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+ 
