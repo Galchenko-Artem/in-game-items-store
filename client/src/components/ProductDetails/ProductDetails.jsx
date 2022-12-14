@@ -32,11 +32,11 @@ export default function Product() {
   // };
 
   const addToBasket = (el) => {
-    const isInBasket = basket.some((item) => item.id === el.id);
-    if (!isInBasket) {
-      dispatch(basketAdd(el));
-      console.log('Добавляем в редакс так как его нет в корзине');
-    }
+    // const isInBasket = basket.some((item) => item.id === el.id);
+    // if (!isInBasket) {
+    //   dispatch(basketAdd(el));
+    //   console.log('Добавляем в редакс так как его нет в корзине');
+    // }
     fetch('http://localhost:3001/basket', {
       credentials: 'include',
       method: 'POST',
@@ -48,6 +48,9 @@ export default function Product() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        if (res.status === 'success') {
+          dispatch(basketAdd(el));
+        }
       });
   };
 
