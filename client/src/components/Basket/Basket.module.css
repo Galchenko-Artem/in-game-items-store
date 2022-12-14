@@ -1,29 +1,53 @@
-.containerItems{
-    text-align: center;
-    max-width: 600px;
-    max-height: 600px;
-    margin: auto;
-}
-.containerBasket{
-    display: flex;
-    margin-top: 20px;
-    justify-content: space-evenly;
-}
-.mainItems{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    width: 700px;
-    height: 700px;
-    border: 1px solid black;
-}
-.arrange{
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    border: 1px solid black;
+
+.container{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,66,121,1) 21%, rgba(0,212,255,1) 100%);
+    max-width: auto;
+    max-height: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
+.product_wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    background: rgb(70,16,121);
+    background: linear-gradient(0deg, rgba(70,16,121,1) 13%, rgba(27,137,159,1) 52%);
+    height:150px;
+    width: 600px;
+    border: 5px;
+}
 .picture{
-    border: 1px solid black;
+    height:150px;
+    width: 225px;
+} 
+
+.button1{
+    background: rgb(201,48,38);
+    background: linear-gradient(52deg, rgba(201,48,38,1) 19%, rgba(27,38,159,1) 77%);
+    height:25px;
+    width: 78px;
+    border-radius: 10px;
+}
+
+.button{
+    background: rgb(38,156,201);
+    background: linear-gradient(315deg, rgba(38,156,201,1) 19%, rgba(45,240,123,1) 84%);
+    border-radius: 10px;
+}
+
+.arrange{
+    text-align: right;
 }
