@@ -1,0 +1,94 @@
+.containerItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
+    max-width: 2000px;
+    max-height: 1100px;
+    z-index: 10;
+}
+.containerAccount{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+.mainItems{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 1800px;
+    height: 1100px; 
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.boxAccount{
+    display: flex;
+    align-items: center;
+    width: 42rem;
+    height: 10rem;
+    margin: 0.9rem;
+    justify-content: space-evenly;
+    border: 2px solid #211510b0;
+    box-shadow: 0 0 10px 0 #211510b0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #211510b0;
+}
+
+.boxAccount:hover{
+	border: 2px solid #f8b700;
+    box-shadow: 0 0 20px 0 #f8b700;
+	}
+
+ .ImgAcc{
+    width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 black;
+ }   
+
+
+ .text{
+    font-family: 'Anton', sans-serif;
+    color: #f8b700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+  }
+  .text:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #f8b700;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .text:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+  .Price{
+    color: #f8b700;
+    font-weight: bolder;
+  }
+  .filtr{
+    
+  }
+  .Input{
+    margin: 20px;
+    width: 270px;
+    border: 2px solid #211510b0;
+    box-shadow: 0 0 10px 0 #211510b0;
+  }
+  .Select{
+    
+  }

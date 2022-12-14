@@ -1,0 +1,70 @@
+.boxItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 18rem;
+    height: 18rem;
+    margin: 1rem;
+    border: 2px solid #211510b0;
+    box-shadow: 0 0 10px 0 #211510b0;
+    overflow: hidden;
+    
+}
+.boxItems:hover{
+    box-shadow: 0 0 40px 0 #0c92e6b0;
+    
+}
+
+.containerImgItems{
+    width: 18rem;
+    height: 9rem;
+    overflow: hidden;
+    
+}
+.containerBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+
+}
+.nameCont{
+    margin-bottom: 20px;
+}
+
+.containerItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
+    max-width: 2000px;
+    max-height: 1100px;
+    z-index: 10;
+}
+.containerAccount{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+.mainItems{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 1800px;
+    height: 1100px; 
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.ImgAcc{
+    width: 18rem;
+}
+.ImgAcc:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2)
+}
