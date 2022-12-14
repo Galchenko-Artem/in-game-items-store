@@ -15,7 +15,7 @@
   position: relative;
     text-align: center;
     color: white;
-    min-height: 80vh;
+    height: 100vh;
     background-image: url("http://localhost:3001/public/images/dota2-background-img.jpeg");
     -webkit-background-size: cover auto;
     -moz-background-size: cover auto;
@@ -43,34 +43,11 @@
   border: orange solid 2px;
 }
 
-@media screen and (max-width: 1400px) {
-	.contanerNavbar { 
-    left: 17vw;
-    right: 16vw;
-  }
-  .container {
-    min-height: 100vh;
-  }
-  .navBtn {
-    width: 170px;
-    height: 40px;
-    font-size: 14px;
-  }
-  
-}  
 
-@media screen and (max-width: 784px) {
-	  .navBtn {
-    width: 170px;
-    height: 40px;
-    font-size: 14px;
-  }
-}
 
-@media screen and (max-width: 531px) {
-  .navBtn {
-  width: 170px;
-  height: 30px;
-  font-size: 14px;
-}
-}
+@media screen and (max-width: 822px) {
+	.navBtn { 
+    height: 30px;
+  }
+} 
+

@@ -1,25 +1,22 @@
 .mainItems{
-    margin-top: 10px;
-    position: absolute;
+    margin-top: 150px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    top: 140px;
     width: 100vw;
-    height: 550px;
+    height: 70vh;
     overflow: scroll;
     overflow-x: hidden;
 }
 
 .containerItems{
-    max-width: 1200px;
-    max-height: 1200px;
-    margin: auto;
+    height: 80vh;
+    opacity: 85%;
 }
 .containerAccount{
+    height: 80vh;
     display: flex;
-    position: absolute;
     z-index: 3;
     left: 0vw;
 }
@@ -114,41 +111,39 @@
   }
 
  
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1416px) {
 	.filtr { 
     right: 100vw;
     top: 3vh;
   }
   .boxAccount {
-    flex-direction: wrap;
     height: 120px;
     width: 500px;
+
   }
   .ImgAcc {
     width: 6rem;
     height: 3rem;
 }
-.mainItems {
-    height: 400px;
-}
+
 }  
 
-@media screen and (max-width: 784px) {
-    .mainItems {
-        top: 160px;
-      }
-    .boxAccount {
-  height: 80px;
-}
-    .ImgAcc {
-        width: 5rem;
-        height: 3rem;
-}
+@media screen and (max-width: 1079px) {
+  .boxAccount {
+    height: 120px;
+    width: 700px;
+
+  }
+  .ImgAcc {
+    width: 6rem;
+    height: 3rem;
 }
 
-@media screen and (max-width: 528px) {
+} 
+
+@media screen and (max-width: 822) {
     .mainItems {
-    top: 180px
+    /* margin-top: 180px */
   }
 }
 
@@ -165,3 +160,25 @@
     display: none;
   }
   }
+
+  @media screen and (max-width: 553px) {
+    .mainItems {
+      margin-top: 185px;
+  
+    }
+  } 
+
+  @media screen and (max-width: 420px) {
+    .ImgAcc {
+      width: 5rem;
+      height: 3rem;
+    }
+    .btnItem {
+      width: 70px;
+      font-size: 10px;
+    }
+    .inBasket {
+      width: 70px;
+      font-size: 10px;
+    }
+  } 
