@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default function Select({
+  className,
   options, defaultValue, value, onChange,
 }) {
   return (
     <select
+      className={className}
       value={value}
       onChange={(e) => onChange(e.target.value)}
     >

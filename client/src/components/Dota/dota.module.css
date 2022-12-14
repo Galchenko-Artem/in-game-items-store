@@ -1,0 +1,76 @@
+.imgDota {
+
+  width: 100px;
+  height: 60px;
+
+}
+
+.dota2Image {
+  margin-top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+    text-align: center;
+    color: white;
+    min-height: 80vh;
+    background-image: url("http://localhost:3001/public/images/dota2-background-img.jpeg");
+    -webkit-background-size: cover auto;
+    -moz-background-size: cover auto;
+    -o-background-size: cover auto;
+    background-size: cover;
+}
+
+.contanerNavbar {
+  position: absolute;
+  left: 20vw;
+  right: 20vw;
+  top: 2vh;
+  z-index: 1;
+}
+
+.navBtn {
+  background-color: rgb(0, 0, 0);
+  width: 160px;
+  height: 50px;
+  color: white;
+  font-size: 15px;
+}
+
+.navBtn:hover {
+  border: orange solid 2px;
+}
+
+@media screen and (max-width: 1400px) {
+	.contanerNavbar { 
+    left: 17vw;
+    right: 16vw;
+  }
+  .container {
+    min-height: 100vh;
+  }
+  .navBtn {
+    width: 170px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+}  
+
+@media screen and (max-width: 784px) {
+	  .navBtn {
+    width: 170px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 531px) {
+  .navBtn {
+  width: 170px;
+  height: 30px;
+  font-size: 14px;
+}
+}

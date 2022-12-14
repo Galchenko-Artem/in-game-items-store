@@ -1,13 +1,19 @@
 .VideoWow{
+    display: flex;
+    justify-content: center;
     border-radius: 40px;
+    margin: auto;
+    min-width: 100%;
+    max-height: 50%;
+    height: auto;
 }
 
-.containerVideo{
-display: flex;
-justify-content: center;
-margin-top: 50px;
-margin-bottom: 50px;
-}
 .Logo{
     max-width: 5rem;
+}
+
+.navBar {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
 }

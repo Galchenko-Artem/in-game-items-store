@@ -30,6 +30,7 @@ export default function PaymentForm() {
   const basket = useSelector((state) => state.basketStore);
   const dispatch = useDispatch();
   const finalPrice = basket.reduce((acc, el) => acc + el.price, 0);
+  console.log('===>>> 👉👉👉 file: PaymentForm.jsx:33 👉👉👉 finalPrice', finalPrice);
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -46,7 +47,7 @@ export default function PaymentForm() {
     if (!error) {
       const { id } = paymentMethod;
       const response = await axios.post('http://localhost:3001/payment', {
-        amount: finalPrice,
+        amount: finalPrice * 100,
         id,
       });
 

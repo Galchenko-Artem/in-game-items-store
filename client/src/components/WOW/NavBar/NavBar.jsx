@@ -9,16 +9,16 @@ export default function NavBar() {
     <div className="contanerNavbar">
       <img className="Logo" src={Logo} alt="logo" />
     <Link to="/wow/listOfAccounts">
-        <button> Список Аккаунтов </button>
+        <button className="nav-btn"> Список Аккаунтов </button>
     </Link>
     <Link to="/wow/items">
-      <button>Предметы</button>
+      <button className="nav-btn">Предметы</button>
     </Link>
     <Link to="/wow/services">
-       <button>Услуги</button>
+       <button className="nav-btn">Услуги</button>
     </Link>
     <Link to="/">
-       <button>Вернуться к играм</button>
+       <button className="nav-btn">Вернуться к играм</button>
     </Link>
     </div>
   );
