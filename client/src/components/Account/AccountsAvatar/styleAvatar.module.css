@@ -37,6 +37,10 @@
     border-radius: 4px;
 }
 
+.changeAvatarH2 {
+    margin: 5px;
+}
+
 .inputMulter::-webkit-file-upload-button{
     margin: 5px;
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -45,20 +49,24 @@
     box-sizing: border-box;
     color: #ffffff;
     white-space: normal;
-    width: 90px;
-    height: 50px;
+    width: 110px;
+    height: auto;
     background-image: linear-gradient(180deg, #1888EF 0%, #009FE9 100%);
 }
 .button{
-    margin: 5px;
+    margin-top: 5px;
     border: 2px solid rgba(255, 255, 255, 0.15);
     border-radius: 100px;
     text-shadow: 0 4px 8px rgb(0 0 0 / 20%);
     box-sizing: border-box;
     color: #ffffff;
     white-space: normal;
-    width: 150px;
+    width: 100px;
+    height: 30px;
     background-image: linear-gradient(180deg, #1888EF 0%, #009FE9 100%);
+}
+.button:hover {
+    box-shadow: 0 0 20px 0 #0099f8;
 }
 .form{
     display: flex;

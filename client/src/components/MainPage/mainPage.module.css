@@ -33,14 +33,15 @@ width: 600px;
 .videoWow{
   width: 600px;
   height: 700px;
-  margin: 50px;
+  margin: 30px;
 }
 
-
+.h3 {
+  margin-top: 0px;
+}
 /* .videoWow:hover{
   box-shadow: 0 0 150px 0 rgb(52, 37, 1);  
 } */
-
 .imgCard {
   margin-top: 10px;
   width: 600px;

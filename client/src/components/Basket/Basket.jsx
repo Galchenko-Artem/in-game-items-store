@@ -41,11 +41,9 @@ export default function Basket() {
       )) }
     </div>
         <div className={styles.arrange}>
-          <div>
-            <h2>
+            <h2 className="h2Allprice">
               Общая сумма: {basket.reduce((acc, el) => acc + el.price, 0)} $
             </h2>
-          </div>
           <Link to="/payment"><button className={`${styles.customBtn} ${styles.btn9}`} type="button">Оформить</button></Link>
         </div>
     </div>

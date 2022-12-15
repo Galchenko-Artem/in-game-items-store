@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect } from 'react';
 import style from './Stylelots.module.css';
 
@@ -117,7 +120,8 @@ export default function Lots() {
       <div>Название: {lot.name}</div>
       <div>Цена: {lot.price} </div>
       <div className={style.description}>Описание: {lot.description}</div>
-      {!lot.approved ? (<div>Статус: На рассмотрении</div>) : (null) }
+      {!lot.approved ? (<div>Статус: <span className={style.onCheck}>На рассмотрении</span></div>)
+        : (<div>Статус: <span className={style.сheck}>Одобрено</span></div>) }
       <div>Выставлен на продажу: {new Date(lot.updatedAt).toLocaleDateString()}</div>
       <button className={style.button} type="button" onClick={handleDeleteLot} id={lot.id}> Удалить</button>
       <button type="button" className={`${!isEdit ? style.visible : style.invisible2}`} onClick={handleEditLot} id={lot.id}> Редактировать</button>
@@ -129,17 +133,27 @@ export default function Lots() {
 <div className={`${isEdit ? 'visible' : style.invisible}`}>
 
 <form className={style.containerInput} onSubmit={handleSubmit}>
-Форма изменения
+ <span className={style.changeName}>Форма изменения</span>
     <input className={style.input} onChange={handeleInput} name="name" value={form.name} placeholder="name" />
     <input className={style.input} onChange={handeleInput} name="price" value={form.price} placeholder="price" />
     {/* <input onChange={handeleInput} name="image" value={form.image} placeholder="img" /> */}
     <div className={style.containerMulter}>
-      Изменить картинку:
+      Изменить картинку
       <input className={style.inputMulter} type="file" onChange={testImg} />
     </div>
     <input className={style.input} onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-    <button className={style.button} type="button" onClick={handleClose}> Закрыть</button>
-    <button className={style.button} type="submit" onClick={handleClose}>Отправить изменения</button>
+
+<div className={style.clBtn} onClick={handleClose}>
+    <div>
+        <div className={style.leftright} />
+        <div className={style.rightleft} />
+        <span className={style.closeBtn}>закрыть</span>
+    </div>
+</div>
+
+    {/* <button className={style.buttonClose} type="button" onClick={handleClose}>x</button> */}
+
+    <button className={style.buttonSubmit} type="submit" onClick={handleClose}>Отправить изменения</button>
 </form>
 </div>
     </div>

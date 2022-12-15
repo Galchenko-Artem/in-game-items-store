@@ -6,6 +6,11 @@
   color: white;
 }
 
+.h2hello {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
 .firstFlex {
   display: flex;
   flex-direction: column;
@@ -22,8 +27,8 @@
 
 .imgSupport {
   margin-top: 10px;
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  height: auto;
   border-radius: 30px;
   border: 4px solid orange;
 }
@@ -80,7 +85,7 @@ sup {
 
 .msgP {
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .SubmitBtnSupport:hover {

@@ -39,7 +39,7 @@ export default function SupportForm() {
     <>
     <div className="wrapperFormSupport">
         <div className="firstFlex">
-          <h2>Привет!</h2>
+          <h2 className="h2hello">Привет!</h2>
           <p className="msgP">Ты можешь оставить обращение</p>
           <img className="imgSupport" src="https://www.mightycall.ru/wp-content/uploads/2019/02/kak-organizovat-sluzhbu-podderzhki-po-telefonu.jpg" alt="imgSupport" />
         </div>
@@ -49,17 +49,14 @@ export default function SupportForm() {
             <label className="labeSupport">Опишите вашу проблему <sup>*</sup></label>
             <textarea className="inputSupport problem" rows="10" cols="45" name="text" value={form.text} onChange={handleInput} placeholder="Сообщение" autoComplete="on" />
         </div>
-
       <div className="divInput">
-        <label className="labeSupport">Оставьте ваш номер телефона на случай экстренной связи <sup>*</sup></label>
+        <label className="labeSupport">Оставьте ваш номер телефона <sup>*</sup></label>
         <input className="inputSupport" type="integer" value={form.tel} name="tel" onChange={handleInput} placeholder="79.." autoComplete="on" />
       </div>
-
       <div className="divInput">
-        <label className="labeSupport">Для оперативного уведомления вы можете оставить аккаунт в Telegram</label>
+        <label className="labeSupport">Оставьте аккаунт в Telegram</label>
         <input className="inputSupport" type="text" value={form.telegramAcc} name="telegramAcc" onChange={handleInput} placeholder="@Никнейм" autoComplete="on" />
       </div>
-
       <div className="supportBtnSubmitDiv">
       <button className="SubmitBtnSupport" type="submit">Отправить</button>
       </div>

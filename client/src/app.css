@@ -1,18 +1,17 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&family=Secular+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body{
-    font-family: 'Lobster', cursive;
+    /* font-family: 'Anton', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    
     background: rgb(16,60,161);
     background: linear-gradient(124deg, rgba(16,60,161,1) 0%, rgba(25,9,52,1) 98%);
     width: 100vw;
-    height: 100vh;
-    color: #fff;
-    background: rgb(16,60,161);
-    background: linear-gradient(124deg, rgba(16,60,161,1) 0%, rgba(25,9,52,1) 98%);
+    color: white;
     width: 100vw;
     height: 100vh; 
 }
