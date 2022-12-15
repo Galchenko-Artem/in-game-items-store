@@ -63,7 +63,13 @@ export default function ListOfAccounts() {
   };
   const sortPrice = (el) => {
     setSort(el);
-    setAcc([...acc].sort((a, b) => a[el] - b[el]));
+    // setAcc([...acc].sort((a, b) => a[el] - b[el]));
+    if (el === 'По возрастанию') {
+      setAcc([...acc].sort((a, b) => a.price - b.price));
+    }
+    if (el === 'По убыванию') {
+      setAcc([...acc].sort((a, b) => b.price - a.price));
+    }
   };
   const filterAcc = acc?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
@@ -85,7 +91,8 @@ export default function ListOfAccounts() {
                 onChange={sortPrice}
                 defaultValue="Сортировка"
                 options={[
-                  { value: 'price', name: 'По цене(по возрастанию)' },
+                  { value: 'По возрастанию', name: 'По цене(по возрастанию)' },
+                  { value: 'По убыванию', name: 'По цене(по убыванию)' },
                 ]}
               />
             </div>

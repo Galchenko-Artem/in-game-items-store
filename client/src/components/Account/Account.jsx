@@ -53,6 +53,21 @@ export default function Account() {
                     Добавить Аватар
                 </div>
             </Link>
+            <Link className={style.text} to="/account/support">
+               <div className={style.containerImgAcc}>
+                   <img className={style.imgLot} src={ImgAvatar} alt="img" />
+               </div>
+                <div>
+                     Поддержка
+                </div>
+            </Link>
+
+            <Link className={style.text} to="/account/userPlea">
+               <div className={style.containerImgAcc}>
+                  <img className={style.imgLot} src={ImgAvatar} alt="img" />
+               </div>
+                <div>Обращения пользователя</div>
+            </Link>
         </div>
         <Outlet />
         </>
