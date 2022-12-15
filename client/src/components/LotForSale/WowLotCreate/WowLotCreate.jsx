@@ -5,8 +5,7 @@ import './StyleWowLotCreate.css';
 
 export default function WowLotCreate() {
   return (
-    <div className="create-Nav">
-        WowLotCreate
+    <div>
         <Navbar />
         <Outlet />
     </div>

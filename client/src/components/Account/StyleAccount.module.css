@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    align-items: center;
 }
 .imgAcc{
     width: 20rem;
@@ -31,4 +32,32 @@
     box-shadow: 0 0 20px 0 #0011f8;
     object-fit: hidden;
     margin-right: 20px;
+  }
+
+  .text{
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    color: #f5cd5f;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+  }
+  .text:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #5f00f8;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .text:hover:after { 
+    width: 100%; 
+    left: 0; 
   }

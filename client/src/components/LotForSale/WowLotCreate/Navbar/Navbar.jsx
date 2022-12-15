@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import style from './StyleNavbar.module.css';
 
 export default function Navbar() {
   return (
     <>
-    <Link to="/account/newLot/wow/createAcc">Добавить лот на аккаунт</Link>
-    <Link to="/account/newLot/wow/skinsCreate">Добавить лот на предмет</Link>
-    <Link to="/account/newLot/wow/servicesCreate">Добавить лот на услуги</Link>
+     <div className={style.containerNavbar}>
+    <Link className={style.text} to="/account/newLot/dota/createAcc">Добавить лот на аккаунт</Link>
+    <Link className={style.text} to="/account/newLot/dota/skinsCreate">Добавить лот на предмет</Link>
+    <Link className={style.text} to="/account/newLot/dota/servicesCreate">Добавить лот на услуги</Link>
+     </div>
+    <h2 className={style.text2}>World Of Warcraft</h2>
     </>
+
   );
 }

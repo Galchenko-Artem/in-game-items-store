@@ -177,7 +177,7 @@ function App() {
       <Route path="/contacts" element={<Сontacts />} />
 
     </Routes>
-    <Footer className="footer" />
+    {/* <Footer className="footer" /> */}
 
     </>
   );

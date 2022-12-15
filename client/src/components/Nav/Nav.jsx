@@ -5,6 +5,7 @@ import './nav.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { userLogout, userAvatar } from '../../store/actions/userAction';
 import { basketLogout } from '../../store/actions/basketAction';
+import Avatar from '../Account/img/1586360554_youloveit_ru_dipper_gravity_falls_na_avu01.jpg';
 
 export default function Nav() {
   const user = useSelector((store) => store.userStore);
@@ -57,7 +58,7 @@ export default function Nav() {
     <Link className="nav-main" to="/userPlea">Обращения пользователя</Link>
     <Link className="nav-main" to="/basket"> Корзина </Link>
      <Link className="nav-mainAvatar" to="/account"> Личный кабинет
-    {!user.user.image ? <p>Privet</p> : <img className="imgAvatar" src={`http://localhost:3001/${user.user?.image && user.user?.image}`} alt="Avatar" /> }
+    {!user.user.image ? <img className="imgAvatar" src={Avatar} alt="img" /> : <img className="imgAvatar" src={`http://localhost:3001/${user.user?.image && user.user?.image}`} alt="Avatar" /> }
      </Link>
 
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
