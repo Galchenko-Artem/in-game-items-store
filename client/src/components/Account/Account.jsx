@@ -1,18 +1,57 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import './account.css';
-import AccountsAvatar from './AccountsAvatar/AccountsAvatar';
+import style from './StyleAccount.module.css';
+import ImgLot from './img/HS_24p6_PP_RegularPack_PRODUCT-THUMB-960x540.webp';
+import ImgCreateSale from './img/687474703a2f2f692e696d6775722e636f6d2f6868384d557a562e6a7067.jpeg';
+import ImgSales from './img/dota.png';
+import ImgPurchases from './img/1042585.jpg';
+// import AccountsAvatar from './AccountsAvatar/AccountsAvatar';
 
 export default function Account() {
   return (
         <>
-        <AccountsAvatar />
-        <div>
-            <h3>Личный кабинет</h3>
-            <Link to="/account/lots"><button type="button">Мои лоты</button></Link>
-            <Link to="/account/sales"><button type="button">Мои продажи</button></Link>
-            <Link to="/account/purchases"><button type="button">Мои покупки</button></Link>
-            <Link to="/account/newLot"><button type="button">Создать Новый лот</button></Link>
+        {/* <AccountsAvatar /> */}
+        <div className={style.containerAccNav}>
+            <Link className={style.text} to="/account/lots">
+          <div className={style.containerImgAcc}>
+             <img className={style.imgLot} src={ImgLot} alt="img" />
+          </div>
+                <div>
+                Мои лоты
+                </div>
+            </Link>
+            <Link className={style.text} to="/account/sales">
+          <div className={style.containerImgAcc}>
+             <img className={style.ImgSales} src={ImgSales} alt="img" />
+          </div>
+                <div>
+                Мои продажи
+                </div>
+            </Link>
+            <Link className={style.text} to="/account/purchases">
+          <div className={style.containerImgAcc}>
+             <img className={style.imgAcc} src={ImgPurchases} alt="img" />
+          </div>
+                <div>
+                Мои покупки
+                </div>
+            </Link>
+            <Link className={style.text} to="/account/newLot">
+          <div className={style.containerImgAcc}>
+             <img className={style.imgAcc} src={ImgCreateSale} alt="img" />
+          </div>
+                <div>
+                Создать Новый лот
+                </div>
+            </Link>
+            <Link className={style.text} to="/account/avatar">
+          <div className={style.containerImgAcc}>
+             <img className={style.imgAcc} src={ImgCreateSale} alt="img" />
+          </div>
+                <div>
+                    Добавить Аватар
+                </div>
+            </Link>
         </div>
         <Outlet />
         </>

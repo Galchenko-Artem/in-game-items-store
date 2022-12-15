@@ -73,16 +73,17 @@ export default function Services() {
 
   return (
     <div className={style.containerItems}>
-        Services
         <div className={style.containerAccount}>
             <div className={style.filtr}>
             <input
+              className={style.Input}
               placeholder="Поиск...."
               value={search}
               type="text"
               onChange={(e) => setSearch(e.target.value)}
             />
               <Select
+                className={style.Input}
                 value={sort}
                 onChange={sortPrice}
                 defaultValue="Сортировка"

@@ -5,9 +5,9 @@
 
 
 body{
-    background: rgb(13, 21, 76);
-    font-family: Palatino, URW Palladio L, serif;
+    background: #232a39;
     font-family: 'Lobster', cursive;
+    color: #fff;
 }
 
 button:hover { cursor: pointer; }
