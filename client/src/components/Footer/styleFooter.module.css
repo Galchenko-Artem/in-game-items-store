@@ -1,19 +1,17 @@
-:root{
-    --index: calc(1vw + 1vh);
-    --text:   rgb(255, 217, 0);
-}
 
 .footer {
     display: flex;
-    bottom: calc(var(--index)* -6.5);
+    
     overflow: .45;
-    letter-spacing: calc(var(--index) / 8);
+    
   }
 
   .containerFooter{
     display: flex;
     width: 100%;
     margin-top: auto;
+    background: #1c2129ea;
+    margin-bottom: -20px;
     
   }
 .imgTeleg{

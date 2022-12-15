@@ -75,16 +75,17 @@ export default function Items() {
 
   return (
     <div className={style.containerItems}>
-    Items
       <div className={style.containerAccount}>
         <div className={style.filtr}>
           <input
+            className={style.Input}
             placeholder="Поиск...."
             value={search}
             type="text"
             onChange={(e) => setSearch(e.target.value)}
           />
          <Select
+           className={style.Input}
            value={sort}
            onChange={sortPrice}
            defaultValue="Сортировка"
@@ -103,7 +104,7 @@ export default function Items() {
                     <div className={style.nameCont}>{el.name}</div>
                         <div>Цена: {el.price}$</div>
                             <div>
-                              <Link to={`${el.id}`}><button>Info</button></Link>
+                            <Link className={style.text} to={`${el.id}`}>Подробнее...</Link>
                             </div>
                                 <div>
                                     {user.user ? (

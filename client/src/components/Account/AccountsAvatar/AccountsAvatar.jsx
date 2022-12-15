@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAvatar } from '../../../store/actions/userAction';
-import './styleAvatar.css';
+import style from './styleAvatar.module.css';
 
 export default function AccountsAvatar() {
   const { user } = useSelector((store) => store.userStore);
@@ -48,11 +48,11 @@ export default function AccountsAvatar() {
   };
 
   return (
-    <>
-     <div>Добрый день { user && user.login}!!</div>
-    <div>
+    <div className={style.containerAvateCreate}>
 
-        <img className="imgCreateAvatar" src={`http://localhost:3001/${userBD && userBD}`} alt="" />
+    <div>Добрый день { user && user.login}!!</div>
+    <div>
+        <img className={style.imgCreateAvatar} src={`http://localhost:3001/${userBD && userBD}`} alt="" />
     </div>
             <form onSubmit={handleSubmit}>
                 <h2>Изменить Аватар</h2>
@@ -60,6 +60,6 @@ export default function AccountsAvatar() {
             <button type="submit" id={user && user.userId}>Submit</button>
             </form>
 
-    </>
+    </div>
   );
 }
