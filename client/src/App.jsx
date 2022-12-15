@@ -53,6 +53,7 @@ import Сontacts from './components/Footer/Сontacts/Сontacts';
 import Footer from './components/Footer/Footer';
 
 import Stripe from './components/Stripe/Stripe';
+import AccountsAvatar from './components/Account/AccountsAvatar/AccountsAvatar';
 // import ChatPage from './components/Chat/ChatPage';
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
           dispatch(userAvatar(userAva.image));
           setTimeout(() => {
             setLoading(false);
-          }, 1000);
+          }, 500);
         } else {
           setLoading(false);
         }
@@ -110,6 +111,7 @@ function App() {
           <Route path="/basket" element={<Basket />} />
           <Route path="/payment" element={<Stripe />} />
           <Route path="/account" element={<Account />}>
+            <Route path="avatar" element={<AccountsAvatar />} />
             <Route path="lots" element={<Lots />} />
             <Route path="sales" element={<Sales />} />
             <Route path="purchases" element={<Purchases />} />
@@ -175,7 +177,7 @@ function App() {
       <Route path="/contacts" element={<Сontacts />} />
 
     </Routes>
-    <Footer className="footer" />
+    {/* <Footer className="footer" /> */}
 
     </>
   );

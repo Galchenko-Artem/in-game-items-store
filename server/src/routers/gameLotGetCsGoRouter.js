@@ -14,7 +14,7 @@ router.get('/csgo/listOfAccounts', async (req, res) => {
 
 router.get('/csgo/skins', async (req, res) => {
   try {
-    const gameLots = await Product.findAll();
+    const gameLots = await Product.findAll({ where: { approved: true } });
 
     res.json(gameLots);
     // console.log(gameLots);
@@ -24,7 +24,7 @@ router.get('/csgo/skins', async (req, res) => {
 });
 router.get('/csgo/services', async (req, res) => {
   try {
-    const gameLots = await Product.findAll();
+    const gameLots = await Product.findAll({ where: { approved: true } });
 
     res.json(gameLots);
     // console.log(gameLots);

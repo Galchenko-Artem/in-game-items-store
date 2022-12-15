@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './StyleSideBar.css';
+import style from './StyleSideBar.module.css';
 
 export default function Sidebar() {
   return (
-    <div className="containerSideBar">
+    <div className={style.containerSideBar}>
      <Link to="/account/newLot/csgo">
      <button>CSGo</button>
      </Link>

@@ -30,7 +30,7 @@
     justify-content: space-around;
     border: 2px solid rgb(65, 47, 124);
     background: rgb(2,0,36);
-    background: linear-gradient(124deg, rgba(2,0,36,1) 5%, rgba(49,111,173,1) 48%);
+    background: linear-gradient(124deg, rgba(2,0,36,1) 5%, rgba(49,111,173,0.8) 48%);
     transition: 1s;
 }
 .boxAccount:hover {
@@ -41,8 +41,10 @@
 
 }
 .ImgAcc{
+  border-radius: 10px;
     width: 10rem;
     height: 6rem;
+    border: 1px solid white;
 }
 
 .filtr {

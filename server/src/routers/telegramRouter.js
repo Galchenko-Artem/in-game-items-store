@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     const { BOT } = process.env;
     const url = `https://api.telegram.org/bot${BOT}/sendMessage?chat_id=${CHAT_ID}&parse_mode=HTML&text=${msg}`;
     if (!text.trim() || !tel.trim()) {
-      return res.json({ status: 'error', msg: 'Необходимо заполнить все обязательные поля' });
+      return res.json({ status: 'error', msg: 'Необходимо заполнить все обязательные поля *' });
     }
     if (text.length < 19) {
       return res.json({ status: 'error', msg: 'Слишком короткое сообщение. Опишите проблему подробнее. Минимум 20 символов.' });

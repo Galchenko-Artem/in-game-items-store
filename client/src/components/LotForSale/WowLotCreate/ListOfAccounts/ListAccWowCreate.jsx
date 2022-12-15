@@ -6,7 +6,7 @@ export default function ListAccWowCreate() {
   const [form, setForm] = useState({
     name: '',
     price: '',
-    GameId: 3,
+    GameId: 2,
     CategoryId: 1,
     image: '',
     description: '',

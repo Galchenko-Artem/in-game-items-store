@@ -1,28 +1,32 @@
 .containerItems{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-top: 200px;
-    max-width: 2000px;
-    max-height: 1100px;
-    z-index: 10;
+  display: flex;
+  justify-content: center;
+  color: white;
+    background-image: url(../img/bg_masthead.webp), url(../img/azeroth.jpg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat, repeat-y;
+    background-blend-mode: screen;
+  /* max-width: 100%; */
+  
 }
 .containerAccount{
     display: flex;
     margin-top: 20px;
     justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    width: 1500px;
 }
 .mainItems{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    width: 1800px;
     height: 1100px; 
     overflow: scroll;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 .boxAccount{
     display: flex;
@@ -51,7 +55,7 @@
 
 
  .text{
-    font-family: 'Anton', sans-serif;
+  font-family: 'Lobster', cursive;
     color: #f8b700;
     text-transform: uppercase;
     text-decoration: none;
@@ -83,12 +87,25 @@
   .filtr{
     
   }
+  
+  .Select{
+    
+  }
+
   .Input{
     margin: 20px;
     width: 270px;
-    border: 2px solid #211510b0;
-    box-shadow: 0 0 10px 0 #211510b0;
-  }
-  .Select{
-    
+    border: 1px solid var(--bg-border);
+    background: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    padding: 1.15em 1em 1.15em 2em;
+    color: #f0c328;
+    font-family: 'Lobster', cursive;
+    font-size: 12.5px;
+    text-rendering: optimizelegibility;
+    font-feature-settings: "kern" 1, "kern";
+    -webkit-font-kerning: normal;
+    font-kerning: normal;
+    text-indent: 2em;
+    box-shadow: 0 0 10px 0 #8d5943b0;
   }

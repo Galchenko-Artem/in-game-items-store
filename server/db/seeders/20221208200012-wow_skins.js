@@ -49,7 +49,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Полярная Ночь - артефакт Мага "Лед"',
+          name: 'Полярная Ночь',
           price: 55,
           GameId: 2,
           CategoryId: 4,
@@ -60,7 +60,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Фело мелорн + Сердце феникса',
+          name: 'Сердце феникса',
           price: 80,
           GameId: 2,
           CategoryId: 4,
@@ -71,7 +71,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Фу Цань, Спутник Странников - артефакт Монаха "Хмелевар"',
+          name: 'Монаха "Хмелевар',
           price: 70,
           GameId: 2,
           CategoryId: 4,
@@ -82,7 +82,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Алунет - артефакт Мага "Тайная магия"',
+          name: 'Алунет',
           price: 100,
           GameId: 2,
           CategoryId: 4,
