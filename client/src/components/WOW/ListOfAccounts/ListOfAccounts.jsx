@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './StyleAccounts.css';
 import { useDispatch, useSelector } from 'react-redux';
+import style from './StyleAccounts.module.css';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
 import Select from '../../Filtr/Select';
 
@@ -27,11 +28,11 @@ export default function ListOfAccounts() {
   }, []);
 
   const addToBasket = (el) => {
-    const isInBasket = basket.some((item) => item.id === el.id);
-    if (!isInBasket) {
-      dispatch(basketAdd(el));
-      console.log('Добавляем в редакс так как его нет в корзине');
-    }
+    // const isInBasket = basket.some((item) => item.id === el.id);
+    // if (!isInBasket) {
+    //   dispatch(basketAdd(el));
+    //   console.log('Добавляем в редакс так как его нет в корзине');
+    // }
     fetch('http://localhost:3001/basket', {
       credentials: 'include',
       method: 'POST',
@@ -43,6 +44,9 @@ export default function ListOfAccounts() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        if (res.status === 'success') {
+          dispatch(basketAdd(el));
+        }
       });
   };
 
@@ -69,17 +73,19 @@ export default function ListOfAccounts() {
   const filterAcc = acc?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="containerItems">
-        ListOfAccounts
-        <div className="containerAccount">
-            <div className="filtr">
+    <div className={style.containerItems}>
+
+    <div className={style.containerAccount}>
+            <div className={style.filtr}>
               <input
+                className={style.Input}
                 placeholder="Поиск...."
                 value={search}
                 type="text"
                 onChange={(e) => setSearch(e.target.value)}
               />
               <Select
+                className={style.Input}
                 value={sort}
                 onChange={sortPrice}
                 defaultValue="Сортировка"
@@ -88,21 +94,22 @@ export default function ListOfAccounts() {
                 ]}
               />
             </div>
-            <div className="mainItems">
+            <div className={style.mainItems}>
                 {filterAcc && filterAcc.map((el) => (
-                  <div key={el.id} className="boxAccount">
-                    <div key={el.id} className="containerImg">
-                      <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
+              <div key={el.id} className={style.boxAccount}>
+                    <div key={el.id} className={style.containerImg}>
+                      <img className={style.ImgAcc} src={`http://localhost:3001/${el.image}`} alt="" />
                     </div>
                         <div>
-                          <Link to={`${el.id}`}><button>Info</button></Link>
+                          <Link className={style.text} to={`${el.id}`}>Подробнее...</Link>
                         </div>
-                                <div>$:{el.price}</div>
+                                <div className={style.Price}>Цена: ${el.price}</div>
+                                <div>{el.name}</div>
                                     <div>
                                       {user.user ? (
                                         <div>
                                           {basket.some((item) => item.id === el.id) ? (
-                                          <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                          <button className={style.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                           ) : (
                                           <button onClick={(e) => addToBasket(el)}>В корзину</button>
                                           )}
@@ -111,10 +118,10 @@ export default function ListOfAccounts() {
                                         null
                                       )}
                                     </div>
-                  </div>
+              </div>
                 ))}
             </div>
-        </div>
+    </div>
     </div>
   );
 }

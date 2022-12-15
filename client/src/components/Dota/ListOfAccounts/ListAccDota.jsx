@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './StyleAccounts.css';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketAdd, basketDel } from '../../../store/actions/basketAction';
 import Select from '../../Filtr/Select';
+import styles from './StyleAccounts.module.css';
 
 export default function ListAccDota() {
   const [acc, setAcc] = useState();
@@ -11,6 +12,7 @@ export default function ListAccDota() {
   const [search, setSearch] = useState('');
   const basket = useSelector((store) => store.basketStore);
   const user = useSelector((state) => state.userStore);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,11 +28,11 @@ export default function ListAccDota() {
   }, []);
 
   const addToBasket = (el) => {
-    const isInBasket = basket.some((item) => item.id === el.id);
-    if (!isInBasket) {
-      dispatch(basketAdd(el));
-      console.log('Добавляем в редакс так как его нет в корзине');
-    }
+    // const isInBasket = basket.some((item) => item.id === el.id);
+    // if (!isInBasket) {
+    //   dispatch(basketAdd(el));
+    //   console.log('Добавляем в редакс так как его нет в корзине');
+    // }
     fetch('http://localhost:3001/basket', {
       credentials: 'include',
       method: 'POST',
@@ -42,6 +44,9 @@ export default function ListAccDota() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        if (res.status === 'success') {
+          dispatch(basketAdd(el));
+        }
       });
   };
 
@@ -68,17 +73,21 @@ export default function ListAccDota() {
   const filterAcc = acc?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="containerItems">
-        ListOfAccounts
-        <div className="containerAccount">
-            <div className="filtr">
+    <div className={styles.containerItems}>
+      Аккаунты на продажу
+        <div className={styles.containerAccount}>
+            <div className={styles.filtr}>
+              <div className={styles.filtrColumn}>
+              <button className={styles.backBtn} type="button" onClick={() => navigate('/')}>Вернуться к играм</button>
             <input
+              className={styles.backBtn}
               placeholder="Поиск...."
               value={search}
               type="text"
               onChange={(e) => setSearch(e.target.value)}
             />
               <Select
+                className={styles.backBtn}
                 value={sort}
                 onChange={sortPrice}
                 defaultValue="Сортировка"
@@ -86,26 +95,28 @@ export default function ListAccDota() {
                   { value: 'price', name: 'По цене(по возрастанию)' },
                 ]}
               />
+              </div>
             </div>
-            <div className="mainItems">
+            <div className={styles.mainItems}>
             {filterAcc && filterAcc.map((el) => (
-
-              <div key={el.id} className="boxAccount">
-                  <div key={el.id} className="containerImg">
-                    <img className="ImgAcc" src={`http://localhost:3001/${el.image}`} alt="" />
-                    <p>{el.name}</p>
+              <div key={el.id} className={styles.boxAccount}>
+                  <div key={el.id} className={styles.containerImg}>
+                    <div className={styles.flexImg}>
+                    <img className={styles.ImgAcc} src={`http://localhost:3001/${el.image}`} alt="" />
+                    {el.name}
+                    </div>
                   </div>
                       <div>
-                        <Link to={`${el.id}`}><button>Info</button></Link>
+                        <Link to={`${el.id}`}><button className={styles.btnItem}><span className={styles.span}>Подробнее</span></button></Link>
                       </div>
                               <div>{el.price} $</div>
                                   <div>
                                     {user.user ? (
                                       <div>
                                           {basket.some((item) => item.id === el.id) ? (
-                                        <button className="inBasket" onClick={() => removeFromBasket(el)}>В корзине</button>
+                                        <button className={styles.inBasket} onClick={() => removeFromBasket(el)}><span className={styles.span}>В корзине ✓</span></button>
                                           ) : (
-                                        <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                        <button className={styles.btnItem} onClick={(e) => addToBasket(el)}> <span className={styles.span}>В корзину</span></button>
                                           )}
                                       </div>
                                     ) : (
@@ -113,11 +124,12 @@ export default function ListAccDota() {
                                     )}
                                   </div>
               </div>
-
             ))}
+
             </div>
         </div>
 
     </div>
+
   );
 }

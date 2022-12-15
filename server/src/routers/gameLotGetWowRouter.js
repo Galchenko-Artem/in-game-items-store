@@ -3,7 +3,7 @@ const { Product } = require('../../db/models');
 
 router.get('/wow/listOfAccounts', async (req, res) => {
   try {
-    const gameLots = await Product.findAll();
+    const gameLots = await Product.findAll({ where: { approved: true } });
 
     res.json(gameLots);
     // console.log(gameLots);
@@ -14,7 +14,7 @@ router.get('/wow/listOfAccounts', async (req, res) => {
 
 router.get('/wow/skins', async (req, res) => {
   try {
-    const gameLots = await Product.findAll();
+    const gameLots = await Product.findAll({ where: { approved: true } });
 
     res.json(gameLots);
     // console.log(gameLots);
@@ -24,7 +24,7 @@ router.get('/wow/skins', async (req, res) => {
 });
 router.get('/wow/services', async (req, res) => {
   try {
-    const gameLots = await Product.findAll();
+    const gameLots = await Product.findAll({ where: { approved: true } });
 
     res.json(gameLots);
     // console.log(gameLots);

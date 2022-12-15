@@ -1,17 +1,13 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar/NavBar';
+import styles from './dota.module.css';
 
 export default function Dota() {
-  const navigate = useNavigate();
   return (
-    <>
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <button type="button" onClick={() => navigate('/')}>Вернуться к играм</button>
+    <div className={styles.container}>
       <NavBar />
-    </div>
-
     <Outlet />
-    </>
+    </div>
   );
 }
