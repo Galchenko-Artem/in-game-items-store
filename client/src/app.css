@@ -5,7 +5,9 @@
 
 
 body{
-    background: #232a39;
+  background: rgb(16,60,161);
+  background: linear-gradient(124deg, rgba(16,60,161,1) 0%, rgba(25,9,52,1) 98%);
+  background-size: 100%;
     font-family: 'Lobster', cursive;
     color: #fff;
 }
