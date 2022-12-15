@@ -87,6 +87,11 @@ display: flex;
     background-image: linear-gradient(180deg, #1888EF 0%, #009FE9 100%);
 }
 
+.buttonSubmit:hover {
+    box-shadow: 0 0 20px 0 #0099f8;
+
+}
+
 .buttonClose {
     position: absolute;
     top:0%;
