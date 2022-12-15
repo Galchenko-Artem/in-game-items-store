@@ -83,27 +83,31 @@ export default function PaymentForm() {
 
         {!success
           ? (
-  <form onSubmit={handleSubmit}>
-    <fieldset className="FormGroup">
+  <form className="wrapperStrapi" onSubmit={handleSubmit}>
+    <img className="item secondPic" src="http://localhost:3001/public/images/asda23851-vmkrup.gif" alt="img error" />
+    <fieldset className="FormGroup ">
         <div className="FormRow">
       <CardElement options={CARD_OPTIONS} />
         </div>
     </fieldset>
-    <button>Оплатить</button>
+    <button className="buttonPayStripe1">Оплатить</button>
     {load
     && (
   <>
-    <div id="wrapper">
-    <div id="corpus" />
-    <div id="spinner" />
-    </div>
+    {/* <div id="wrapper">
+        <div id="corpus" />
+        <div id="spinner" />
+    </div> */}
+
+  <div className="spinner spinner--steps2 icon-spinner-7" aria-hidden="true" />
   <div id="text">&nbsp;Loading ...</div>
   </>
     )}
   </form>
           ) : (
-    <div>
+    <div className="successPaymentDiv">
       <h2>Оплата прошла успешно!</h2>
+      <img src="http://localhost:3001/public/images/giphyMoney1231.webp" alt="img" />
     </div>
           )}
     </div>

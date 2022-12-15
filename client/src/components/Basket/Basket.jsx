@@ -45,6 +45,7 @@ export default function Basket() {
               Общая сумма: {basket.reduce((acc, el) => acc + el.price, 0)} $
             </h2>
           <Link to="/payment"><button className={`${styles.customBtn} ${styles.btn9}`} type="button">Оформить</button></Link>
+          <img className={styles.paymentGif} src="http://localhost:3001/public/images/31213212321gidssd.webp" alt="" />
         </div>
     </div>
 
