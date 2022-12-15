@@ -12,6 +12,5 @@ export default function Footer() {
         <Link to="/contacts"> Контакты </Link>
  </footer>
     </div>
-
   );
 }
