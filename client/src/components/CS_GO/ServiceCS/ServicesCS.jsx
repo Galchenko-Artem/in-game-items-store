@@ -65,7 +65,13 @@ export default function ServicesCS() {
   };
   const sortPrice = (el) => {
     setSort(el);
-    setServices([...services].sort((a, b) => a[el] - b[el]));
+    // setServices([...services].sort((a, b) => a[el] - b[el]));
+    if (el === 'По возрастанию') {
+      setServices([...services].sort((a, b) => a.price - b.price));
+    }
+    if (el === 'По убыванию') {
+      setServices([...services].sort((a, b) => b.price - a.price));
+    }
   };
   const filterSer = services?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
 
@@ -85,7 +91,8 @@ export default function ServicesCS() {
                 onChange={sortPrice}
                 defaultValue="Сортировка"
                 options={[
-                  { value: 'price', name: 'По цене(по возрастанию)' },
+                  { value: 'По возрастанию', name: 'По цене(по возрастанию)' },
+                  { value: 'По убыванию', name: 'По цене(по убыванию)' },
                 ]}
               />
             </div>

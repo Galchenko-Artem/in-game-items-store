@@ -66,7 +66,13 @@ export default function SkinsCsGO() {
   };
   const sortPrice = (el) => {
     setSort(el);
-    setSkins([...skins].sort((a, b) => a[el] - b[el]));
+    // setSkins([...skins].sort((a, b) => a[el] - b[el]));
+    if (el === 'По возрастанию') {
+      setSkins([...skins].sort((a, b) => a.price - b.price));
+    }
+    if (el === 'По убыванию') {
+      setSkins([...skins].sort((a, b) => b.price - a.price));
+    }
   };
 
   const filterSkins = skins?.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
@@ -89,7 +95,8 @@ export default function SkinsCsGO() {
            onChange={sortPrice}
            defaultValue="Сортировка"
            options={[
-             { value: 'price', name: 'По цене(по возрастанию)' },
+             { value: 'По возрастанию', name: 'По цене(по возрастанию)' },
+             { value: 'По убыванию', name: 'По цене(по убыванию)' },
            ]}
          />
         </div>
