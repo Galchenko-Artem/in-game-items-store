@@ -1,11 +1,77 @@
 .wrapperUserPleas {
   display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
 }
 .plea {
-  background-color: rgb(144, 150, 150, 0.5);
+  background: rgb(78,97,139);
+  background: linear-gradient(288deg, rgba(78,97,139,1) 0%, rgba(66,69,167,1) 98%);
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
+  border: 1px solid rgb(127, 175, 227);
+  margin-bottom: 7px;
+  width: 60vw;
+  align-items: center;
 }
+
+.textMsgPlea {
+  font-size: 18px;
+  color: wheat;
+  margin: auto;
+  width: 20vw;
+  word-break: break-all;
+}
+
+.formMsg {
+  color: white;
+}
+
+.btnSupportAnswer {
+  margin-bottom: 15px;
+  width: 50vw;
+  height: 25px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background: white;
+  width: 150px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  text-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+  box-sizing: border-box;
+  color: #ffffff;
+  white-space: normal;
+  background-image: linear-gradient(180deg, #1888EF 0%, #009FE9 100%);
+}
+
+.btnSupportAnswer:hover {
+  border: 2px solid orange;
+}
+
+.dateSupportPlea {
+  position: absolute;
+  right: 0.5rem;
+  color: revert;
+}
+
+.elPlusDate {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  color: rgb(35, 34, 34);
+  width: 100%;
+  position: relative;
+  height: 4rem;
+}
+
+.h2SupportMain {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+}
+
 
 .formClassNone {
   display: none;
@@ -18,11 +84,95 @@
 }
 
 .formElement {
-  margin-top: 10px;
+margin-top: 10px;
+}
+.formBtn {
+    margin-top: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    text-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    box-sizing: border-box;
+    color: #ffffff;
+    white-space: normal;
+    width: 150px;
+    padding: 7px;
+    background: none;
+}
+.formBtn:hover{
+    box-shadow: 0 0 20px 0 #0099f8;
 }
 
-.inputPleaAnswer {
+.inputPleaAnswer{
+  display: inline-block;
+  vertical-align: middle;
   width: 350px;
   height: 50px;
+  padding: 0 12px;
+  margin-top: 8px;
+  margin-bottom: 3px;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  background-color: #ffffff;
+  color: #000000;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
+@media screen and (max-width: 1220px) {
+  .elPlusDate {
+    justify-content:flex-start
+    
+  }
+  .textMsgPlea {
+    margin: 0;
+    margin-left: 0.5rem;
+    width: 40vw;
+    font-size: 17px;
+    margin-top: -1vh;
+  }
+} 
+
+@media screen and (max-width: 950px) {
+  .textMsgPlea {
+  }
+} 
+
+@media screen and (max-width: 740px) {
+  .elPlusDate {
+  }
+  .textMsgPlea {
+    margin: auto;
+    margin-left: 1px;
+    width: 40vw;
+    font-size: 13px;
+  }
+  .plea {
+    width: 55vw;
+    height: 10vw;
+    flex-direction: row;
+  }
+  .btnSupportAnswer {
+    width: 3.5rem;
+    font-size: 10px;
+    margin: auto;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+  }
+  .dateSupportPlea {
+    display: none;
+  }
+} 
+@media screen and (max-width: 530px) {
+  .textMsgPlea {
+    width: 40vw;
+    font-size: 10px;
+  }
+  .btnSupportAnswer {
+    width: 3rem;
+    font-size: 9px;
+    padding-left: 1px;
+    padding-right: 1px;
+
+  }
+} 
