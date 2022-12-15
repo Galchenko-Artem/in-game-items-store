@@ -11,6 +11,7 @@ export default function ServicesCs() {
     description: '',
   });
   const [img, setImg] = useState(null);
+  const [regMsg, setRegMsg] = useState(null);
 
   const handeleInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,7 +27,10 @@ export default function ServicesCs() {
       body: data,
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        setRegMsg('Лот успешно создан. В данный момент находится на рассмотрении. Статус можете отслеживать в личном кабинете в моих лотах');
+        console.log(res);
+      });
     setForm(form);
     console.log(form);
   };
@@ -36,6 +40,7 @@ export default function ServicesCs() {
     console.log(e.target.files[0]);
   };
   return (
+
     <div className={style.form}>
     <form className={style.containerInput} onSubmit={handleSubmit}>
                   <h2>Создать лот на услуги</h2>
@@ -44,6 +49,7 @@ export default function ServicesCs() {
             <input className={style.inputMulter} type="file" onChange={testImg} />
             <textarea className={style.textarea} onChange={handeleInput} name="description" value={form.description} placeholder="Описание" />
             <button className={style.button} type="submit">Создать</button>
+        <div>{regMsg}</div>
     </form>
     </div>
   );

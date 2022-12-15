@@ -78,6 +78,11 @@ sup {
   color: white;
 }
 
+.msgP {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .SubmitBtnSupport:hover {
   color: orange;
   border: 1px solid orange;

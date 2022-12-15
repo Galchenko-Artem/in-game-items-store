@@ -21,7 +21,7 @@
   color: wheat;
   margin: auto;
   width: 20vw;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .formMsg {
@@ -67,6 +67,7 @@
 }
 
 .h2SupportMain {
+  margin-top: 0px;
   text-align: center;
   color: rgb(255, 255, 255);
   font-size: 28px;
@@ -119,9 +120,36 @@ margin-top: 10px;
   border-radius: 4px;
 }
 
+.goTobtn1 {
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  text-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+  box-sizing: border-box;
+  margin: 0;
+  height: 40px;
+  white-space: normal;
+  width: auto;
+  color: white;
+  background: rgba(134, 134, 134, 0.5);
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.goTobtn1:hover {
+  background: rgba(134, 134, 134, 0.7);
+}
+
+.pBtn {
+  margin: 0;
+  padding: 0;
+}
+
+
 @media screen and (max-width: 1220px) {
   .elPlusDate {
-    justify-content:flex-start
+    justify-content:flex-start;
+    border-radius: 10px;
     
   }
   .textMsgPlea {
@@ -139,17 +167,19 @@ margin-top: 10px;
 } 
 
 @media screen and (max-width: 740px) {
-  .elPlusDate {
+  .h2SupportMain {
+    font-size: 20px;
   }
+
   .textMsgPlea {
     margin: auto;
     margin-left: 1px;
     width: 40vw;
-    font-size: 13px;
+    font-size: 17px;
   }
   .plea {
     width: 55vw;
-    height: 10vw;
+    height: 15vw;
     flex-direction: row;
   }
   .btnSupportAnswer {
@@ -166,13 +196,19 @@ margin-top: 10px;
 @media screen and (max-width: 530px) {
   .textMsgPlea {
     width: 40vw;
-    font-size: 10px;
+    font-size: 14px;
   }
   .btnSupportAnswer {
     width: 3rem;
     font-size: 9px;
     padding-left: 1px;
     padding-right: 1px;
-
+  }
+  .goTobtn1 {
+    font-size: 14px;
+    height: 40px;
+  }
+  .pBtn {
+    text-align: center;
   }
 } 

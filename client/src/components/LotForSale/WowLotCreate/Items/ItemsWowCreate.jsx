@@ -11,6 +11,7 @@ export default function ItemsWowCreate() {
     description: '',
   });
   const [img, setImg] = useState(null);
+  const [regMsg, setRegMsg] = useState(null);
 
   const handeleInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -29,7 +30,10 @@ export default function ItemsWowCreate() {
       body: data,
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        setRegMsg('Лот успешно создан. В данный момент находится на рассмотрении. Статус можете отслеживать в личном кабинете в моих лотах');
+        console.log(res);
+      });
     setForm(form);
     console.log(form);
   };
@@ -48,6 +52,7 @@ export default function ItemsWowCreate() {
             <input className={style.inputMulter} type="file" onChange={testImg} />
             <textarea className={style.textarea} onChange={handeleInput} name="description" value={form.description} placeholder="Описание" />
             <button className={style.button} type="submit">Создать</button>
+    <div>{regMsg}</div>
     </form>
     </div>
   );

@@ -52,20 +52,33 @@ export default function SupportLots() {
   };
   return (
     <>
-    <Link className="nav-main" to="/admin"><button>Назад к обращениям</button></Link>
-    <h2>Новые лоты от пользователей</h2>
+    <p className="pBtn1">
+    <Link to="/admin"><button className="goTobtn">Назад к обращениям</button></Link>
+    </p>
+    <h2 className="h2">Новые лоты от пользователей</h2>
+    <div className="mainDivWrapper">
     {products.map((product) => (
     <div className="supportLotWrapper" key={product.id}>
-      <p><img className="imgLot" src={`http://localhost:3001/${product.image}`} alt="lotImage" /></p>
+      <div className="userLotsAdmin"><img className="imgLot" src={`http://localhost:3001/${product.image}`} alt="lotImage" />
+      </div>
       <div className="supportLot">
-        Название товара: {product.name}
+        <div>
+        Название:{product.name}
+        </div>
+        <div>
          Цена: {product.price}
-         <br />
-        <button type="button" onClick={() => addLot(product)}>Одобрить</button>
-        <button type="button" onClick={() => removeLot(product)}>Отклонить</button>
+        </div>
+        <div>
+        Описание: {product.description}
+        </div>
+      </div>
+      <div>
+        <button className="btnsAdminLots" type="button" onClick={() => addLot(product)}>Одобрить</button>
+        <button className="btnsAdminLots" type="button" onClick={() => removeLot(product)}>Отклонить</button>
       </div>
     </div>
     ))}
+    </div>
     </>
   );
 }

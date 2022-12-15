@@ -58,23 +58,27 @@ export default function Auth() {
   };
 
   return (
+    <div className="authWrapper">
+      <img className="imgAuth" src="http://localhost:3001/public/images/331231233.png" alt="img" />
     <div className="authForm">
       <form onSubmit={handleSubmit}>
       <div className="inputForm">
       <label className="labelForm">Логин:</label>
-      <input className="inputLog" type="text" value={form.login} name="login" onChange={handleInput} placeholder="..." autoComplete="on" />
+      <input className="inputLog" type="text" value={form.login} name="login" onChange={handleInput} placeholder="Логин*" autoComplete="on" />
       </div>
       <div className="inputForm">
       <label className="labelForm">Пароль:</label>
-      <input className="inputLog" type="password" value={form.password} name="password" placeholder="..." onChange={handleInput} autoComplete="on" />
+      <input className="inputLog" type="password" value={form.password} name="password" placeholder="Пароль*" onChange={handleInput} autoComplete="on" />
       </div>
       <div className="btnSubmit">
       <button className="authBtn" type="submit">Submit</button>
       </div>
-      <div className="answerAuth">
-        {answer}
-      </div>
+
       </form>
+    </div>
+    <div className="answerAuth">
+        {answer}
+    </div>
     </div>
   );
 }
