@@ -52,7 +52,9 @@ export default function AccountsAvatar() {
  <div className={style.containerAvateCreate}>
     <h2>Добрый день { user && user.login}!!</h2>
     <div>
-        <img className={style.imgCreateAvatar} src={`http://localhost:3001/${userBD && userBD}`} alt="" />
+      {user.image ? (<img className={style.imgCreateAvatar} src={`http://localhost:3001/${userBD && userBD}`} alt="" />)
+        : <img className={style.imgCreateAvatar} src="https://via.placeholder.com/150" alt="" /> }
+
     </div>
             <form className={style.form} onSubmit={handleSubmit}>
                 <h2>Изменить Аватар</h2>

@@ -6,7 +6,6 @@ import './StyleDotaLotCreate.css';
 export default function DotaLotCreate() {
   return (
     <div>
-        DotaLotCreate
         <Navbar />
         <Outlet />
     </div>

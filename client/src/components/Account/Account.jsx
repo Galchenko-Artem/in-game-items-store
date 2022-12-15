@@ -5,6 +5,7 @@ import ImgLot from './img/HS_24p6_PP_RegularPack_PRODUCT-THUMB-960x540.webp';
 import ImgCreateSale from './img/687474703a2f2f692e696d6775722e636f6d2f6868384d557a562e6a7067.jpeg';
 import ImgSales from './img/dota.png';
 import ImgPurchases from './img/1042585.jpg';
+import ImgAvatar from './img/1643196547_1-abrakadabra-fun-p-generator-avatarok-pod-nik-9.jpg';
 // import AccountsAvatar from './AccountsAvatar/AccountsAvatar';
 
 export default function Account() {
@@ -22,7 +23,7 @@ export default function Account() {
             </Link>
             <Link className={style.text} to="/account/sales">
           <div className={style.containerImgAcc}>
-             <img className={style.ImgSales} src={ImgSales} alt="img" />
+             <img className={style.imgLot} src={ImgSales} alt="img" />
           </div>
                 <div>
                 Мои продажи
@@ -30,7 +31,7 @@ export default function Account() {
             </Link>
             <Link className={style.text} to="/account/purchases">
           <div className={style.containerImgAcc}>
-             <img className={style.imgAcc} src={ImgPurchases} alt="img" />
+             <img className={style.imgLot} src={ImgPurchases} alt="img" />
           </div>
                 <div>
                 Мои покупки
@@ -38,7 +39,7 @@ export default function Account() {
             </Link>
             <Link className={style.text} to="/account/newLot">
           <div className={style.containerImgAcc}>
-             <img className={style.imgAcc} src={ImgCreateSale} alt="img" />
+             <img className={style.imgLot} src={ImgCreateSale} alt="img" />
           </div>
                 <div>
                 Создать Новый лот
@@ -46,7 +47,7 @@ export default function Account() {
             </Link>
             <Link className={style.text} to="/account/avatar">
           <div className={style.containerImgAcc}>
-             <img className={style.imgAcc} src={ImgCreateSale} alt="img" />
+             <img className={style.imgLot} src={ImgAvatar} alt="img" />
           </div>
                 <div>
                     Добавить Аватар

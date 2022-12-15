@@ -3,44 +3,42 @@ import { Link } from 'react-router-dom';
 import dota2 from './images/dota2.jpeg';
 import wow from './images/wow.jpeg';
 import csgo from './images/csgo.jpeg';
+import videoWow from './Video/Ролик World of Warcraft_ Shadowlands (online-video-cutter.com).mp4';
+import videoDota from './Video/Dota 2 Gamescom Trailer (online-video-cutter.com).mp4';
+import videoCsGo from './Video/CSGO.mp4';
 
 import styles from './mainPage.module.css';
 
 export default function MainPage() {
   return (
-    <>
     <div className={styles.mainContainer}>
     <div className={styles.h2main}>
        <h3 className={styles.h3}> Добро пожаловать!</h3>
        <p className={styles.pMain}>Выбери свою игру</p>
     </div>
     <div className={styles.wrapper}>
-    <div className={styles.card}>
-      <h2 className={styles.h2}>DOTA 2</h2>
+    <div>
       <Link to="/dota2">
-     <img className={styles.imgCard} src="http://localhost:3001/public/images/dota-2girl.jpeg" alt="dota2" />
+     {/* <img className={styles.imgCard} src="http://localhost:3001/public/images/dota-2girl.jpeg" alt="dota2" /> */}
+     <video className={styles.videoWow} src={videoDota} autoPlay loop muted />
       </Link>
-      <p className={styles.description}>ММОРПГ</p>
     </div>
-    <div className={styles.card}>
-    <h2 className={styles.h2}>CS GO</h2>
+    <div>
     <Link to="/csgo">
-      <img className={styles.imgCard} src={csgo} alt="csgo" />
+      {/* <img className={styles.imgCard} src={csgo} alt="csgo" /> */}
+      <video className={styles.videoWow} src={videoCsGo} autoPlay loop muted />
     </Link>
-    <p className={styles.description}>Шутер</p>
     </div>
-    <div className={styles.card}>
-    <h2 className={styles.h2}>WoW</h2>
+    <div>
       <Link to="/wow">
-      <img className={styles.imgCard} src={wow} alt="Word of Warcraft" />
+      {/* <img className={styles.imgCard} src={wow} alt="Word of Warcraft" /> */}
+      <div className={styles.containerVideo}>
+      <video className={styles.videoWow} src={videoWow} autoPlay loop muted />
+      </div>
+
       </Link>
-      <p className={styles.description}>ММОРПГ</p>
     </div>
     </div>
     </div>
-    <div className={styles.mainContainer2}>
-    <div className={styles.wrapper} />
-    </div>
-    </>
   );
 }

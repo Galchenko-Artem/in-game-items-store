@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import style from './StyleServ.module.css';
 
 export default function ServicesWow() {
   const [form, setForm] = useState({
@@ -38,12 +39,15 @@ export default function ServicesWow() {
   };
   console.log(img);
   return (
-    <form className="containerInput" onSubmit={handleSubmit}>
-    <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
-    <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
-    <input type="file" onChange={testImg} />
-    <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-    <button type="submit">Submit</button>
+    <div className={style.form}>
+    <form className={style.containerInput} onSubmit={handleSubmit}>
+                  <h2>Создать лот на услуги</h2>
+            <input className={style.input} onChange={handeleInput} name="name" value={form.name} placeholder="Название" />
+            <input className={style.input} onChange={handeleInput} name="price" value={form.price} placeholder="Цена" />
+            <input className={style.inputMulter} type="file" onChange={testImg} />
+            <textarea className={style.textarea} onChange={handeleInput} name="description" value={form.description} placeholder="Описание" />
+            <button className={style.button} type="submit">Создать</button>
     </form>
+    </div>
   );
 }

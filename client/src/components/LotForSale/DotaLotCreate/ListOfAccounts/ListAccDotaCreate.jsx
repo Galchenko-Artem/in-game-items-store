@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import './StyleAcc.css';
+import style from './StyleAcc.module.css';
 
 export default function ListAccDotaCreate() {
   const [form, setForm] = useState({
@@ -41,17 +41,16 @@ export default function ListAccDotaCreate() {
   console.log(img);
 
   return (
-    <form className="containerInput" onSubmit={handleSubmit}>
-        <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
-        <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
+    <div className={style.form}>
+<form className={style.containerInput} onSubmit={handleSubmit}>
+              <h2>Создать лот на акаунт</h2>
+        <input className={style.input} onChange={handeleInput} name="name" value={form.name} placeholder="Название" />
+        <input className={style.input} onChange={handeleInput} name="price" value={form.price} placeholder="Цена" />
+        <input className={style.inputMulter} type="file" onChange={testImg} />
+        <textarea className={style.textarea} onChange={handeleInput} name="description" value={form.description} placeholder="Описание" />
+        <button className={style.button} type="submit">Создать</button>
+</form>
+    </div>
 
-        {/* <input onChange={handeleInput} name="image" value={form.image} placeholder="img" /> */}
-
-        <input type="file" onChange={testImg} />
-         {/* <button type="button" className="btnChangeAvatar">Изменить аватар</button> */}
-
-        <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-        <button type="submit">Submit</button>
-    </form>
   );
 }
