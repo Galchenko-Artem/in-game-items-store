@@ -16,13 +16,13 @@ export default function UserPlea() {
   return (
       <div>
         {!userPleas.length ? (
-          <div>
+          <div className="textQuest">
             Обращения отсутствуют
           </div>
         ) : (
           <div className="wrapperUserPlea">
             {userPleas.map((el) => (
-            <div key={el.id}>
+            <div className="containerUserPlea" key={el.id}>
            <p>Текст обращения: {el.question}</p>
            <p>Дата создания: {new Date(el.createdAt).toLocaleString()}</p>
             {el.status ? (

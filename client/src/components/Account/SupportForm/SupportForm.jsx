@@ -41,7 +41,7 @@ export default function SupportForm() {
         <div className="firstFlex">
           <h2 className="h2hello">Привет!</h2>
           <p className="msgP">Ты можешь оставить обращение</p>
-          <img className="imgSupport" src="https://www.mightycall.ru/wp-content/uploads/2019/02/kak-organizovat-sluzhbu-podderzhki-po-telefonu.jpg" alt="imgSupport" />
+          <img className="imgSupport" src="http://localhost:3001/public/images/supportMsg.jpg" alt="imgSupport" />
         </div>
       <div className="supportForm">
         <form className="formSupport" onSubmit={handleSubmit}>
