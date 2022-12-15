@@ -5,7 +5,7 @@ module.exports = {
       'Products',
       [
         {
-          name: 'Серебро-Великий Магистр',
+          name: 'Серебро-Великий',
           price: 40,
           GameId: 1,
           CategoryId: 1,
@@ -49,7 +49,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Золотая Звезда-Магистр',
+          name: 'Звезда-Магистр',
           price: 100,
           GameId: 1,
           CategoryId: 1,
@@ -60,7 +60,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Магистр Хранитель-Элита',
+          name: 'Хранитель-Элита',
           price: 120,
           GameId: 1,
           CategoryId: 1,
@@ -71,7 +71,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Заслуженный Магистр-Хранитель',
+          name: 'Магистр-Хранитель',
           price: 150,
           GameId: 1,
           CategoryId: 1,
@@ -82,7 +82,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Всемирная Элита или просто глобал',
+          name: 'Всемирная Элита',
           price: 200,
           GameId: 1,
           CategoryId: 1,

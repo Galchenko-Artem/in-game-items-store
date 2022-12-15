@@ -60,7 +60,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Магическая палочка',
+          name: 'Палочка Воланда',
           price: 120,
           GameId: 3,
           CategoryId: 2,
@@ -82,7 +82,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Плащ унылого монаха',
+          name: 'Плащ монаха',
           price: 60,
           GameId: 3,
           CategoryId: 2,

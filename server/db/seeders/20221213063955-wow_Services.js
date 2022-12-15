@@ -29,7 +29,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Аддон RestedXP и Zygor',
+          name: 'Аддон RestedXP',
           price: 15,
           GameId: 2,
           CategoryId: 3,
@@ -51,7 +51,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: '🔥 RestedXP 🔥 Dragonflight 🔥 1-70 🔥',
+          name: '🔥 RestedXP 🔥',
           price: 50,
           GameId: 2,
           CategoryId: 3,
@@ -62,7 +62,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'Схожу ващим персонашем Цлк 25 об Рс 25 об. Одену его что упадёт забиру не дорога',
+          name: 'Цлк 25 об Рс 25 об',
           price: 30,
           GameId: 2,
           CategoryId: 3,
@@ -73,7 +73,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: 'По фармлю за вас души',
+          name: 'По фармлю',
           price: 25,
           GameId: 2,
           CategoryId: 3,
@@ -84,7 +84,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: '🟥⚡🟥ЭКСКЛЮЗИВНЫЕ СПОСОБЫ ФАРМА ЗОЛОТА🟥⚡🟥⌛АВТОВЫДАЧА⌛',
+          name: '⌛АВТОВЫДАЧА⌛',
           price: 10,
           GameId: 2,
           CategoryId: 3,
