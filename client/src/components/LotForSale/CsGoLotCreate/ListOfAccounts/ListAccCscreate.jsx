@@ -12,6 +12,7 @@ export default function ListAccCscreate() {
     description: '',
   });
   const [img, setImg] = useState(null);
+  const [regMsg, setRegMsg] = useState(null);
 
   const handeleInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,7 +28,11 @@ export default function ListAccCscreate() {
       body: data,
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        setRegMsg('Лот успешно создан. В данный момент находится на рассмотрении. Статус можете отслеживать в личном кабинете в моих лотах');
+        console.log(res);
+      });
+
     setForm(form);
     console.log(form);
   };
@@ -44,6 +49,7 @@ export default function ListAccCscreate() {
         <input type="file" onChange={testImg} />
         <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
         <button type="submit">Submit</button>
+        <div>{regMsg}</div>
     </form>
   );
 }

@@ -69,12 +69,12 @@ export default function Product() {
   {/* <button type="button" onClick={() => navigate(-1)}>Вернуться назад</button> */}
     {product ? (
 <div className={styles.mainDiv}>
-      <div><img className={styles.image} src={`http://localhost:3001/${product.product.image}`} alt={product.name} /></div>
+      <div className={styles.imageDiv}><img className={styles.image} src={`http://localhost:3001/${product.product.image}`} alt={product.name} /></div>
 
       <div className={styles.textDiv}>
         <div className={styles.description}> <h2>{product.product.name}</h2></div>
         <div className={styles.description}>{product.product.description}</div>
-        <div className={styles.name}><h2>{product.product.price}$</h2></div>
+        <div className={styles.name}><h2 className={styles.h2}>{product.product.price}$</h2></div>
         <div className={styles.description}>Продавец: {product?.vendorName}</div>
         {user.user ? (
           <div>

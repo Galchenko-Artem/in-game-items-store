@@ -5,9 +5,13 @@
 
 
 body{
-    background: #232a39;
+    /* background: #232a39; */
     font-family: 'Lobster', cursive;
     color: #fff;
+    background: rgb(16,60,161);
+    background: linear-gradient(124deg, rgba(16,60,161,1) 0%, rgba(25,9,52,1) 98%);
+    width: 100vw;
+    height: 100vh; 
 }
 
 button:hover { cursor: pointer; }
