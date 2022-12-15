@@ -50,7 +50,9 @@ export default function SupportPage() {
 
   return (
     <>
-   <Link className="nav-main" to="/admin/lots"><button>Перейти на лоты</button></Link>
+    <p className="pBtn">
+   <Link className="nav-main" to="/admin/lots"><button className="goTobtn1">Перейти на лоты</button></Link>
+    </p>
     <h2 className="h2SupportMain">Запросы пользователей</h2>
     {!pleas.length ? (
       <h2 className="h2SupportMain">Запросов на данный момент нет</h2>

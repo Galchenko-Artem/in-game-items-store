@@ -40,7 +40,7 @@ export default function SupportForm() {
     <div className="wrapperFormSupport">
         <div className="firstFlex">
           <h2>Привет!</h2>
-          <p>Ты можешь оставить обращение</p>
+          <p className="msgP">Ты можешь оставить обращение</p>
           <img className="imgSupport" src="https://www.mightycall.ru/wp-content/uploads/2019/02/kak-organizovat-sluzhbu-podderzhki-po-telefonu.jpg" alt="imgSupport" />
         </div>
       <div className="supportForm">
