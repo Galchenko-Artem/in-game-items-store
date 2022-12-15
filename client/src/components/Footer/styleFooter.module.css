@@ -28,3 +28,7 @@
 
     margin-right: 70px;
 }
+.containerMap{
+  min-width: 80vw;
+  min-height: 60vh;  
+}

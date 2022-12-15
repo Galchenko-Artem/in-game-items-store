@@ -51,23 +51,26 @@ export default function SupportPage() {
   return (
     <>
    <Link className="nav-main" to="/admin/lots"><button>Перейти на лоты</button></Link>
-    <h2>Запросы пользователей</h2>
+    <h2 className="h2SupportMain">Запросы пользователей</h2>
     {!pleas.length ? (
-      <p>Запросов на данный момент нет</p>
+      <h2 className="h2SupportMain">Запросов на данный момент нет</h2>
     ) : (
       <div className="wrapperUserPleas">
       {pleas.map((el) => (
       <div key={el.id} className="plea">
-       <p> {el.question}</p>
-        <button onClick={() => showAnwerForm(el)} type="button">Ответить</button>
+        <div className="elPlusDate">
+        <p className="textMsgPlea"> {el.question}</p>
+        <p className="dateSupportPlea">{new Date(el.createdAt).toLocaleString()}</p>
+        </div>
+        <button className="btnSupportAnswer" onClick={() => showAnwerForm(el)} type="button">Ответить</button>
       </div>
       ))}
       </div>
     )}
   <form className={classForm} action="">
-    <div>{currentPlea?.question}</div>
+    <div className="formMsg">{currentPlea?.question}</div>
         <textarea onChange={textAreaMsg} className="formElement inputPleaAnswer" placeholder="Ответ" type="text" name="adminAnswer" value={adminMsg.adminAnswer} id="" />
-        <button onClick={sendAnswer} className="formElement" type="button">Отправить</button>
+        <button onClick={sendAnswer} className="formBtn" type="button">Отправить</button>
   </form>
     </>
   );
