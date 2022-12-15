@@ -1,24 +1,203 @@
 .mainDiv{
  display: flex;
  justify-content: center;
- margin-top: 5%;
- /* background-color:dimgrey */
+ margin: 5%;
+ /* border: solid; */
+ border-color: aliceblue;
+ box-shadow: 0 0 30px 0 #00f8ae;
+ border-radius: 20px;
+ background-color:rgb(4, 30, 54);
+
 }
 
 .image{
     width: 800px;
-    height: 450px;
+    height: 500px;
     /* border-radius: 20px; */
-    transition: 0.5s;
-    /* margin-right: 100px; */
+    /* transition: 0.5s; */
+    margin-right: 20px;
 }
 
 .textDiv {
-    margin: 30px;
+    margin-top: 30px;
+    margin-right: 10%;
 }
 
-.description{
-    color: black;
-    font-family:'Nunito', sans-serif
+.name{
+    /* color: rgba(40, 218, 40, 0.973); */
+    /* font-family:'Nunito', sans-serif */
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 50px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    animation: 2s neon-2 alternate-reverse infinite;
 }
+
+@keyframes neon-2 {
+    from {
+        text-shadow: 0 0 5px #FFF,
+        0 0 10px #FFF,
+        0 0 15px #FFF,
+        0 0 20px #BFE2FF;
+    }
+    to {
+        text-shadow: 0 0 20px #BFE2FF,
+        0 0 35px #BFE2FF,
+        0 0 40px #BFE2FF,
+        0 0 50px #BFE2FF,
+        0 0 800px #BFE2FF;
+    }
+} 
+
+.description{
+    color:aliceblue;
+    margin-bottom: 15px;
+}
+
+.buttonFromBasket{
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 20px;
+    letter-spacing: 4px;
+    position: relative;
+    background-color: #f7980b;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+  }
+  
+  .buttonFromBasket:hover {
+    background: #fff;
+    box-shadow: 0px 2px 10px 5px #1abc9c;
+    color: #000;
+  }
+  
+  .buttonFromBasket:after {
+    content: "";
+    background: #1abc9c;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .buttonFromBasket:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  
+  .buttonFromBasket:focus { outline:0; }
+
+  .buttonInBasket{
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 20px;
+    letter-spacing: 4px;
+    position: relative;
+    background-color: #16a085;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+  }
+  
+  .buttonInBasket:hover {
+    background: #fff;
+    box-shadow: 0px 2px 10px 5px #1abc9c;
+    color: #000;
+  }
+  
+  .buttonInBasket:after {
+    content: "";
+    background: #1abc9c;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .buttonInBasket:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  
+  .buttonInBasket:focus { outline:0; }
+
+
+  .buttonBack{
+    margin-top: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 20px;
+    letter-spacing: 4px;
+    position: relative;
+    background-color: #16a085;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+  }
+  
+  .buttonBack:hover {
+    background: #fff;
+    box-shadow: 0px 2px 10px 5px #1abc9c;
+    color: #000;
+  }
+  
+  .buttonBack:after {
+    content: "";
+    background: #1abc9c;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .buttonBack:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  
+  .buttonBack:focus { outline:0; }
+
+  
 

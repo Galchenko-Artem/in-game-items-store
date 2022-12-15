@@ -72,10 +72,9 @@ export default function Product() {
       <div><img className={styles.image} src={`http://localhost:3001/${product.product.image}`} alt={product.name} /></div>
 
       <div className={styles.textDiv}>
-        <div> <h2>{product.product.name}</h2></div>
+        <div className={styles.description}> <h2>{product.product.name}</h2></div>
         <div className={styles.description}>{product.product.description}</div>
-        <div><h2>{product.product.price}$</h2></div>
-        <div className={styles.description}>{product.product.Game.title}</div>
+        <div className={styles.name}><h2>{product.product.price}$</h2></div>
         <div className={styles.description}>Продавец: {product?.vendorName}</div>
         {user.user ? (
           <div>
@@ -87,7 +86,7 @@ export default function Product() {
           </div>
 
         ) : (null)}
-        <button type={styles.buttonBack} onClick={() => navigate(-1)}>Вернуться назад</button>
+        <button className={styles.buttonBack} onClick={() => navigate(-1)}>Назад</button>
       </div>
 
 </div>

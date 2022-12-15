@@ -28,11 +28,6 @@ export default function ListOfAccounts() {
   }, []);
 
   const addToBasket = (el) => {
-    // const isInBasket = basket.some((item) => item.id === el.id);
-    // if (!isInBasket) {
-    //   dispatch(basketAdd(el));
-    //   console.log('Добавляем в редакс так как его нет в корзине');
-    // }
     fetch('http://localhost:3001/basket', {
       credentials: 'include',
       method: 'POST',
