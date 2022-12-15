@@ -74,7 +74,7 @@ export default function ListAccDota() {
 
   return (
     <div className={styles.containerItems}>
-          {/* <h2 className={styles.h2}>Аккаунты</h2> */}
+      Аккаунты на продажу
         <div className={styles.containerAccount}>
             <div className={styles.filtr}>
               <div className={styles.filtrColumn}>

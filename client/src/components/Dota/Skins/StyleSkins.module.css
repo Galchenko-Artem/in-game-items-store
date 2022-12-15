@@ -29,8 +29,8 @@
     margin: 0.7rem;
     justify-content: space-around;
     border: 2px solid rgb(65, 47, 124);
-    background: rgb(2,0,36);
-    background: linear-gradient(124deg, rgba(2,0,36,1) 5%, rgba(49,111,173,0.8) 48%);
+    background: rgb(2,0,36, 0.5);
+    /* background: linear-gradient(124deg, rgba(2,0,36,1) 5%, rgba(49,111,173,1) 48%); */
     transition: 1s;
 }
 .boxAccount:hover {
@@ -41,9 +41,9 @@
 
 }
 .ImgAcc{
-  border-radius: 10px;
-    width: 10rem;
-    height: 6rem;
+    border-radius: 10px;
+    width: 7rem;
+    height: 4rem;
     border: 1px solid white;
 }
 
@@ -69,6 +69,11 @@
 .flexImg {
     display: flex;
     flex-direction: column;
+    width: 100px;
+    align-items: center;
+}
+.elName {
+  display: flex;
 }
 
 .btnItem {

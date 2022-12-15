@@ -75,7 +75,7 @@ function App() {
           dispatch(userAvatar(userAva.image));
           setTimeout(() => {
             setLoading(false);
-          }, 1000);
+          }, 500);
         } else {
           setLoading(false);
         }
