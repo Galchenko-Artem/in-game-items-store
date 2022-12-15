@@ -5,7 +5,7 @@ import './nav.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { userLogout, userAvatar } from '../../store/actions/userAction';
 import { basketLogout } from '../../store/actions/basketAction';
-import Avatar from '../Account/img/1586360554_youloveit_ru_dipper_gravity_falls_na_avu01.jpg';
+import Avatar from '../Account/img/1643196547_1-abrakadabra-fun-p-generator-avatarok-pod-nik-9.jpg';
 
 export default function Nav() {
   const user = useSelector((store) => store.userStore);

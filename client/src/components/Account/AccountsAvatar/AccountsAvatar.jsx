@@ -57,11 +57,10 @@ export default function AccountsAvatar() {
 
     </div>
             <form className={style.form} onSubmit={handleSubmit}>
-                <h2>Изменить Аватар</h2>
+                <h2 className={style.changeAvatarH2}>Изменить Аватар</h2>
             <input className={style.inputMulter} type="file" onChange={testImg} />
-            <button className={style.button} type="submit" id={user && user.userId}>Submit</button>
+            <button className={style.button} type="submit" id={user && user.userId}>Изменить</button>
             </form>
-
  </div>
     </div>
 

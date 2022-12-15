@@ -48,7 +48,7 @@ export default function SkinsCs() {
             <input className={style.inputMulter} type="file" onChange={testImg} />
             <textarea className={style.textarea} onChange={handeleInput} name="description" value={form.description} placeholder="Описание" />
             <button className={style.button} type="submit">Создать</button>
-    <div>{regMsg}</div>
+            <div className={style.regMsg}>{regMsg}</div>
     </form>
     </div>
   );
