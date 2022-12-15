@@ -28,23 +28,27 @@ export default function Basket() {
   };
 
   return (
+
     <div className={styles.container}>
     <div className={styles.product_wrapper}>
       {basket?.length > 0 && basket.map((el) => (
          <div className={styles.product} key={el.id}>
            <div> <img className={styles.picture} src={`http://localhost:3001/${el.image}`} alt="" /></div>
            <div className={styles.name}> {el.name}</div>
-           <div> {el.price}</div>
+           <div className={styles.name}> {el.price} $</div>
            <button className={`${styles.customBtn} ${styles.btn5}`} onClick={() => delBasket(el)} type="button">Удалить</button>
          </div>
       )) }
     </div>
         <div className={styles.arrange}>
           <div>
-          Общая сумма: <span className="allMoney">{basket.reduce((acc, el) => acc + el.price, 0)}</span>
+            <h2>
+              Общая сумма: {basket.reduce((acc, el) => acc + el.price, 0)} $
+            </h2>
           </div>
           <Link to="/payment"><button className={`${styles.customBtn} ${styles.btn9}`} type="button">Оформить</button></Link>
         </div>
     </div>
+
   );
 }

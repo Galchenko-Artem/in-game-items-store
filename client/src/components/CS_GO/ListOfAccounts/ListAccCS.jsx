@@ -145,6 +145,19 @@ export default function ListAccCS() {
                   </h3>
                 </div>
                 <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                <div>
+                                    {user.user ? (
+                                      <div>
+                                          {basket.some((item) => item.id === product.id) ? (
+                                        <button onClick={() => removeFromBasket(product)}><span>В корзине ✓</span></button>
+                                          ) : (
+                                        <button onClick={(e) => addToBasket(product)}> <span>В корзину</span></button>
+                                          )}
+                                      </div>
+                                    ) : (
+                                      null
+                                    )}
+                </div>
               </div>
             </div>
           ))}
