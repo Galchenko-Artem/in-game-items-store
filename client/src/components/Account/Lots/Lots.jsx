@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './lots.css';
+import style from './Stylelots.module.css';
 
 export default function Lots() {
   const [lots, setLots] = useState([]);
@@ -108,31 +108,38 @@ export default function Lots() {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className={style.containerLot}>
 <div>
   {lots && lots.map((lot) => (
-    <div key={lot.id}>
-      <div><img src={`http://localhost:3001/${lot.image}`} alt={lot.name} /></div>
+    <div key={lot.id} className={style.containerItem}>
+      <div className={style.containerImg}><img className={style.ImgLot} src={`http://localhost:3001/${lot.image}`} alt={lot.name} /></div>
+      <div className={style.containerInfo}>
       <div>Название: {lot.name}</div>
       <div>Цена: {lot.price} </div>
-      <div>Описание: {lot.description}</div>
+      <div className={style.description}>Описание: {lot.description}</div>
       {!lot.approved ? (<div>Статус: На рассмотрении</div>) : (null) }
       <div>Выставлен на продажу: {new Date(lot.updatedAt).toLocaleDateString()}</div>
-      <button type="button" onClick={handleDeleteLot} id={lot.id}> Удалить</button>
-      <button type="button" className={`${!isEdit ? 'visible' : 'invisible'}`} onClick={handleEditLot} id={lot.id}> Редактировать</button>
+      <button className={style.button} type="button" onClick={handleDeleteLot} id={lot.id}> Удалить</button>
+      <button type="button" className={`${!isEdit ? style.visible : style.invisible2}`} onClick={handleEditLot} id={lot.id}> Редактировать</button>
+      </div>
     </div>
+
   ))}
 </div>
-<div className={`${isEdit ? 'visible' : 'invisible'}`}>
+<div className={`${isEdit ? 'visible' : style.invisible}`}>
+
+<form className={style.containerInput} onSubmit={handleSubmit}>
 Форма изменения
-<form className="containerInput" onSubmit={handleSubmit}>
-    <input onChange={handeleInput} name="name" value={form.name} placeholder="name" />
-    <input onChange={handeleInput} name="price" value={form.price} placeholder="price" />
+    <input className={style.input} onChange={handeleInput} name="name" value={form.name} placeholder="name" />
+    <input className={style.input} onChange={handeleInput} name="price" value={form.price} placeholder="price" />
     {/* <input onChange={handeleInput} name="image" value={form.image} placeholder="img" /> */}
-    <div>Изменить картинку: <input type="file" onChange={testImg} /></div>
-    <input onChange={handeleInput} name="description" value={form.description} placeholder="description" />
-    <button type="button" onClick={handleClose}> Закрыть</button>
-    <button type="submit" onClick={handleClose}>Отправить изменения</button>
+    <div className={style.containerMulter}>
+      Изменить картинку:
+      <input className={style.inputMulter} type="file" onChange={testImg} />
+    </div>
+    <input className={style.input} onChange={handeleInput} name="description" value={form.description} placeholder="description" />
+    <button className={style.button} type="button" onClick={handleClose}> Закрыть</button>
+    <button className={style.button} type="submit" onClick={handleClose}>Отправить изменения</button>
 </form>
 </div>
     </div>

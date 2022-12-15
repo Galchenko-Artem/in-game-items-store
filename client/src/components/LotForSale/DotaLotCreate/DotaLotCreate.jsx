@@ -5,7 +5,7 @@ import './StyleDotaLotCreate.css';
 
 export default function DotaLotCreate() {
   return (
-    <div className="create-Nav">
+    <div>
         DotaLotCreate
         <Navbar />
         <Outlet />

@@ -48,18 +48,20 @@ export default function AccountsAvatar() {
   };
 
   return (
-    <div className={style.containerAvateCreate}>
-
-    <div>Добрый день { user && user.login}!!</div>
+    <div className={style.main}>
+ <div className={style.containerAvateCreate}>
+    <h2>Добрый день { user && user.login}!!</h2>
     <div>
         <img className={style.imgCreateAvatar} src={`http://localhost:3001/${userBD && userBD}`} alt="" />
     </div>
-            <form onSubmit={handleSubmit}>
+            <form className={style.form} onSubmit={handleSubmit}>
                 <h2>Изменить Аватар</h2>
-            <input type="file" onChange={testImg} />
-            <button type="submit" id={user && user.userId}>Submit</button>
+            <input className={style.inputMulter} type="file" onChange={testImg} />
+            <button className={style.button} type="submit" id={user && user.userId}>Submit</button>
             </form>
 
+ </div>
     </div>
+
   );
 }
