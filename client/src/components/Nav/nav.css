@@ -35,11 +35,12 @@
     position: relative;
     overflow: hidden;
     background-color: transparent;
-    border: 2px solid #fe6637;
+    border: 1px solid white;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
-    color: #fe6637;
+    background-color: #f7980b;
     transition: .2s ease-in-out;
+    color: white;
 }
 
 .logout-btn:before {
@@ -54,8 +55,8 @@
 }
 
 .logout-btn:hover {
-  background: #fe6637;
-  color: #fff;
+  background: white;
+  color: black;
 }
 
 .logout-btn:before {

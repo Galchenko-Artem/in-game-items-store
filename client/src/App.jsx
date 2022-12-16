@@ -21,7 +21,7 @@ import Auth from './components/Auth/Auth';
 import ProtectedRouter from './components/ProtectedRouter/ProtectedRouter';
 import ProtectedAllPages from './components/ProtectedAllPages/ProtectedAllPages';
 import ProtectedRouterNotAuth from './components/ProtectedRouterNotAuth/ProtectedRouterNotAuth';
-import SupportForm from './components/SupportForm/SupportForm';
+import SupportForm from './components/Account/SupportForm/SupportForm';
 import Account from './components/Account/Account';
 import Lots from './components/Account/Lots/Lots';
 import Sales from './components/Account/Sales/Sales';
@@ -42,7 +42,7 @@ import ListAccDotaCreate from './components/LotForSale/DotaLotCreate/ListOfAccou
 import SkinsDotaCreate from './components/LotForSale/DotaLotCreate/Skins/SkinsDotaCreate';
 import ItemsWowCreate from './components/LotForSale/WowLotCreate/Items/ItemsWowCreate';
 import Basket from './components/Basket/Basket';
-import UserPlea from './components/UserPlea/UserPlea';
+import UserPlea from './components/Account/UserPlea/UserPlea';
 import ServicesDotaCreate from './components/LotForSale/DotaLotCreate/ServicesDota/ServicesDotaCreate';
 import SupportPage from './components/SupportPage/SupportPage';
 import ProtectedAdminPage from './components/ProtectedAdminPage/ProtectedAdminPage';
@@ -92,25 +92,25 @@ function App() {
   return (
     <>
 
-    <Nav />
-    <Routes>
+      <Nav />
+      <Routes>
 
-      {/* <Route path="/chat" element={<ChatPage />} /> */}
+        {/* <Route path="/chat" element={<ChatPage />} /> */}
 
-      <Route element={<ProtectedAdminPage />}>
-        <Route path="/admin" element={<SupportPage />} />
-        <Route path="/admin/lots" element={<SupportLots />} />
-      </Route>
+        <Route element={<ProtectedAdminPage />}>
+          <Route path="/admin" element={<SupportPage />} />
+          <Route path="/admin/lots" element={<SupportLots />} />
+        </Route>
 
-      <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage />} />
 
-      <Route element={<ProtectedRouterNotAuth />}>
-          <Route path="/support" element={<SupportForm />} />
-          <Route path="/userPlea" element={<UserPlea />} />
+        <Route element={<ProtectedRouterNotAuth />}>
 
           <Route path="/basket" element={<Basket />} />
           <Route path="/payment" element={<Stripe />} />
           <Route path="/account" element={<Account />}>
+            <Route path="support" element={<SupportForm />} />
+            <Route path="userPlea" element={<UserPlea />} />
             <Route path="avatar" element={<AccountsAvatar />} />
             <Route path="lots" element={<Lots />} />
             <Route path="sales" element={<Sales />} />
@@ -133,51 +133,51 @@ function App() {
               </Route>
             </Route>
           </Route>
-      </Route>
+        </Route>
 
-      <Route element={<ProtectedRouter />}>
-        <Route path="/reg" element={<Reg />} />
-        <Route path="/auth" element={<Auth />} />
-      </Route>
+        <Route element={<ProtectedRouter />}>
+          <Route path="/reg" element={<Reg />} />
+          <Route path="/auth" element={<Auth />} />
+        </Route>
 
-      <Route element={<ProtectedAllPages />}>
-      <Route path="*" />
-      </Route>
+        <Route element={<ProtectedAllPages />}>
+          <Route path="*" />
+        </Route>
 
-      <Route path="/wow" element={<WOW />}>
+        <Route path="/wow" element={<WOW />}>
           <Route index element={<div />} />
           <Route path="listOfAccounts" element={<ListOfAccounts />} />
           <Route path="items" element={<Items />} />
           <Route path="services" element={<Services />} />
-      </Route>
+        </Route>
 
-      <Route path="/dota2" element={<Dota />}>
-        <Route index element={<div />} />
-        <Route path="listOfAccounts" element={<ListAccDota />} />
-        <Route path="skins" element={<SkinsDota />} />
-        <Route path="services" element={<ServicesDota />} />
-      </Route>
+        <Route path="/dota2" element={<Dota />}>
+          <Route index element={<div />} />
+          <Route path="listOfAccounts" element={<ListAccDota />} />
+          <Route path="skins" element={<SkinsDota />} />
+          <Route path="services" element={<ServicesDota />} />
+        </Route>
 
-      <Route path="/csgo" element={<CsGo />}>
-        <Route index element={<div />} />
-        <Route path="listOfAccounts" element={<ListAccCS />} />
-        <Route path="skins" element={<SkinsCsGO />} />
-        <Route path="services" element={<ServicesCS />} />
-      </Route>
+        <Route path="/csgo" element={<CsGo />}>
+          <Route index element={<div />} />
+          <Route path="listOfAccounts" element={<ListAccCS />} />
+          <Route path="skins" element={<SkinsCsGO />} />
+          <Route path="services" element={<ServicesCS />} />
+        </Route>
 
-      <Route path="/csgo/listOfAccounts/:id" element={<ProductDetails />} />
-      <Route path="/csgo/skins/:id" element={<ProductDetails />} />
-      <Route path="/csgo/services/:id" element={<ProductDetails />} />
-      <Route path="/dota2/listOfAccounts/:id" element={<ProductDetails />} />
-      <Route path="/dota2/skins/:id" element={<ProductDetails />} />
-      <Route path="/dota2/services/:id" element={<ProductDetails />} />
-      <Route path="/wow/listOfAccounts/:id" element={<ProductDetails />} />
-      <Route path="/wow/items/:id" element={<ProductDetails />} />
-      <Route path="/wow/services/:id" element={<ProductDetails />} />
-      <Route path="/contacts" element={<Сontacts />} />
+        <Route path="/csgo/listOfAccounts/:id" element={<ProductDetails />} />
+        <Route path="/csgo/skins/:id" element={<ProductDetails />} />
+        <Route path="/csgo/services/:id" element={<ProductDetails />} />
+        <Route path="/dota2/listOfAccounts/:id" element={<ProductDetails />} />
+        <Route path="/dota2/skins/:id" element={<ProductDetails />} />
+        <Route path="/dota2/services/:id" element={<ProductDetails />} />
+        <Route path="/wow/listOfAccounts/:id" element={<ProductDetails />} />
+        <Route path="/wow/items/:id" element={<ProductDetails />} />
+        <Route path="/wow/services/:id" element={<ProductDetails />} />
+        <Route path="/contacts" element={<Сontacts />} />
 
-    </Routes>
-    {/* <Footer className="footer" /> */}
+      </Routes>
+      {/* <Footer className="footer" /> */}
 
     </>
   );

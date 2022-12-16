@@ -53,11 +53,11 @@ export default function SupportPage() {
     <p className="pBtn">
    <Link className="nav-main" to="/admin/lots"><button className="goTobtn1">Перейти на лоты</button></Link>
     </p>
-    <h2 className="h2SupportMain">Запросы пользователей</h2>
     {!pleas.length ? (
       <h2 className="h2SupportMain">Запросов на данный момент нет</h2>
     ) : (
       <div className="wrapperUserPleas">
+        <h2 className="h2SupportMain">Запросы пользователей</h2>
       {pleas.map((el) => (
       <div key={el.id} className="plea">
         <div className="elPlusDate">

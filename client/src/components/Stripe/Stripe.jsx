@@ -9,14 +9,14 @@ export default function Stripe() {
   const [showItem, setShowItem] = useState(false);
   return (
     <div>
-      <h1>Hello</h1>
     {showItem
       ? <StripeContainer />
       : (
-    <>
-    <h3>${finalPrice}</h3> <p className="imageBox"> <img className="item" src="https://sprinter-opt.ru/img/site/recycle_big.png" alt="item" /></p>
-    <button className="button" onClick={() => setShowItem(true)} type="">Купить</button>
-    </>
+    <div className="wrapperStrapi">
+          <img className="item elemStripe" src="http://localhost:3001/public/images/f754ef05e2e46234a2f8f60b5ee80041.gif" alt="item" />
+          <div className="elemStripe priceStripe">${finalPrice}</div>
+          <button className="buttonPayStripe elemStripe" onClick={() => setShowItem(true)} type="">Купить</button>
+    </div>
       )}
     </div>
   );

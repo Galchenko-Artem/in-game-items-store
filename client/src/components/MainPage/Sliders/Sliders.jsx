@@ -49,6 +49,9 @@ export default function Sliders() {
     fontSize: '20px',
     fontWeight: 'bold',
   };
+
+export default function Sliders() {
+
   return (
     <div className="App1">
     <div style={{ textAlign: 'center' }}>
