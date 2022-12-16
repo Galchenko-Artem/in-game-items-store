@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React from 'react';

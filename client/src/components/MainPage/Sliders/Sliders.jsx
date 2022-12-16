@@ -1,46 +1,92 @@
 import React from 'react';
 import './style.css';
-import img1 from './Img/dungeon-companion-1920x1200.jpg';
-import img2 from './Img/goblins02-1920x1200.jpg';
-import img3 from './Img/wall1-1920x1200.jpg';
+import { Carousel } from 'react-carousel-minimal';
+import img1 from './Img/8G9PJA14T3FN1566592377439.jpg';
+import img2 from './Img/d503b7f588d6468b82b7abe2e16dc2b0.jpg';
+import img3 from './Img/kayadaek_big_belly_batman_dressed_like_santa_claus_drinking_mar_888fa69c-00ef-4883-8e28-58d176d514ab.jpg';
+import img4 from './Img/xkWsLGFb5BcHoERUDMtZ9b.jpg';
+import img5 from './Img/d1177fc80e0d4a618e5ad6c3ab4a619a.jpg';
+import img6 from './Img/Dota2_ClashofHeroes.jpg';
+import img7 from './Img/dota-2-doom-dota2-games.jpg';
+import img8 from './Img/709a2fabfead3859_1920xH.jpg';
+import img9 from './Img/23.webp';
 
 export default function Sliders() {
+  const data = [
+    {
+      image: img1,
+    },
+    {
+      image: img2,
+    },
+    {
+      image: img3,
+    },
+    {
+      image: img4,
+    },
+    {
+      image: img5,
+    },
+    {
+      image: img6,
+    },
+    {
+      image: img7,
+    },
+    {
+      image: img8,
+    },
+    {
+      image: img9,
+    },
+  ];
+  const captionStyle = {
+    fontSize: '2em',
+    fontWeight: 'bold',
+  };
+  const slideNumberStyle = {
+    fontSize: '20px',
+    fontWeight: 'bold',
+  };
+
+export default function Sliders() {
+
   return (
-  <div className="all">
-  <input checked type="radio" name="respond" id="desktop" />
-      <article id="slider">
-              <input checked type="radio" name="slider" id="switch1" />
-              <input type="radio" name="slider" id="switch2" />
-              <input type="radio" name="slider" id="switch3" />
-              <input type="radio" name="slider" id="switch4" />
-              <input type="radio" name="slider" id="switch5" />
-          <div id="slides">
-              <div id="overflow">
-                  <div className="image">
-                      <article><img src={img1} alt="sdf" /></article>
-                      <article><img src={img2} alt="dsf" /></article>
-                      <article><img src={img3} alt="sdf" /></article>
-                      <article><img src="" alt="sdf" /></article>
-                      <article><img src="5.jpg" alt="sdf" /></article>
-                  </div>
-              </div>
-          </div>
-          <div id="controls">
-              <label htmlFor="switch1" />
-              <label htmlFor="switch2" />
-              <label htmlFor="switch3" />
-              <label htmlFor="switch4" />
-              <label htmlFor="switch5" />
-          </div>
-          <div id="active">
-              <label htmlFor="switch1" />
-              <label htmlFor="switch2" />
-              <label htmlFor="switch3" />
-              <label htmlFor="switch4" />
-              <label htmlFor="switch5" />
-          </div>
-      </article>
-  </div>
+    <div className="App1">
+    <div style={{ textAlign: 'center' }}>
+      <div style={{
+        padding: '0 20px',
+      }}
+      >
+        <Carousel
+          data={data}
+          time={3000}
+          width="850px"
+          height="500px"
+          captionStyle={captionStyle}
+          radius="10px"
+          slideNumber
+          slideNumberStyle={slideNumberStyle}
+          captionPosition="bottom"
+          automatic
+          dots
+          pauseIconColor="white"
+          pauseIconSize="40px"
+          slideBackgroundColor="darkgrey"
+          slideImageFit="cover"
+          thumbnails
+          thumbnailWidth="100px"
+          style={{
+            textAlign: 'center',
+            maxWidth: '850px',
+            maxHeight: '500px',
+            margin: '40px auto',
+          }}
+        />
+      </div>
+    </div>
+    </div>
 
   );
 }
