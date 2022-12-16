@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
