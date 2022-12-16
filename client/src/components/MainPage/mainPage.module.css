@@ -34,9 +34,9 @@ width: 600px;
 } */
 .videoWow{
   height: 280px;
-    width: 500px;
+  width: 500px;
   margin: 30px;
-  box-shadow: 0 0 150px 0 rgb(7, 57, 238);  
+  box-shadow: 0 0 150px 0 rgb(2, 132, 246, 0.5);  
   border-radius: 20px;
   background: black;
 }
@@ -90,6 +90,7 @@ width: 600px;
   border-radius: 20px;
   justify-content: center;
   margin-top:100px;
+  padding-bottom: 40px;
 }
 
 .card {
@@ -138,20 +139,8 @@ width: 600px;
   border-radius: 10px;
 }
 
-
-@media screen and (max-width: 1200px) {
-	.mainContainer {background: url("https://cdn.oneesports.gg/cdn-data/wp-content/uploads/2019/03/ysnjremodrowbg_blog.png"); 
-    background-repeat: no-repeat;
-background-position: center center;
-background-attachment: fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;}
-}  
-
 .signWrap4 {
-  margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
     padding: 20px 10px;
 }
@@ -245,5 +234,34 @@ background-size: cover;}
   92.5% {
       color: inherit;
       text-shadow: inherit;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+	.mainContainer {background: url("https://cdn.oneesports.gg/cdn-data/wp-content/uploads/2019/03/ysnjremodrowbg_blog.png"); 
+    background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;}
+  .signWrap4 {
+  margin-top: 0px;
+}
+}  
+
+@media screen and (max-width: 500px) {
+
+	.App1 {
+	margin-left: 5%;
+	margin-top: 2%;
+	margin-right: 5%;
+	} 
+  .videoDota {
+    margin-top: -40px;
+  }
+  .videoWow {
+    margin-bottom: -10px;
   }
 }

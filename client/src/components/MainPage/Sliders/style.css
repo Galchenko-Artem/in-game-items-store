@@ -3,3 +3,13 @@
 	margin-top: 2%;
 	margin-right: 25%;
   }
+
+	@media screen and (max-width: 1200px) {
+
+	.App1 {
+	margin-left: 5%;
+	margin-top: 2%;
+	margin-right: 5%;
+	} 
+
+}

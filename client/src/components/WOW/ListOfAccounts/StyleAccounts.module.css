@@ -43,12 +43,14 @@
 }
 
 .boxAccount:hover{
-	border: 2px solid #f8b700;
+	  border: 2px solid #f8b700;
     box-shadow: 0 0 20px 0 #f8b700;
+    cursor: pointer;
 	}
 
  .ImgAcc{
     width: 180px;
+    height: 130px;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 black;
  }   
@@ -108,4 +110,44 @@
     font-kerning: normal;
     text-indent: 2em;
     box-shadow: 0 0 10px 0 #8d5943b0;
+  }
+
+  .inBasket {
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    background-color: #45555b;
+    color: #fff;
+    width: 80px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .toBasket {
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    background-color: #c27549;
+    border: none;
+    color: #fff;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  
+  .toBasket:hover {
+    background-color: #de8856;
+  }
+  .inBasket:hover {
+    background-color: #58696f;
   }

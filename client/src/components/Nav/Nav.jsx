@@ -53,11 +53,11 @@ export default function Nav() {
     <Link className="nav-main" to="/">Главная</Link>
   {user.user ? (
     <>
-    <Link className="nav-main" to="/basket"> Корзина </Link>
+    {/* <Link className="nav-main" to="/basket"> Корзина </Link>basket123213 */}
      <Link className="nav-main nav-mainAvatar" to="/account"> Личный кабинет
     {!user.user.image ? <img className="imgAvatar" src={Avatar} alt="img" /> : <img className="imgAvatar" src={`http://localhost:3001/${user.user?.image && user.user?.image}`} alt="Avatar" /> }
      </Link>
-
+     <Link className="nav-main" to="/basket"> <img className="imgBasket" src="http://localhost:3001/public/images/123123dasda.jpeg" alt="" /> </Link>
  <button className="logout-btn" onClick={handleLogout} type="button">Выйти</button>
 
  {user.user.isAdmin && <Link className="nav-main" to="/admin"> Админ </Link>}
