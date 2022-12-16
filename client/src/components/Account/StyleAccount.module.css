@@ -1,8 +1,9 @@
 .containerAccNav{
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 30px;
     align-items: center;
+    flex-wrap: wrap;
 }
 .imgAcc{
     width: 20rem;

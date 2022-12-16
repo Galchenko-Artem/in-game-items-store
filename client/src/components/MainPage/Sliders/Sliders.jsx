@@ -1,12 +1,10 @@
 import React from 'react';
 import './style.css';
-import Carousel from 'react-bootstrap/Carousel';
 import img1 from './Img/dungeon-companion-1920x1200.jpg';
 import img2 from './Img/goblins02-1920x1200.jpg';
 import img3 from './Img/wall1-1920x1200.jpg';
 
 export default function Sliders() {
-  console.log(Carousel);
   return (
   <div className="all">
   <input checked type="radio" name="respond" id="desktop" />
