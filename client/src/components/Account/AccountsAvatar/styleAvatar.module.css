@@ -6,12 +6,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 15px;
-    width: 400px;
-    height: 410px;
     border: 1px solid black;
-   background: #292b33;
+    background: #292b33;
 }
 .main{
     display: flex;
