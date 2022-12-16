@@ -6,11 +6,12 @@ import styles from './styleFooter.module.css';
 export default function Footer() {
   return (
     <div className={styles.containerFooter}>
- <footer className={styles.footer}>
-        <hr />
-      <Link to="/teleg"><img className={styles.imgTeleg} src="https://w7.pngwing.com/pngs/12/974/png-transparent-social-telegram-chat-messenger-social-network-icon.png" alt="telega" /></Link>
-        <Link to="/contacts"> Контакты </Link>
- </footer>
+ <div className={styles.footer}>
+        <Link className={styles.textLink} to="/contacts"> Контакты </Link>
+        <div className={styles.data}>
+        © 2022
+        </div>
+ </div>
     </div>
   );
 }

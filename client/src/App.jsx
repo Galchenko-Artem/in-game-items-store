@@ -50,7 +50,6 @@ import SupportLots from './components/SupportPage/SupportLots/SupportLots';
 import { BasketAddFromBd } from './store/actions/basketAction';
 
 import Сontacts from './components/Footer/Сontacts/Сontacts';
-import Footer from './components/Footer/Footer';
 
 import Stripe from './components/Stripe/Stripe';
 import AccountsAvatar from './components/Account/AccountsAvatar/AccountsAvatar';
@@ -177,7 +176,6 @@ function App() {
         <Route path="/contacts" element={<Сontacts />} />
 
       </Routes>
-      {/* <Footer className="footer" /> */}
 
     </>
   );

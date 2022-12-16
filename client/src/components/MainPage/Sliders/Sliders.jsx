@@ -50,8 +50,6 @@ export default function Sliders() {
     fontWeight: 'bold',
   };
 
-export default function Sliders() {
-
   return (
     <div className="App1">
     <div style={{ textAlign: 'center' }}>
