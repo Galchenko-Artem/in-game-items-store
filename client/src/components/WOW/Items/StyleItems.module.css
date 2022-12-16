@@ -15,6 +15,7 @@
 }
 .boxItems:hover{
     box-shadow: 0 0 40px 0 #0c92e6b0;
+    cursor: pointer;
     
 }
 
@@ -67,13 +68,19 @@
     overflow-x: hidden;  
 }
 
+.Price {
+  color: #f8b700;
+  font-weight: bolder;
+}
+
 .ImgAcc{
     width: 18rem;
+    height: 10rem;
 }
 .ImgAcc:hover{
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
-    transform: scale(1.2)
+    transform: scale(1.2);
 }
 
 .Input{
@@ -120,4 +127,44 @@
   .text:hover:after { 
     width: 100%; 
     left: 0; 
+  }
+
+  .inBasket {
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    background-color: #45555b;
+    color: #fff;
+    width: 80px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .toBasket {
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    position: relative;
+    background-color: #c27549;
+    border: none;
+    color: #fff;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  
+  .toBasket:hover {
+    background-color: #de8856;
+  }
+  .inBasket:hover {
+    background-color: #58696f;
   }

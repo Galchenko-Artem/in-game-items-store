@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { Carousel } from 'react-carousel-minimal';
 import img1 from './Img/8G9PJA14T3FN1566592377439.jpg';
-import img2 from './Img/d503b7f588d6468b82b7abe2e16dc2b0.jpg';
+import img2 from './Img/csGo2312312.png';
 import img3 from './Img/kayadaek_big_belly_batman_dressed_like_santa_claus_drinking_mar_888fa69c-00ef-4883-8e28-58d176d514ab.jpg';
 import img4 from './Img/xkWsLGFb5BcHoERUDMtZ9b.jpg';
 import img5 from './Img/d1177fc80e0d4a618e5ad6c3ab4a619a.jpg';
@@ -50,8 +50,6 @@ export default function Sliders() {
     fontWeight: 'bold',
   };
 
-export default function Sliders() {
-
   return (
     <div className="App1">
     <div style={{ textAlign: 'center' }}>
@@ -78,6 +76,7 @@ export default function Sliders() {
           thumbnails
           thumbnailWidth="100px"
           style={{
+            cursor: 'pointer',
             textAlign: 'center',
             maxWidth: '850px',
             maxHeight: '500px',

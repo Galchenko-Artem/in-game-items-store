@@ -108,7 +108,7 @@ export default function Items() {
                 </div>
                 <div className={style.containerBtn}>
                     <div className={style.nameCont}>{el.name}</div>
-                        <div>Цена: {el.price}$</div>
+                        <div className={style.Price}>Цена: {el.price}$</div>
                             <div>
                             <Link className={style.text} to={`${el.id}`}>Подробнее...</Link>
                             </div>
@@ -118,7 +118,7 @@ export default function Items() {
                                           {basket.some((item) => item.id === el.id) ? (
                                        <button className={style.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                           ) : (
-                                       <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                       <button className={style.toBasket} onClick={(e) => addToBasket(el)}>В корзину</button>
                                           )}
                                       </div>
                                     ) : (

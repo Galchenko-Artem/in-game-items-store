@@ -31,7 +31,7 @@ export default function MainPage() {
       <Link to="/dota2">
      {/* <img className={styles.imgCard} src="http://localhost:3001/public/images/dota-2girl.jpeg" alt="dota2" /> */}
      <video
-       className={styles.videoWow}
+       className={`${styles.videoWow} ${styles.videoDota}`}
        src={videoDota}
        onMouseOver={(event) => event.target.play()}
        onMouseOut={(event) => event.target.pause()}

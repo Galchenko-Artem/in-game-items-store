@@ -113,7 +113,7 @@ export default function ListOfAccounts() {
                                           {basket.some((item) => item.id === el.id) ? (
                                           <button className={style.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                           ) : (
-                                          <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                          <button className={style.toBasket} onClick={(e) => addToBasket(el)}>В корзину</button>
                                           )}
                                         </div>
                                       ) : (

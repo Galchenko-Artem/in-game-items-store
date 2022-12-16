@@ -105,22 +105,20 @@ export default function Services() {
                 <div className={style.containerImg}>
                     <img className={style.ImgAcc} src={`http://localhost:3001/${el.image}`} alt="img" />
                 </div>
-
-                            <div>{el.price}$</div>
+                <div>
+                            <Link className={style.text} to={`${el.id}`}>Подробнее...</Link>
+                </div>
+                            <div className={style.Price}>{el.price}$</div>
                             <div>{el.name}</div>
                             {user.user ? (
                               <div>
                                 {basket.some((item) => item.id === el.id) ? (
                                     <button className={style.inBasket} onClick={() => removeFromBasket(el)}>В корзине</button>
                                 ) : (
-                                    <button onClick={(e) => addToBasket(el)}>В корзину</button>
+                                    <button className={style.toBasket} onClick={(e) => addToBasket(el)}>В корзину</button>
                                 )}
                               </div>
                             ) : (null)}
-                    <div>
-                      <Link to={`${el.id}`}><button>Info</button></Link>
-                    </div>
-
                 </div>
             ))}
             </div>

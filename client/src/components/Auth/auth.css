@@ -10,6 +10,7 @@
   width: auto;
   height: 250px;
   opacity: 90%;
+  margin-bottom: 5px;
 }
 
 .authForm{
@@ -89,4 +90,16 @@
 .authBtn:hover:before {
   left: 150px;
   transition: .5s ease-in-out;
+}
+
+@media screen and (max-width: 700px) {
+
+  .imgAuth {
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+
+  .inputForm {
+    font-size: 17px;
+  }
 }

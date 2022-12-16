@@ -59,7 +59,7 @@
 
 .FormGroup {
   margin: 0 15px 20px;
-  width: 25vw;
+  width: 35vw;
   padding: 0;
   border-style: none;
   background-color: #7795F8;
@@ -247,4 +247,19 @@ h3 {
 
 .spinner--steps2 {
   animation: anim-rotate 1s infinite steps(12);
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  .FormGroup {
+  width: 30vh;
+  } 
+}
+
+@media screen and (max-width: 700px) {
+
+  .buttonPayStripe {
+    width: 10rem;
+  }
 }
