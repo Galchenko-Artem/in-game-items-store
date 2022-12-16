@@ -6,6 +6,8 @@ import ImgCreateSale from './img/687474703a2f2f692e696d6775722e636f6d2f6868384d5
 import ImgSales from './img/dota.png';
 import ImgPurchases from './img/1042585.jpg';
 import ImgAvatar from './img/1643196547_1-abrakadabra-fun-p-generator-avatarok-pod-nik-9.jpg';
+import ImgSupport from './img/GettyImages-1199145131-scaled.jpg';
+import ImgMail from './img/Снимок экрана 2022-12-16 145011.png';
 // import AccountsAvatar from './AccountsAvatar/AccountsAvatar';
 
 export default function Account() {
@@ -55,7 +57,7 @@ export default function Account() {
             </Link>
             <Link className={style.text} to="/account/support">
                <div className={style.containerImgAcc}>
-                   <img className={style.imgLot} src={ImgAvatar} alt="img" />
+                   <img className={style.imgLot} src={ImgSupport} alt="img" />
                </div>
                 <div>
                      Поддержка
@@ -64,7 +66,7 @@ export default function Account() {
 
             <Link className={style.text} to="/account/userPlea">
                <div className={style.containerImgAcc}>
-                  <img className={style.imgLot} src={ImgAvatar} alt="img" />
+                  <img className={style.imgLot} src={ImgMail} alt="img" />
                </div>
                 <div>Обращения пользователя</div>
             </Link>

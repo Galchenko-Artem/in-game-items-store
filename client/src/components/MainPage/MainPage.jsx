@@ -12,10 +12,12 @@ import videoCsGo from './Video/CSGO.mp4';
 
 import styles from './mainPage.module.css';
 import Sliders from './Sliders/Sliders';
+import Footer from '../Footer/Footer';
 
 export default function MainPage() {
   return (
-    <div className={styles.mainContainer}>
+    <>
+       <div className={styles.mainContainer}>
       <div className={styles.signWrap4}>
         <div className={styles.sign_word}>In <span>Game </span><span>Store </span>
 
@@ -71,6 +73,9 @@ export default function MainPage() {
       </Link>
     </div>
     </div>
-    </div>
+       </div>
+    <Footer />
+    </>
+
   );
 }
