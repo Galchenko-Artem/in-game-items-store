@@ -18,5 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-unused-vars': 0,
+    'no-console': 0,
+    'consistent-return': 0,
   },
 };
