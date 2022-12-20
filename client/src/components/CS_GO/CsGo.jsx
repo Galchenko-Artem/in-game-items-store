@@ -13,7 +13,7 @@ export default function CsGo() {
       {/* <button type="button" onClick={() => navigate('/')}>Вернуться к играм</button>
       <NavBar /> */}
       <div className={style.text}>
-      Страницка находится в стадии разработки.....
+      Страница находится в стадии разработки..
       </div>
       <div>
       <img className={style.img} src={img} alt="gif" />
