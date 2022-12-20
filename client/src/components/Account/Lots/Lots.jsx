@@ -118,7 +118,7 @@ export default function Lots() {
       <div className={style.containerImg}><img className={style.ImgLot} src={`http://localhost:3001/${lot.image}`} alt={lot.name} /></div>
       <div className={style.containerInfo}>
       <div>Название: {lot.name}</div>
-      <div>Цена: {lot.price} </div>
+      <div>Цена: {lot.price}$ </div>
       <div className={style.description}>Описание: {lot.description}</div>
       {!lot.approved ? (<div>Статус: <span className={style.onCheck}>На рассмотрении</span></div>)
         : (<div>Статус: <span className={style.сheck}>Одобрено</span></div>) }

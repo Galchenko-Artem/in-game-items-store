@@ -63,7 +63,7 @@ export default function SupportLots() {
       </div>
       <div className="supportLot">
         <div>
-        Название:{product.name}
+        Название: {product.name}
         </div>
         <div>
          Цена: {product.price}

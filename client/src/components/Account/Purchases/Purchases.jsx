@@ -24,7 +24,7 @@ export default function Purchases() {
       <div className={style.containerImg}><img className={style.ImgLot} src={`http://localhost:3001/${el.purchase.image}`} alt={el.purchase.name} /></div>
       <div className={style.containerName}>
       <div className={style.element}>Название: {el.purchase.name}</div>
-      <div className={style.element}>Цена: {el.purchase.price} </div>
+      <div className={style.element}>Цена: {el.purchase.price}$ </div>
       <div className={style.element}>Куплено: {new Date(el.data).toLocaleDateString()}</div>
       </div>
     </div>
